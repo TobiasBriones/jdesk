@@ -13,6 +13,7 @@
 package io.github.tobiasbriones.jdesk.ui;
 
 import io.github.tobiasbriones.jdesk.io.FileFormat;
+import io.github.tobiasbriones.jdesk.io.IOFile;
 
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
@@ -46,11 +47,11 @@ public final class FileFormatFilter extends FileFilter {
 
     @Override
     public boolean accept(File file) {
-        return io.github.tobiasbriones.jdesk.io.File.getExtension(file.getName()).equals(extension);
+        return IOFile.getExtension(file.getName()).equals(extension);
     }
 
     @Override
     public String getDescription() {
-        return "Files " + "(" + io.github.tobiasbriones.jdesk.io.File.EXTENSION_SEPARATOR + extension.toUpperCase() + ")";
+        return "Files " + "(" + IOFile.EXTENSION_SEPARATOR + extension.toUpperCase() + ")";
     }
 }

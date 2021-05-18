@@ -12,7 +12,7 @@
 
 package io.github.tobiasbriones.jdesk;
 
-import io.github.tobiasbriones.jdesk.io.File;
+import io.github.tobiasbriones.jdesk.io.IOFile;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -41,7 +41,7 @@ public final class Config {
      * @throws IOException if an I/O error occurs
      */
     @SuppressWarnings("WeakerAccess")
-    public static void save(File configFile, String key, Object value, String comments) throws IOException {
+    public static void save(IOFile configFile, String key, Object value, String comments) throws IOException {
         final Properties properties = new Properties();
 
         configFile.createFileIfNotExists();
@@ -59,9 +59,9 @@ public final class Config {
      * @param value      value to associate to the key
      *
      * @throws IOException if an I/O error occurs
-     * @see #save(File, String, Object, String)
+     * @see #save(IOFile, String, Object, String)
      */
-    public static void save(File configFile, String key, Object value) throws IOException {
+    public static void save(IOFile configFile, String key, Object value) throws IOException {
         save(configFile, key, value, null);
     }
 
@@ -76,7 +76,7 @@ public final class Config {
      * @throws IOException if an I/O error occurs
      */
     @SuppressWarnings("WeakerAccess")
-    public static void save(File configFile, HashMap<String, String> entries, String comments) throws IOException {
+    public static void save(IOFile configFile, HashMap<String, String> entries, String comments) throws IOException {
         final Properties properties = new Properties();
         final Iterator<Entry<String, String>> i = entries.entrySet().iterator();
         Entry<String, String> currentEntry;
@@ -99,9 +99,9 @@ public final class Config {
      * @param entries    entries to put into the configuration
      *
      * @throws IOException if an I/O error occurs
-     * @see #save(File, HashMap, String)
+     * @see #save(IOFile, HashMap, String)
      */
-    public static void save(File configFile, HashMap<String, String> entries) throws IOException {
+    public static void save(IOFile configFile, HashMap<String, String> entries) throws IOException {
         save(configFile, entries, null);
     }
 
@@ -117,7 +117,7 @@ public final class Config {
      *
      * @throws IOException if an I/O error occurs
      */
-    public static String get(File configFile, String key, Object defaultValue) throws IOException {
+    public static String get(IOFile configFile, String key, Object defaultValue) throws IOException {
         final Properties properties = new Properties();
 
         configFile.createFileIfNotExists();
@@ -129,7 +129,7 @@ public final class Config {
         properties.put(key, value.toString());
     }
 
-    private final File file;
+    private final IOFile file;
     private final Properties properties;
 
     /**
@@ -141,7 +141,7 @@ public final class Config {
      * @throws IOException if an I/O error occurs
      * @see Properties
      */
-    public Config(File file) throws IOException {
+    public Config(IOFile file) throws IOException {
         this.file = file;
         this.properties = new Properties();
 

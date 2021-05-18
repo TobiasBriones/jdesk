@@ -14,7 +14,7 @@ package io.github.tobiasbriones.jdesk.resources;
 
 import io.github.tobiasbriones.jdesk.Config;
 import io.github.tobiasbriones.jdesk.App;
-import io.github.tobiasbriones.jdesk.io.File;
+import io.github.tobiasbriones.jdesk.io.IOFile;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public final class StringResources {
      * @see App#APP_CONFIG_FILE
      */
     public static void saveLanguage(String language) throws IOException {
-        Config.save(new File(App.APP_CONFIG_FILE), LANGUAGE_KEY, language);
+        Config.save(new IOFile(App.APP_CONFIG_FILE), LANGUAGE_KEY, language);
     }
 
     private final List<String> strings;
@@ -55,7 +55,7 @@ public final class StringResources {
      */
     public StringResources(Class<?> src) throws IOException {
         this.strings = new ArrayList<>();
-        final String language = Config.get(new File(App.APP_CONFIG_FILE), LANGUAGE_KEY, "");
+        final String language = Config.get(new IOFile(App.APP_CONFIG_FILE), LANGUAGE_KEY, "");
         String file = STRING_RESOURCES_FILE;
 
         if (!language.isEmpty()) {

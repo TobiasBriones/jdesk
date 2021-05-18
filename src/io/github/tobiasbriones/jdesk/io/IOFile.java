@@ -15,8 +15,7 @@ package io.github.tobiasbriones.jdesk.io;
 import java.io.IOException;
 import java.net.URI;
 
-@SuppressWarnings("unused")
-public final class File extends java.io.File {
+public final class IOFile extends java.io.File {
     /**
      * Character used to identify the separation between the file name and the file extension.
      */
@@ -46,7 +45,7 @@ public final class File extends java.io.File {
      *
      * @throws NullPointerException If the <code>pathname</code> argument is <code>null</code>
      */
-    public File(String pathname) {
+    public IOFile(String pathname) {
         super(pathname);
     }
 
@@ -75,7 +74,7 @@ public final class File extends java.io.File {
      *
      * @throws NullPointerException If <code>child</code> is <code>null</code>
      */
-    public File(String parent, String child) {
+    public IOFile(String parent, String child) {
         super(parent, child);
     }
 
@@ -104,7 +103,7 @@ public final class File extends java.io.File {
      *
      * @throws NullPointerException If <code>child</code> is <code>null</code>
      */
-    public File(java.io.File parent, String child) {
+    public IOFile(java.io.File parent, String child) {
         super(parent, child);
     }
 
@@ -140,7 +139,7 @@ public final class File extends java.io.File {
      * @see URI
      * @since 1.4
      */
-    public File(URI uri) {
+    public IOFile(URI uri) {
         super(uri);
     }
 

@@ -32,7 +32,7 @@ public final class Tools {
     @SuppressWarnings("WeakerAccess")
     public static void writeTextFile(
         String text,
-        File file,
+        IOFile file,
         Charset charset
     ) throws FileNotFoundException, IOException {
         try (
@@ -55,7 +55,7 @@ public final class Tools {
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
      */
-    public static void writeTextFile(String text, File file) throws FileNotFoundException, IOException {
+    public static void writeTextFile(String text, IOFile file) throws FileNotFoundException, IOException {
         writeTextFile(text, file, StandardCharsets.UTF_8);
     }
 
@@ -72,7 +72,7 @@ public final class Tools {
      * @see StandardCharsets
      */
     @SuppressWarnings("WeakerAccess")
-    public static String loadTextFile(File file, Charset charset) throws FileNotFoundException, IOException {
+    public static String loadTextFile(IOFile file, Charset charset) throws FileNotFoundException, IOException {
         final StringBuilder builder = new StringBuilder();
 
         try (final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset))) {
@@ -95,9 +95,9 @@ public final class Tools {
      * @throws FileNotFoundException if the file does not exist
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
-     * @see Tools#loadTextFile(File, Charset)
+     * @see Tools#loadTextFile(IOFile, Charset)
      */
-    public static String loadTextFile(File file) throws FileNotFoundException, IOException {
+    public static String loadTextFile(IOFile file) throws FileNotFoundException, IOException {
         return loadTextFile(file, StandardCharsets.UTF_8);
     }
 
