@@ -12,8 +12,8 @@
 
 package io.github.tobiasbriones.jdesk.resources;
 
-import io.github.tobiasbriones.jdesk.Config;
 import io.github.tobiasbriones.jdesk.App;
+import io.github.tobiasbriones.jdesk.Config;
 import io.github.tobiasbriones.jdesk.io.IOFile;
 
 import java.io.BufferedReader;
@@ -62,7 +62,7 @@ public final class StringResources {
             file += "-" + language;
         }
         try (
-            final BufferedReader br = new BufferedReader(new InputStreamReader(
+            BufferedReader br = new BufferedReader(new InputStreamReader(
                 src.getResourceAsStream(file),
                 StandardCharsets.UTF_8
             ))
