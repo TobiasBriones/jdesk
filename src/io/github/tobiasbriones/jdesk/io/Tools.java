@@ -36,7 +36,7 @@ public final class Tools {
         Charset charset
     ) throws FileNotFoundException, IOException {
         try (
-            final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(file),
                 charset
             ))
@@ -75,7 +75,7 @@ public final class Tools {
     public static String loadTextFile(IOFile file, Charset charset) throws FileNotFoundException, IOException {
         final StringBuilder builder = new StringBuilder();
 
-        try (final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset))) {
             String line;
 
             while ((line = br.readLine()) != null) {
