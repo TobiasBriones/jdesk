@@ -19,6 +19,20 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings("unused")
 public final class IOFiles {
     /**
+     * Writes a text file with UTF-8 charset.
+     *
+     * @param text text to put into the text file
+     * @param file file to save the content
+     *
+     * @throws FileNotFoundException if the specified file does not exist
+     * @throws IOException           if an I/O error occurs
+     * @see StandardCharsets
+     */
+    public static void writeTextFile(String text, IOFile file) throws FileNotFoundException, IOException {
+        writeTextFile(text, file, StandardCharsets.UTF_8);
+    }
+
+    /**
      * Writes a text file.
      *
      * @param text    text to put into the text file
@@ -46,17 +60,19 @@ public final class IOFiles {
     }
 
     /**
-     * Writes a text file with UTF-8 charset.
+     * Returns the string containing the file's content with UTF-8 charset.
      *
-     * @param text text to put into the text file
-     * @param file file to save the content
+     * @param file file to load
      *
-     * @throws FileNotFoundException if the specified file does not exist
+     * @return the file loaded into a String
+     *
+     * @throws FileNotFoundException if the file does not exist
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
+     * @see IOFiles#loadTextFile(IOFile, Charset)
      */
-    public static void writeTextFile(String text, IOFile file) throws FileNotFoundException, IOException {
-        writeTextFile(text, file, StandardCharsets.UTF_8);
+    public static String loadTextFile(IOFile file) throws FileNotFoundException, IOException {
+        return loadTextFile(file, StandardCharsets.UTF_8);
     }
 
     /**
@@ -83,22 +99,6 @@ public final class IOFiles {
             }
         }
         return builder.toString();
-    }
-
-    /**
-     * Returns the string containing the file's content with UTF-8 charset.
-     *
-     * @param file file to load
-     *
-     * @return the file loaded into a String
-     *
-     * @throws FileNotFoundException if the file does not exist
-     * @throws IOException           if an I/O error occurs
-     * @see StandardCharsets
-     * @see IOFiles#loadTextFile(IOFile, Charset)
-     */
-    public static String loadTextFile(IOFile file) throws FileNotFoundException, IOException {
-        return loadTextFile(file, StandardCharsets.UTF_8);
     }
 
     private IOFiles() {}
