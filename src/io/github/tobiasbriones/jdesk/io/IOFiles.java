@@ -16,7 +16,6 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-@SuppressWarnings("unused")
 public final class IOFiles {
     /**
      * Writes a text file with UTF-8 charset.
@@ -26,7 +25,7 @@ public final class IOFiles {
      *
      * @throws FileNotFoundException if the specified file does not exist
      * @throws IOException           if an I/O error occurs
-     * @see StandardCharsets
+     * @see IOFile
      */
     public static void writeTextFile(String text, IOFile file) throws FileNotFoundException, IOException {
         writeTextFile(text, file, StandardCharsets.UTF_8);
@@ -41,19 +40,17 @@ public final class IOFiles {
      *
      * @throws FileNotFoundException if the file does not exist
      * @throws IOException           if an I/O error occurs
-     * @see StandardCharsets
+     * @see IOFile
      */
-    @SuppressWarnings("WeakerAccess")
     public static void writeTextFile(
         String text,
         IOFile file,
         Charset charset
     ) throws FileNotFoundException, IOException {
         try (
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(file),
-                charset
-            ))
+            BufferedWriter bw = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(file), charset)
+            )
         ) {
             bw.write(text);
         }
@@ -87,16 +84,18 @@ public final class IOFiles {
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
      */
-    @SuppressWarnings("WeakerAccess")
     public static String loadTextFile(IOFile file, Charset charset) throws FileNotFoundException, IOException {
         final StringBuilder builder = new StringBuilder();
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset))) {
-            String line;
+        try (BufferedReader br = new BufferedReader(
+            new InputStreamReader(new FileInputStream(file), charset))
+        ) {
+            String line = br.readLine();
 
-            while ((line = br.readLine()) != null) {
-                builder.append(line);
-            }
+             while(line != null) {
+                 builder.append(line);
+                 line = br.readLine();
+             }
         }
         return builder.toString();
     }
