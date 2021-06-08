@@ -11,7 +11,8 @@
  */
 
 /**
- * Contains IO and File utilities and extensions.
+ * Contains higher level IO and File utilities and extensions. It helps to
+ * reduce the code needed to process usual IO operations.
  */
 
 package io.github.tobiasbriones.jdesk.io;
