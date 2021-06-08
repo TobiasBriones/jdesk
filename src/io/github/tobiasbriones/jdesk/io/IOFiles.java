@@ -17,7 +17,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings("unused")
-public final class Tools {
+public final class IOFiles {
     /**
      * Writes a text file.
      *
@@ -95,11 +95,11 @@ public final class Tools {
      * @throws FileNotFoundException if the file does not exist
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
-     * @see Tools#loadTextFile(IOFile, Charset)
+     * @see IOFiles#loadTextFile(IOFile, Charset)
      */
     public static String loadTextFile(IOFile file) throws FileNotFoundException, IOException {
         return loadTextFile(file, StandardCharsets.UTF_8);
     }
 
-    private Tools() {}
+    private IOFiles() {}
 }
