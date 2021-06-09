@@ -27,7 +27,10 @@ public final class IOFiles {
      * @throws IOException           if an I/O error occurs
      * @see IOFile
      */
-    public static void writeTextFile(String text, IOFile file) throws FileNotFoundException, IOException {
+    public static void writeTextFile(
+        String text,
+        IOFile file
+    ) throws FileNotFoundException, IOException {
         writeTextFile(text, file, StandardCharsets.UTF_8);
     }
 
@@ -68,7 +71,9 @@ public final class IOFiles {
      * @see StandardCharsets
      * @see IOFiles#loadTextFile(IOFile, Charset)
      */
-    public static String loadTextFile(IOFile file) throws FileNotFoundException, IOException {
+    public static String loadTextFile(
+        IOFile file
+    ) throws FileNotFoundException, IOException {
         return loadTextFile(file, StandardCharsets.UTF_8);
     }
 
@@ -84,18 +89,22 @@ public final class IOFiles {
      * @throws IOException           if an I/O error occurs
      * @see StandardCharsets
      */
-    public static String loadTextFile(IOFile file, Charset charset) throws FileNotFoundException, IOException {
+    public static String loadTextFile(
+        IOFile file,
+        Charset charset
+    ) throws FileNotFoundException, IOException {
         final StringBuilder builder = new StringBuilder();
 
-        try (BufferedReader br = new BufferedReader(
-            new InputStreamReader(new FileInputStream(file), charset))
+        try (
+            BufferedReader br = new BufferedReader(
+                new InputStreamReader(new FileInputStream(file), charset))
         ) {
             String line = br.readLine();
 
-             while(line != null) {
-                 builder.append(line);
-                 line = br.readLine();
-             }
+            while (line != null) {
+                builder.append(line);
+                line = br.readLine();
+            }
         }
         return builder.toString();
     }
