@@ -13,7 +13,6 @@
 package dev.tobiasbriones.jdesk.ui.view;
 
 import dev.tobiasbriones.jdesk.WindowContext;
-import dev.tobiasbriones.jdesk.ui.Tools;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -57,7 +56,7 @@ public class ItemInputPane extends Panel implements Iterable<String> {
             setLayout(new BorderLayout());
             setPadding(5, 10, 5, 10);
             setBackground(backgroundColor);
-            add(new TextLabel(context, Tools.getEllipsisText(text, 25)), BorderLayout.WEST);
+            add(new TextLabel(context, TextLabel.getEllipsisText(text, 25)), BorderLayout.WEST);
             add(closeLabel, BorderLayout.LINE_END);
             addMouseListener(this);
         }
