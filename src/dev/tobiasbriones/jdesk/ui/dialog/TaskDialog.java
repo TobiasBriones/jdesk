@@ -261,11 +261,11 @@ public final class TaskDialog<R> extends Dialog {
         msgLabel.setForeground(context.getAppStyle().getSecondaryTextColor());
         msgLabel.setBorder(new EmptyBorder(0, 0, 5, 0));
         topPanel.setLayout(new BorderLayout());
-        topPanel.add(titleLabel, BorderLayout.NORTH);
+        topPanel.add(titleLabel, BorderLayout.PAGE_START);
         topPanel.add(barLoadingView, BorderLayout.CENTER);
         panel.setLayout(new BorderLayout());
         panel.setPadding(0, 10, 5, 10);
-        panel.add(topPanel, BorderLayout.NORTH);
+        panel.add(topPanel, BorderLayout.PAGE_START);
         panel.add(msgLabel, BorderLayout.CENTER);
         if (isCancelable) {
             final String cancelStr = context.getStringResources().get(
@@ -275,7 +275,7 @@ public final class TaskDialog<R> extends Dialog {
             final ActionListener l = e -> cancelTask();
 
             cancelButton.addActionListener(l);
-            panel.add(actionPanel, BorderLayout.SOUTH);
+            panel.add(actionPanel, BorderLayout.PAGE_END);
         }
         getContentPane().add(panel);
 

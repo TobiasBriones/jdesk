@@ -59,7 +59,7 @@ public class ItemInputPane extends Panel implements Iterable<String> {
             setPadding(5, 10, 5, 10);
             setBackground(backgroundColor);
             add(new TextLabel(context, Tools.getEllipsisText(text, 25)), BorderLayout.WEST);
-            add(closeLabel, BorderLayout.EAST);
+            add(closeLabel, BorderLayout.LINE_END);
             addMouseListener(this);
         }
 
@@ -244,7 +244,7 @@ public class ItemInputPane extends Panel implements Iterable<String> {
 
     private void config() {
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.anchor = GridBagConstraints.PAGE_START;
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.weighty = 1.0;
@@ -258,7 +258,7 @@ public class ItemInputPane extends Panel implements Iterable<String> {
         panelBottom.add(inputText);
         scroll.setViewportView(panelTop);
         scroll.setBorder(new EmptyBorder(0, 0, 0, 0));
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setPadding(10, 10, 10, 10);
         add(scroll);
         add(panelBottom);

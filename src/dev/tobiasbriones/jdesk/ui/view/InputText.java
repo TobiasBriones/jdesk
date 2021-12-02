@@ -137,7 +137,7 @@ public class InputText extends JTextField {
     }
 
     private void config(AppStyle appStyle) {
-        setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 0));
+        setLayout(new FlowLayout(FlowLayout.TRAILING, 5, 0));
         setPreferredSize(new Dimension(0, HEIGHT));
         setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
         setFont(appStyle.getFont());

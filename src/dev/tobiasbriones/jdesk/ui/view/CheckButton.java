@@ -161,7 +161,7 @@ public class CheckButton extends Panel implements TextIdClickView {
     }
 
     private void config(String text) {
-        setLayout(new FlowLayout(FlowLayout.LEFT, 8, 0));
+        setLayout(new FlowLayout(FlowLayout.LEADING, 8, 0));
         setText(text);
         setPadding(PADDING);
         add(checkBox);

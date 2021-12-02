@@ -41,7 +41,7 @@ public class LoadingBarDialog extends Dialog {
         this.lbv = new BarLoadingView(window);
 
         panel.setLayout(new BorderLayout());
-        panel.add(lbv, BorderLayout.NORTH);
+        panel.add(lbv, BorderLayout.PAGE_START);
     }
 
     /**

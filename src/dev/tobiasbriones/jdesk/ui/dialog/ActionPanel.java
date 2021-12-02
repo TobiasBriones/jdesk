@@ -33,7 +33,7 @@ public final class ActionPanel extends DialogPanel {
      */
     public ActionPanel(WindowContext context, Button positiveAction) {
         super(context);
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
+        setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(positiveAction);
     }
 
@@ -46,7 +46,7 @@ public final class ActionPanel extends DialogPanel {
      */
     public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction) {
         super(context);
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
+        setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(negativeAction);
         add(positiveAction);
     }
@@ -68,7 +68,7 @@ public final class ActionPanel extends DialogPanel {
         rightPanel.add(negativeAction);
         rightPanel.add(positiveAction);
         setLayout(new BorderLayout());
-        add(leftPanel, BorderLayout.WEST);
-        add(rightPanel, BorderLayout.EAST);
+        add(leftPanel, BorderLayout.LINE_START);
+        add(rightPanel, BorderLayout.LINE_END);
     }
 }

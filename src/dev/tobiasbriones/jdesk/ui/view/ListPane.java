@@ -44,7 +44,7 @@ public class ListPane<E> extends JList<E> {
             this.pressedColor = pressedColor;
             this.label = new TextLabel(context);
 
-            setLayout(new FlowLayout(FlowLayout.LEFT));
+            setLayout(new FlowLayout(FlowLayout.LEADING));
             setPadding(DEFAULT_PADDING);
             add(label);
         }

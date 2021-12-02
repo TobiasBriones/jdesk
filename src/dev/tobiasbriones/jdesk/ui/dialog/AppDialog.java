@@ -556,18 +556,18 @@ public final class AppDialog {
         cancelButton.addActionListener(l);
         okButton.addActionListener(l);
         center.setLayout(new BorderLayout());
-        center.add(msgLabel, BorderLayout.NORTH);
+        center.add(msgLabel, BorderLayout.PAGE_START);
         center.add(component, BorderLayout.CENTER);
         panel.setLayout(new BorderLayout());
-        panel.add(titleLabel, BorderLayout.NORTH);
+        panel.add(titleLabel, BorderLayout.PAGE_START);
         panel.add(center, BorderLayout.CENTER);
-        panel.add(actionPanel, BorderLayout.SOUTH);
+        panel.add(actionPanel, BorderLayout.PAGE_END);
         if (isPassword) {
             final Icon icon = new ImageIcon(AppDialog.class.getResource(ICON_PASSWORD));
             final TextLabel iconLabel = new TextLabel(window, icon);
 
             iconLabel.setBorder(new EmptyBorder(0, 0, 0, ICON_RIGHT_MARGIN));
-            panel.add(iconLabel, BorderLayout.WEST);
+            panel.add(iconLabel, BorderLayout.LINE_START);
         }
         dialog.setView(panel, DIALOG_PADDING);
         dialog.getRootPane().setDefaultButton(okButton);

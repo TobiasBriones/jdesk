@@ -254,20 +254,20 @@ public class ComplexInputText extends Panel implements ValidationView {
         validationLabel.setText(" ");
         topPanel.setLayout(new GridBagLayout());
         topPanel.setBorder(border);
-        gbc.anchor = GridBagConstraints.WEST;
+        gbc.anchor = GridBagConstraints.LINE_START;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 0.98;
         gbc.insets = new Insets(0, 5, 0, 5);
         gbc.gridx = 0;
         gbc.gridy = 0;
         topPanel.add(inputText, gbc);
-        gbc.anchor = GridBagConstraints.EAST;
+        gbc.anchor = GridBagConstraints.LINE_END;
         gbc.fill = GridBagConstraints.NONE;
         gbc.weightx = 0.02;
         gbc.gridx++;
         topPanel.add(lengthLabel, gbc);
         setLayout(new BorderLayout());
-        add(topPanel, BorderLayout.NORTH);
+        add(topPanel, BorderLayout.PAGE_START);
         add(validationLabel, BorderLayout.CENTER);
     }
 }
