@@ -10,7 +10,7 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
-package dev.tobiasbriones.jdesk.ui.work;
+package dev.tobiasbriones.jdesk.work;
 
 import dev.tobiasbriones.jdesk.Window;
 import dev.tobiasbriones.jdesk.ui.dialog.AppDialog;

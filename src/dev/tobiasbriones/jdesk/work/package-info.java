@@ -14,4 +14,4 @@
  * Provides a library for working with background tasks based on
  * {@link javax.swing.SwingWorker}.
  */
-package dev.tobiasbriones.jdesk.ui.work;
+package dev.tobiasbriones.jdesk.work;

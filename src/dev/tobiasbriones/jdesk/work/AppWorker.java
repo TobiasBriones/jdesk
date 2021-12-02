@@ -10,7 +10,7 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
-package dev.tobiasbriones.jdesk.ui.work;
+package dev.tobiasbriones.jdesk.work;
 
 import javax.swing.*;
 import java.util.List;

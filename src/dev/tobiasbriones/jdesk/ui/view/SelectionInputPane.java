@@ -12,7 +12,7 @@
 
 package dev.tobiasbriones.jdesk.ui.view;
 
-import dev.tobiasbriones.jdesk.ui.work.LoadingView;
+import dev.tobiasbriones.jdesk.work.LoadingView;
 import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.menu.ListPopupMenu;
 

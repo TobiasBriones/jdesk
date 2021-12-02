@@ -18,10 +18,10 @@ import dev.tobiasbriones.jdesk.resources.AppStringResources;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.ui.view.TextLabel;
 import dev.tobiasbriones.jdesk.ui.view.loading.BarLoadingView;
-import dev.tobiasbriones.jdesk.ui.work.AppWorkCallback;
-import dev.tobiasbriones.jdesk.ui.work.AppWorker;
-import dev.tobiasbriones.jdesk.ui.work.WorkCallback;
-import dev.tobiasbriones.jdesk.ui.work.WorkRunnable;
+import dev.tobiasbriones.jdesk.work.AppWorkCallback;
+import dev.tobiasbriones.jdesk.work.AppWorker;
+import dev.tobiasbriones.jdesk.work.WorkCallback;
+import dev.tobiasbriones.jdesk.work.WorkRunnable;
 
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

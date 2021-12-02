@@ -13,7 +13,7 @@
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
 import dev.tobiasbriones.jdesk.ui.view.Panel;
-import dev.tobiasbriones.jdesk.ui.work.LoadingView;
+import dev.tobiasbriones.jdesk.work.LoadingView;
 import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;

@@ -14,9 +14,9 @@ package dev.tobiasbriones.jdesk.ui.dialog;
 
 import dev.tobiasbriones.jdesk.Window;
 import dev.tobiasbriones.jdesk.ui.view.loading.BarLoadingView;
-import dev.tobiasbriones.jdesk.ui.work.AppWorker;
-import dev.tobiasbriones.jdesk.ui.work.WorkCallback;
-import dev.tobiasbriones.jdesk.ui.work.WorkRunnable;
+import dev.tobiasbriones.jdesk.work.AppWorker;
+import dev.tobiasbriones.jdesk.work.WorkCallback;
+import dev.tobiasbriones.jdesk.work.WorkRunnable;
 
 import java.awt.*;
 

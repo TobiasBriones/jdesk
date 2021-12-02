@@ -10,7 +10,7 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
-package dev.tobiasbriones.jdesk.ui.work;
+package dev.tobiasbriones.jdesk.work;
 
 /**
  * Interface to control a view showing the process taken by a work being

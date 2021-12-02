@@ -10,7 +10,7 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
-package dev.tobiasbriones.jdesk.ui.work;
+package dev.tobiasbriones.jdesk.work;
 
 /**
  * WorkCallback to notify the work results such as finished, failed or
