@@ -47,7 +47,7 @@ public final class TaskDialog<R> extends Dialog {
      * @see AppWorkCallback
      */
     public abstract static class TaskDialogCallback<R> extends AppWorkCallback<R> {
-        public TaskDialogCallback(dev.tobiasbriones.jdesk.Window window) {
+        public TaskDialogCallback(Window window) {
             super(window);
         }
 
@@ -68,7 +68,7 @@ public final class TaskDialog<R> extends Dialog {
      * @see TaskDialogCallback
      */
     public abstract static class TaskDialogCallbackCancelEnabled<R> extends TaskDialogCallback<R> {
-        public TaskDialogCallbackCancelEnabled(dev.tobiasbriones.jdesk.Window window) {
+        public TaskDialogCallbackCancelEnabled(Window window) {
             super(window);
         }
 
@@ -86,7 +86,7 @@ public final class TaskDialog<R> extends Dialog {
      * @see TaskDialogCallback
      */
     public abstract static class TaskDialogCallbackCancelDisabled<R> extends TaskDialogCallback<R> {
-        public TaskDialogCallbackCancelDisabled(dev.tobiasbriones.jdesk.Window window) {
+        public TaskDialogCallbackCancelDisabled(Window window) {
             super(window);
         }
 
@@ -146,7 +146,7 @@ public final class TaskDialog<R> extends Dialog {
      * @param msg          dialog message
      * @param isCancelable make this work cancelable
      */
-    public TaskDialog(dev.tobiasbriones.jdesk.Window window, String title, String msg, boolean isCancelable) {
+    public TaskDialog(Window window, String title, String msg, boolean isCancelable) {
         super(window);
         this.msgLabel = new TextLabel(window, msg);
         this.isCancelable = isCancelable;
@@ -174,7 +174,7 @@ public final class TaskDialog<R> extends Dialog {
      * @param msgRes       dialog message resource
      * @param isCancelable make this work cancelable
      */
-    public TaskDialog(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes, boolean isCancelable) {
+    public TaskDialog(Window window, int titleRes, int msgRes, boolean isCancelable) {
         this(window, window.getStringResources().get(titleRes), window.getStringResources().get(msgRes), isCancelable);
     }
 
@@ -185,7 +185,7 @@ public final class TaskDialog<R> extends Dialog {
      * @param title  dialog title
      * @param msg    dialog message
      */
-    public TaskDialog(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
+    public TaskDialog(Window window, String title, String msg) {
         this(window, title, msg, true);
     }
 
@@ -252,8 +252,8 @@ public final class TaskDialog<R> extends Dialog {
     }
 
     private void createUI(WindowContext context, String title, String msg) {
-        final dev.tobiasbriones.jdesk.ui.view.Panel panel = new dev.tobiasbriones.jdesk.ui.view.Panel(context);
-        final dev.tobiasbriones.jdesk.ui.view.Panel topPanel = new Panel(context);
+        final Panel panel = new Panel(context);
+        final Panel topPanel = new Panel(context);
         final TextLabel titleLabel = new TextLabel(context, title);
 
         titleLabel.setFont(context.getAppStyle().getFont().deriveFont(Font.BOLD));

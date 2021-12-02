@@ -222,7 +222,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
     }
 
     final void createWindow() {
-        final dev.tobiasbriones.jdesk.ui.view.Panel panel = new dev.tobiasbriones.jdesk.ui.view.Panel(getWindowContext());
+        final Panel panel = new Panel(getWindowContext());
 
         createWindow(panel);
         getContentPane().setBackground(getAppStyle().getWindowBackgroundColor());

@@ -31,7 +31,7 @@ public final class ActionPanel extends DialogPanel {
      * @param context        window context
      * @param positiveAction positive action button
      */
-    public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button positiveAction) {
+    public ActionPanel(WindowContext context, Button positiveAction) {
         super(context);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         add(positiveAction);
@@ -44,7 +44,7 @@ public final class ActionPanel extends DialogPanel {
      * @param negativeAction negative action button
      * @param positiveAction positive action button
      */
-    public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button negativeAction, dev.tobiasbriones.jdesk.ui.view.Button positiveAction) {
+    public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction) {
         super(context);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         add(negativeAction);
@@ -59,7 +59,7 @@ public final class ActionPanel extends DialogPanel {
      * @param positiveAction positive action button
      * @param neutralButton  neutral action button
      */
-    public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button negativeAction, dev.tobiasbriones.jdesk.ui.view.Button positiveAction, Button neutralButton) {
+    public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction, Button neutralButton) {
         super(context);
         final DialogPanel leftPanel = new DialogPanel(context);
         final DialogPanel rightPanel = new DialogPanel(context, new FlowLayout(FlowLayout.RIGHT));

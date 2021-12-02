@@ -56,7 +56,7 @@ public class ListPopupMenu extends PopupMenu {
         super(context);
         this.listModel = new DefaultListModel<>();
         final ListPane<String> list = new ListPane<>(context, listModel);
-        final dev.tobiasbriones.jdesk.ui.view.ScrollPane scroll = new ScrollPane(context, list);
+        final ScrollPane scroll = new ScrollPane(context, list);
         final ListSelectionListener lsl = e -> {
             if (!e.getValueIsAdjusting() && list.getSelectedIndex() != -1 && l != null) {
                 l.onItemSelected(list.getSelectedValue(), list.getSelectedIndex());

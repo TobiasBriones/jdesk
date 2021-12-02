@@ -37,7 +37,7 @@ public class Dialog extends JDialog implements WindowContext {
      * @param window windowContext to be attached
      * @param title  dialog title
      */
-    public Dialog(dev.tobiasbriones.jdesk.Window window, String title) {
+    public Dialog(Window window, String title) {
         super(window, title);
         this.windowContext = window.getWindowContext();
 

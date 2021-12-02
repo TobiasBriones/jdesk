@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Tobias Briones
  */
-public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implements TextIdClickView {
+public class CheckButton extends Panel implements TextIdClickView {
     private static final long serialVersionUID = -1977865084712151136L;
     private static final Insets PADDING = new Insets(4, 8, 4, 8);
 

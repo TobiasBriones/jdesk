@@ -51,7 +51,7 @@ public final class AppDialog {
      * @param msg    dialog message
      * @param type   dialog type
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, String title, String msg, Type type) {
+    public static void showMessage(Window window, String title, String msg, Type type) {
         final StringResources sr = window.getStringResources();
         final DialogPanel panel = new DialogPanel(window);
         final TextLabel titleLabel = getTitleLabel(window, title, (type != null));
@@ -59,7 +59,7 @@ public final class AppDialog {
         final String okStr = sr.get(AppStringResources.OK);
         final OptionButton okButton = new OptionButton(window, okStr);
         final ActionPanel actionPanel = new ActionPanel(window, okButton);
-        final dev.tobiasbriones.jdesk.ui.dialog.Dialog dialog = new dev.tobiasbriones.jdesk.ui.dialog.Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final Icon icon = (type != null) ? loadIcon(type) : null;
         final ActionListener l = e -> dialog.dispose();
 
@@ -87,7 +87,7 @@ public final class AppDialog {
      * @param msgRes   dialog message resource
      * @param type     dialog type
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes, Type type) {
+    public static void showMessage(Window window, int titleRes, int msgRes, Type type) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, title, msg, type);
@@ -100,7 +100,7 @@ public final class AppDialog {
      * @param msg    dialog message
      * @param type   dialog type
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, String msg, Type type) {
+    public static void showMessage(Window window, String msg, Type type) {
         final int stringPosition = AppStringResources.INFORMATION + type.ordinal();
         final String title = window.getStringResources().get(stringPosition);
         showMessage(window, title, msg, type);
@@ -113,7 +113,7 @@ public final class AppDialog {
      * @param msgRes dialog message resource
      * @param type   dialog type
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, int msgRes, Type type) {
+    public static void showMessage(Window window, int msgRes, Type type) {
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, msg, type);
     }
@@ -125,7 +125,7 @@ public final class AppDialog {
      * @param title  dialog title
      * @param msg    dialog message
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
+    public static void showMessage(Window window, String title, String msg) {
         showMessage(window, title, msg, null);
     }
 
@@ -138,7 +138,7 @@ public final class AppDialog {
      * @param titleRes dialog title resource
      * @param msgRes   dialog message resource
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes) {
+    public static void showMessage(Window window, int titleRes, int msgRes) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, title, msg);
@@ -150,7 +150,7 @@ public final class AppDialog {
      * @param window window to attach the dialog
      * @param msg    dialog message
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, String msg) {
+    public static void showMessage(Window window, String msg) {
         showMessage(window, "", msg, null);
     }
 
@@ -160,7 +160,7 @@ public final class AppDialog {
      * @param window window to attach the dialog
      * @param msgRes dialog message resource
      */
-    public static void showMessage(dev.tobiasbriones.jdesk.Window window, int msgRes) {
+    public static void showMessage(Window window, int msgRes) {
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, msg);
     }
@@ -175,7 +175,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, String title, String msg, String okAction) {
+    public static ConfirmResult showConfirm(Window window, String title, String msg, String okAction) {
         final StringResources sr = window.getStringResources();
         final DialogPanel panel = new DialogPanel(window);
         final TextLabel titleLabel = getTitleLabel(window, title, false);
@@ -184,7 +184,7 @@ public final class AppDialog {
         final OptionButton cancelButton = new OptionButton(window, cancelStr);
         final OptionButton okButton = new OptionButton(window, okAction);
         final ActionPanel actionPanel = new ActionPanel(window, cancelButton, okButton);
-        final dev.tobiasbriones.jdesk.ui.dialog.Dialog dialog = new dev.tobiasbriones.jdesk.ui.dialog.Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final ActionListener l = e -> {
             dialog.dispose();
             if (e.getSource() == okButton) {
@@ -220,7 +220,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes, int okActionRes) {
+    public static ConfirmResult showConfirm(Window window, int titleRes, int msgRes, int okActionRes) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         final String okAction = window.getStringResources().get(okActionRes);
@@ -236,7 +236,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
+    public static ConfirmResult showConfirm(Window window, String title, String msg) {
         final String okStr = window.getStringResources().get(AppStringResources.OK);
         return showConfirm(window, title, msg, okStr);
     }
@@ -250,7 +250,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes) {
+    public static ConfirmResult showConfirm(Window window, int titleRes, int msgRes) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
 
@@ -265,7 +265,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, String msg) {
+    public static ConfirmResult showConfirm(Window window, String msg) {
         final String title = window.getStringResources().get(AppStringResources.CONFIRM);
         return showConfirm(window, title, msg);
     }
@@ -280,7 +280,7 @@ public final class AppDialog {
      *
      * @return RESULT_OK if and only if the user accepts this confirm dialog request
      */
-    public static ConfirmResult showConfirm(dev.tobiasbriones.jdesk.Window window, int msgRes) {
+    public static ConfirmResult showConfirm(Window window, int msgRes) {
         final String msg = window.getStringResources().get(msgRes);
         return showConfirm(window, msg);
     }
@@ -295,7 +295,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, String title, String msg, Object content) {
+    public static String showInput(Window window, String title, String msg, Object content) {
         return showInput(window, title, msg, content.toString(), new InputText(window, 20), false);
     }
 
@@ -309,7 +309,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes, Object content) {
+    public static String showInput(Window window, int titleRes, int msgRes, Object content) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, title, msg, content);
@@ -324,7 +324,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
+    public static String showInput(Window window, String title, String msg) {
         return showInput(window, title, msg, "");
     }
 
@@ -337,7 +337,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes) {
+    public static String showInput(Window window, int titleRes, int msgRes) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, title, msg);
@@ -353,7 +353,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, String msg, Object content) {
+    public static String showInput(Window window, String msg, Object content) {
         final String title = window.getStringResources().get(AppStringResources.INPUT);
         return showInput(window, title, msg, content);
     }
@@ -370,7 +370,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, int msgRes, Object content) {
+    public static String showInput(Window window, int msgRes, Object content) {
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, msg, content);
     }
@@ -383,7 +383,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, String msg) {
+    public static String showInput(Window window, String msg) {
         final String title = window.getStringResources().get(AppStringResources.INPUT);
         return showInput(window, title, msg, "");
     }
@@ -396,7 +396,7 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(dev.tobiasbriones.jdesk.Window window, int msgRes) {
+    public static String showInput(Window window, int msgRes) {
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, msg);
     }
@@ -410,7 +410,7 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
+    public static String showPasswordInput(Window window, String title, String msg) {
         return showInput(window, title, msg, "", new PasswordInputText(window, 20), true);
     }
 
@@ -423,7 +423,7 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes) {
+    public static String showPasswordInput(Window window, int titleRes, int msgRes) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         return showPasswordInput(window, title, msg);
@@ -437,7 +437,7 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(dev.tobiasbriones.jdesk.Window window, String msg) {
+    public static String showPasswordInput(Window window, String msg) {
         final String title = window.getStringResources().get(AppStringResources.PASSWORD);
         return showPasswordInput(window, title, msg);
     }
@@ -450,7 +450,7 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(dev.tobiasbriones.jdesk.Window window, int msgRes) {
+    public static String showPasswordInput(Window window, int msgRes) {
         final String msg = window.getStringResources().get(msgRes);
         return showPasswordInput(window, msg);
     }
@@ -524,7 +524,7 @@ public final class AppDialog {
         final OptionButton cancelButton = new OptionButton(window, cancelStr);
         final OptionButton okButton = new OptionButton(window, okStr);
         final ActionPanel actionPanel = new ActionPanel(window, cancelButton, okButton);
-        final dev.tobiasbriones.jdesk.ui.dialog.Dialog dialog = new Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final ActionListener l = e -> {
             if (e.getSource() == okButton) {
                 final String text;

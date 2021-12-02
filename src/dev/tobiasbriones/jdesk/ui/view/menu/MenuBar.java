@@ -18,14 +18,14 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * View which contains the {@link dev.tobiasbriones.jdesk.ui.view.menu.Menu}
+ * View which contains the {@link Menu}
  * elements to build an usual window menu.
  *
  * @author Tobias Briones
  */
 public class MenuBar extends JMenuBar {
     private static final long serialVersionUID = -4252109343379286594L;
-    private dev.tobiasbriones.jdesk.ui.view.menu.Menu menuShowing;
+    private Menu menuShowing;
 
     /**
      * Constructor for MenuBar.
@@ -39,11 +39,11 @@ public class MenuBar extends JMenuBar {
         setBackground(context.getAppStyle().getTopBackgroundColor());
     }
 
-    dev.tobiasbriones.jdesk.ui.view.menu.Menu getMenuShowing() {
+    Menu getMenuShowing() {
         return menuShowing;
     }
 
-    void setMenuShowing(dev.tobiasbriones.jdesk.ui.view.menu.Menu menuShowing) {
+    void setMenuShowing(Menu menuShowing) {
         this.menuShowing = menuShowing;
     }
 

@@ -19,7 +19,7 @@ import java.awt.*;
 
 /**
  * Popup menu to display over a GUI. Use the methods
- * {@link #addItem(dev.tobiasbriones.jdesk.ui.view.menu.MenuItem)} and
+ * {@link #addItem(MenuItem)} and
  * {@link #addItem(CheckMenuItem)} to add a menu item to this popup menu.
  *
  * @author Tobias Briones
@@ -92,7 +92,7 @@ public class PopupMenu extends JPopupMenu {
     }
 
     /**
-     * Adds a {@link dev.tobiasbriones.jdesk.ui.view.menu.MenuItem} to the popup menu.
+     * Adds a {@link MenuItem} to the popup menu.
      *
      * @param item menu item
      */

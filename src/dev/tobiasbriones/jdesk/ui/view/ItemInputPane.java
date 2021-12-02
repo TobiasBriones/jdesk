@@ -29,10 +29,10 @@ import java.util.List;
  *
  * @author Tobias Briones
  */
-public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel implements Iterable<String> {
+public class ItemInputPane extends Panel implements Iterable<String> {
     private static final long serialVersionUID = -352531864001279392L;
 
-    static final class ItemView extends dev.tobiasbriones.jdesk.ui.view.Panel implements MouseListener {
+    static final class ItemView extends Panel implements MouseListener {
         private static final long serialVersionUID = 1391246170951661932L;
         private final Color backgroundColor;
         private final Color hoverColor;
@@ -105,9 +105,9 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
     private final int columns;
     private final List<ItemView> items;
     private final GridBagConstraints gbc;
-    private final dev.tobiasbriones.jdesk.ui.view.ScrollPane scroll;
-    private final dev.tobiasbriones.jdesk.ui.view.Panel panelTop;
-    private final dev.tobiasbriones.jdesk.ui.view.Panel panelBottom;
+    private final ScrollPane scroll;
+    private final Panel panelTop;
+    private final Panel panelBottom;
     private final InputText inputText;
     private final transient WindowContext context;
     private boolean isLocked;
@@ -133,7 +133,7 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
         this.items = new ArrayList<>();
         this.gbc = new GridBagConstraints();
         this.scroll = new ScrollPane(context);
-        this.panelTop = new dev.tobiasbriones.jdesk.ui.view.Panel(context);
+        this.panelTop = new Panel(context);
         this.panelBottom = new Panel(context);
         this.inputText = new InputText(context, (columns > 1) ? 20 * columns : 30);
         this.isLocked = false;
