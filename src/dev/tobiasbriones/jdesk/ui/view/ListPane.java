@@ -22,8 +22,9 @@ import java.util.Vector;
  * List to display items.
  *
  * @param <E> type of items used by this list pane
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ListPane<E> extends JList<E> {
     private static final long serialVersionUID = -7494601406358051974L;
 
@@ -37,7 +38,6 @@ public class ListPane<E> extends JList<E> {
         private final Color pressedColor;
         private final TextLabel label;
 
-        @SuppressWarnings("WeakerAccess")
         public DefaultCellRender(WindowContext context, Color backgroundColor, Color pressedColor) {
             super(context);
             this.backgroundColor = backgroundColor;
@@ -49,7 +49,6 @@ public class ListPane<E> extends JList<E> {
             add(label);
         }
 
-        @SuppressWarnings("WeakerAccess")
         public DefaultCellRender(WindowContext context) {
             this(
                 context,

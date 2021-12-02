@@ -23,8 +23,9 @@ import java.awt.event.FocusListener;
 
 /**
  * Input text view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class InputText extends JTextField {
     private static final long serialVersionUID = -6456630283142902458L;
     private static final int HEIGHT = 24;
@@ -38,7 +39,6 @@ public class InputText extends JTextField {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText(WindowContext context) {
         super();
         this.textColor = context.getAppStyle().getTextColor();
@@ -57,7 +57,6 @@ public class InputText extends JTextField {
      * @param text    text
      * @param columns columns
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText(WindowContext context, Document doc, String text, int columns) {
         super(doc, text, columns);
         this.textColor = context.getAppStyle().getTextColor();
@@ -74,7 +73,6 @@ public class InputText extends JTextField {
      * @param context window context
      * @param columns columns
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText(WindowContext context, int columns) {
         super(columns);
         this.textColor = context.getAppStyle().getTextColor();
@@ -92,7 +90,6 @@ public class InputText extends JTextField {
      * @param text    text
      * @param columns columns
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText(WindowContext context, String text, int columns) {
         super(text, columns);
         this.textColor = context.getAppStyle().getTextColor();
@@ -109,7 +106,6 @@ public class InputText extends JTextField {
      * @param context window context
      * @param text    text
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText(WindowContext context, String text) {
         super(text);
         this.textColor = context.getAppStyle().getTextColor();
@@ -125,7 +121,6 @@ public class InputText extends JTextField {
      *
      * @return <code>true</code> if and only if the trimmed input text is not empty
      */
-    @SuppressWarnings("WeakerAccess")
     public final boolean isSet() {
         return !getText().trim().isEmpty();
     }
@@ -135,7 +130,6 @@ public class InputText extends JTextField {
      *
      * @param hintText hint text
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setHintText(String hintText) {
         this.hintText = hintText;
 

@@ -19,8 +19,9 @@ import javax.swing.*;
 
 /**
  * Radio button view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class RadioButton extends JRadioButton {
     private static final long serialVersionUID = -1814692214609746784L;
 

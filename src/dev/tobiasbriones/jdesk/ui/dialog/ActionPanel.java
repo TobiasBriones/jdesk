@@ -19,8 +19,9 @@ import java.awt.*;
 
 /**
  * Panel to show the actions when displaying a user input dialog.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class ActionPanel extends DialogPanel {
     private static final long serialVersionUID = -9017958368948957680L;
 
@@ -30,7 +31,6 @@ public final class ActionPanel extends DialogPanel {
      * @param context        window context
      * @param positiveAction positive action button
      */
-    @SuppressWarnings("WeakerAccess")
     public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button positiveAction) {
         super(context);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -44,7 +44,6 @@ public final class ActionPanel extends DialogPanel {
      * @param negativeAction negative action button
      * @param positiveAction positive action button
      */
-    @SuppressWarnings("WeakerAccess")
     public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button negativeAction, dev.tobiasbriones.jdesk.ui.view.Button positiveAction) {
         super(context);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -60,7 +59,6 @@ public final class ActionPanel extends DialogPanel {
      * @param positiveAction positive action button
      * @param neutralButton  neutral action button
      */
-    @SuppressWarnings("WeakerAccess")
     public ActionPanel(WindowContext context, dev.tobiasbriones.jdesk.ui.view.Button negativeAction, dev.tobiasbriones.jdesk.ui.view.Button positiveAction, Button neutralButton) {
         super(context);
         final DialogPanel leftPanel = new DialogPanel(context);

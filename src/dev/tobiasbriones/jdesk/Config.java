@@ -24,10 +24,11 @@ import java.util.Properties;
 
 /**
  * It manages configuration for a given file, the class can be used statically
- * by its static methods or by an object instance recommended to put or get several values and save later,
- * for example in a settings window.
+ * by its static methods or by an object instance recommended to put or get
+ * several values and save later, for example in a settings window.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class Config {
     /**
      * Stores an entry into the destination configuration file.
@@ -40,7 +41,6 @@ public final class Config {
      *
      * @throws IOException if an I/O error occurs
      */
-    @SuppressWarnings("WeakerAccess")
     public static void save(IOFile configFile, String key, Object value, String comments) throws IOException {
         final Properties properties = new Properties();
 
@@ -75,7 +75,6 @@ public final class Config {
      *
      * @throws IOException if an I/O error occurs
      */
-    @SuppressWarnings("WeakerAccess")
     public static void save(IOFile configFile, HashMap<String, String> entries, String comments) throws IOException {
         final Properties properties = new Properties();
         final Iterator<Entry<String, String>> i = entries.entrySet().iterator();
@@ -183,7 +182,6 @@ public final class Config {
      *
      * @throws IOException if an I/O error occurs
      */
-    @SuppressWarnings("WeakerAccess")
     public void store(String comments) throws IOException {
         file.createFileIfNotExists();
         properties.store(new FileOutputStream(file), comments);

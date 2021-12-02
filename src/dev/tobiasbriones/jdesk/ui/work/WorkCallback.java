@@ -13,10 +13,13 @@
 package dev.tobiasbriones.jdesk.ui.work;
 
 /**
- * WorkCallback to notify the work results such as finished, failed or cancelled. The methods of this callback are
- * invoked on the EDT to process the result on the GUI thread.
+ * WorkCallback to notify the work results such as finished, failed or
+ * cancelled. The methods of this callback are invoked on the EDT to process
+ * the result on the GUI thread.
  *
  * @param <R> type of result return by {@link WorkRunnable#run()}.
+ *
+ * @author Tobias Briones
  */
 public interface WorkCallback<R> {
     /**

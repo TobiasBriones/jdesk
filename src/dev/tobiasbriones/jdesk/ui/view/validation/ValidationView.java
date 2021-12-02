@@ -16,8 +16,9 @@ import dev.tobiasbriones.jdesk.ui.style.TextStyle;
 
 /**
  * Implemented by a view which validates user input data.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface ValidationView {
     /**
      * Returns <code>true</code> if and only if the input has been accepted.

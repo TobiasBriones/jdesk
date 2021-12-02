@@ -20,8 +20,9 @@ import java.awt.*;
 
 /**
  * Scroll pane to a large displaying view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ScrollPane extends JScrollPane {
     private static final long serialVersionUID = -8222286430953671484L;
 
@@ -30,7 +31,6 @@ public class ScrollPane extends JScrollPane {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public ScrollPane(WindowContext context) {
         super();
         config(context.getAppStyle());
@@ -42,7 +42,6 @@ public class ScrollPane extends JScrollPane {
      * @param context window context
      * @param view    view to scroll
      */
-    @SuppressWarnings("WeakerAccess")
     public ScrollPane(WindowContext context, Component view) {
         super(view);
         config(context.getAppStyle());

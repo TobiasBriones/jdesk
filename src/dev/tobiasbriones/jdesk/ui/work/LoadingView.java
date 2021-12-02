@@ -13,10 +13,11 @@
 package dev.tobiasbriones.jdesk.ui.work;
 
 /**
- * Interface to control a view showing the process taken by a work
- * being executed on background.
+ * Interface to control a view showing the process taken by a work being
+ * executed on background.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface LoadingView {
     /**
      * Returns <code>true</code> if and only if the view is in running mode.

@@ -13,9 +13,11 @@
 package dev.tobiasbriones.jdesk.ui.work;
 
 /**
- * {@link LoadingView} that implements progress, a floating number between 0 and 1 inclusive.
+ * {@link LoadingView} that implements progress, a floating number between 0 and
+ * 1 inclusive.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface ProgressLoadingView extends LoadingView {
     /**
      * Sets the progress to display on the view.

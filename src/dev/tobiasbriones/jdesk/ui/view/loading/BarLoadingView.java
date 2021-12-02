@@ -21,18 +21,14 @@ import java.awt.*;
 
 /**
  * Bar animated to display the loading of a background task.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class BarLoadingView extends Panel implements LoadingView {
-    @SuppressWarnings("WeakerAccess")
     public static final int STYLE_NORMAL = 0;
-    @SuppressWarnings("WeakerAccess")
     public static final int STYLE_INCREASING_BAR_SPEED = 1;
-    @SuppressWarnings("WeakerAccess")
     public static final float BAR_WIDTH_CHANGE_PER_SECOND_SLOW = 0.5f;
-    @SuppressWarnings("WeakerAccess")
     public static final float BAR_WIDTH_CHANGE_PER_SECOND_NORMAL = 1.0f;
-    @SuppressWarnings("WeakerAccess")
     public static final float BAR_WIDTH_CHANGE_PER_SECOND_FAST = 2.0f;
     private static final long serialVersionUID = 2387093602960521687L;
     private static final int TIME_INTERVAL = 33;
@@ -50,7 +46,6 @@ public final class BarLoadingView extends Panel implements LoadingView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public BarLoadingView(WindowContext context) {
         super(context);
         this.timer = new Timer(TIME_INTERVAL, e -> repaint());
@@ -69,7 +64,6 @@ public final class BarLoadingView extends Panel implements LoadingView {
      *
      * @param style bar style
      */
-    @SuppressWarnings("WeakerAccess")
     public void setStyle(int style) {
         this.style = style;
     }
@@ -79,7 +73,6 @@ public final class BarLoadingView extends Panel implements LoadingView {
      *
      * @param speed bar speed
      */
-    @SuppressWarnings("WeakerAccess")
     public void setSpeed(float speed) {
         this.speed = speed;
     }

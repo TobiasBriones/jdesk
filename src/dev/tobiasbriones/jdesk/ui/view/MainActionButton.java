@@ -18,10 +18,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Rounded button which functionality is to provide the user a main action on the window or dialog. It shouldn't be
- * added to a window or dialog more than once because of UI design patterns.
+ * Rounded button which functionality is to provide the user a main action on
+ * the window or dialog. It shouldn't be added to a window or dialog more
+ * than once because of UI design patterns.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class MainActionButton extends Button {
     private static final long serialVersionUID = -578290235961396969L;
 

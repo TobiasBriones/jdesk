@@ -12,9 +12,7 @@
 
 package dev.tobiasbriones.jdesk.ui.view.validation.validator;
 
-@SuppressWarnings("unused")
 public final class TextLengthValidator implements Validator<String> {
-    @SuppressWarnings("WeakerAccess")
     public static final int LENGTH_NOT_RESTRICTED = -1;
     private int minLength;
     private int maxLength;
@@ -80,7 +78,6 @@ public final class TextLengthValidator implements Validator<String> {
      *
      * @param errorText error text
      */
-    @SuppressWarnings("WeakerAccess")
     public void setErrorText(String errorText) {
         this.errorText = errorText;
     }
@@ -94,7 +91,6 @@ public final class TextLengthValidator implements Validator<String> {
      * @throws RuntimeException if one of the lengths is neither non negative nor LENGTH_NOT_RESTRICTED, or minLength is
      *                          is greater than maxLength
      */
-    @SuppressWarnings("WeakerAccess")
     public void setLengths(int minLength, int maxLength) {
         if (minLength < -1 || maxLength < -1) {
             throw new RuntimeException("Invalid lengths " + minLength + ", " + maxLength);

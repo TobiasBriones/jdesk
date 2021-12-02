@@ -25,10 +25,12 @@ import java.awt.event.MouseListener;
 import java.util.List;
 
 /**
- * Pane which gives to the user a list of items to pick according to the user inputText text and adds to the pane those
- * that the user chose with availability to remove them.
+ * Pane which gives to the user a list of items to pick according to the user
+ * inputText text and adds to the pane those that the user chose with
+ * availability to remove them.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class SelectionInputPane<E> extends Panel implements LoadingView {
     private static final long serialVersionUID = -460382072727635296L;
 
@@ -85,7 +87,6 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
      * @param rows    number of rows for the {@link ItemInputPane}
      * @param columns number of columns for the {@link ItemInputPane}
      */
-    @SuppressWarnings("WeakerAccess")
     public SelectionInputPane(WindowContext context, int rows, int columns) {
         super(context);
         this.selectedInputs = new ItemInputPane(context, rows, columns);
@@ -128,7 +129,6 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public SelectionInputPane(WindowContext context) {
         this(context, 2, 2);
     }

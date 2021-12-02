@@ -22,8 +22,9 @@ import java.util.Vector;
  * Combo box view.
  *
  * @param <E> type of elements
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ComboBox<E> extends JComboBox<E> {
     private static final long serialVersionUID = -2380217949048973860L;
 

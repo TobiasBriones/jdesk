@@ -21,8 +21,9 @@ import java.awt.*;
 
 /**
  * Loading view made of a circular transitions.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class CircularTransitionLoadingView extends Panel implements LoadingView {
     private static final long serialVersionUID = -5698502420906253195L;
     private static final Dimension NORMAL_SIZE = new Dimension(36, 36);
@@ -38,7 +39,6 @@ public final class CircularTransitionLoadingView extends Panel implements Loadin
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public CircularTransitionLoadingView(WindowContext context) {
         super(context);
         this.timer = new Timer(DELAY, e -> {

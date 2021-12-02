@@ -18,33 +18,20 @@ import java.awt.*;
  * Class to implement the app style.
  *
  * @see AppStyle
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
-
 public class Style implements AppStyle {
-    @SuppressWarnings("WeakerAccess")
     public static final int TOP_BACKGROUND = 0;
-    @SuppressWarnings("WeakerAccess")
     public static final int WINDOW_BACKGROUND = 1;
-    @SuppressWarnings("WeakerAccess")
     public static final int DIALOG_BACKGROUND = 2;
-    @SuppressWarnings("WeakerAccess")
     public static final int ITEM_HOVER = 3;
-    @SuppressWarnings("WeakerAccess")
     public static final int ITEM_PRESSED = 4;
-    @SuppressWarnings("WeakerAccess")
     public static final int ITEM_FOCUSED = 5;
-    @SuppressWarnings("WeakerAccess")
     public static final int BUTTON_BACKGROUND = 6;
-    @SuppressWarnings("WeakerAccess")
     public static final int ACCENT = 7;
-    @SuppressWarnings("WeakerAccess")
     public static final int DISABLED = 8;
-    @SuppressWarnings("WeakerAccess")
     public static final int TEXT = 9;
-    @SuppressWarnings("WeakerAccess")
     public static final int SECONDARY_TEXT = 10;
-    @SuppressWarnings("WeakerAccess")
     public static final int ERROR_TEXT = 11;
 
     /**

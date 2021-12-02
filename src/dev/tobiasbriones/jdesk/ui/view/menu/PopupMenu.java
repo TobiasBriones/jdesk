@@ -18,10 +18,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Popup menu to display over a GUI. Use the methods {@link #addItem(dev.tobiasbriones.jdesk.ui.view.menu.MenuItem)} and {@link #addItem(CheckMenuItem)} to
- * add a menu item to this popup menu.
+ * Popup menu to display over a GUI. Use the methods
+ * {@link #addItem(dev.tobiasbriones.jdesk.ui.view.menu.MenuItem)} and
+ * {@link #addItem(CheckMenuItem)} to add a menu item to this popup menu.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class PopupMenu extends JPopupMenu {
     private static final long serialVersionUID = 7475696504255395298L;
     private final Color backgroundColor;
@@ -32,7 +34,6 @@ public class PopupMenu extends JPopupMenu {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public PopupMenu(WindowContext context) {
         super();
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
@@ -47,7 +48,6 @@ public class PopupMenu extends JPopupMenu {
      * @param context window context
      * @param title   popup menu title
      */
-    @SuppressWarnings("WeakerAccess")
     public PopupMenu(WindowContext context, String title) {
         super(title);
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
@@ -62,7 +62,6 @@ public class PopupMenu extends JPopupMenu {
      * @param context  window context
      * @param titleRes popup menu title resource
      */
-    @SuppressWarnings("WeakerAccess")
     public PopupMenu(WindowContext context, int titleRes) {
         this(context, context.getStringResources().get(titleRes));
 
@@ -97,7 +96,6 @@ public class PopupMenu extends JPopupMenu {
      *
      * @param item menu item
      */
-    @SuppressWarnings("WeakerAccess")
     public void addItem(MenuItem item) {
         add(item, gbc);
         gbc.gridy++;
@@ -108,7 +106,6 @@ public class PopupMenu extends JPopupMenu {
      *
      * @param item check menu item
      */
-    @SuppressWarnings("WeakerAccess")
     public void addItem(CheckMenuItem item) {
         add(item, gbc);
         gbc.gridy++;

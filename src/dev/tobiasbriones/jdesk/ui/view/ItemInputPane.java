@@ -26,8 +26,9 @@ import java.util.List;
 /**
  * Pane that receives short input texts form the user and displays the entered items on the pane with availability to
  * remove them. To retrieve the entered items, this class implements {@link Iterable}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel implements Iterable<String> {
     private static final long serialVersionUID = -352531864001279392L;
 
@@ -119,7 +120,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
      * @param rows    number of rows
      * @param columns number of columns
      */
-    @SuppressWarnings("WeakerAccess")
     public ItemInputPane(WindowContext context, int rows, int columns) {
         super(context);
         if (rows < 0) {
@@ -148,7 +148,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public ItemInputPane(WindowContext context) {
         this(context, 2, 4);
     }
@@ -158,7 +157,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
      *
      * @return the input text
      */
-    @SuppressWarnings("WeakerAccess")
     public InputText getInputText() {
         return inputText;
     }
@@ -177,7 +175,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
      *
      * @param locked locked
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setUserInputLocked(boolean locked) {
         this.isLocked = locked;
     }
@@ -212,7 +209,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
     /**
      * Requests the requestFocus for the pane input text.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void requestFocus() {
         inputText.requestFocus();
     }
@@ -238,7 +234,6 @@ public class ItemInputPane extends dev.tobiasbriones.jdesk.ui.view.Panel impleme
      *
      * @param input input text for the new item
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addInput(String input) {
         final ItemView item = new ItemView(context, this, input);
 

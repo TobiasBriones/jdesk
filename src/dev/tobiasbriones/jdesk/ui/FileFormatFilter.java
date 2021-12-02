@@ -22,8 +22,9 @@ import java.io.File;
  * Filters all files with the specified format or extension.
  *
  * @see FileFilter
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class FileFormatFilter extends FileFilter {
     private final String extension;
 

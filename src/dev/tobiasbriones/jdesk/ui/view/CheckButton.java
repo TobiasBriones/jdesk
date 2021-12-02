@@ -20,8 +20,9 @@ import java.awt.event.MouseEvent;
 
 /**
  * Check button view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implements TextIdClickView {
     private static final long serialVersionUID = -1977865084712151136L;
     private static final Insets PADDING = new Insets(4, 8, 4, 8);
@@ -71,7 +72,6 @@ public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implement
      * @param text    check button text
      * @param checked mark as checked
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckButton(WindowContext context, String text, boolean checked) {
         super(context);
         this.textId = -1;
@@ -89,7 +89,6 @@ public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implement
      * @param textRes check button text resource
      * @param checked mark as checked
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckButton(WindowContext context, int textRes, boolean checked) {
         super(context);
         this.textId = textRes;
@@ -114,7 +113,6 @@ public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implement
      * @param context window context
      * @param text    check button text
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckButton(WindowContext context, String text) {
         this(context, text, false);
     }
@@ -126,7 +124,6 @@ public class CheckButton extends dev.tobiasbriones.jdesk.ui.view.Panel implement
      * @param context window context
      * @param textRes check button text resource
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckButton(WindowContext context, int textRes) {
         this(context, textRes, false);
     }

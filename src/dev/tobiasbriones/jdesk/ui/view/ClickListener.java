@@ -26,8 +26,9 @@ import dev.tobiasbriones.jdesk.ui.dialog.Dialog;
  * ClickListener then the click event will occur for all the views but passing their given text id so the id won't be
  * unique, thus every view which listens to a ClickListener should have a unique text id passed in its constructor in
  * order to properly handle the event.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface ClickListener {
     /**
      * Called when a view with {@link ClickListener} triggers a click event.

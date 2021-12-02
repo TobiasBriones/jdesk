@@ -22,8 +22,9 @@ import java.util.List;
  * @param <U> type of object passed to publish updates when running the task
  *
  * @see SwingWorker
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class AppWorker<R, U> {
     private static final class Worker<R, U> extends SwingWorker<Void, U> {
         private final LoadingView loadingView;
@@ -111,7 +112,6 @@ public final class AppWorker<R, U> {
      *
      * @see AppWorker#update(Object)
      */
-    @SuppressWarnings("WeakerAccess")
     public AppWorker(LoadingView loadingView, WorkCallback<R> callback, WorkRunnableListener<U> l) {
         this.loadingView = loadingView;
         this.callback = callback;
@@ -126,7 +126,6 @@ public final class AppWorker<R, U> {
      * @param loadingView loading view
      * @param callback    callback
      */
-    @SuppressWarnings("WeakerAccess")
     public AppWorker(LoadingView loadingView, WorkCallback<R> callback) {
         this(loadingView, callback, null);
     }
@@ -137,7 +136,6 @@ public final class AppWorker<R, U> {
      *
      * @param loadingView loading view
      */
-    @SuppressWarnings("WeakerAccess")
     public AppWorker(LoadingView loadingView) {
         this(loadingView, null, null);
     }
@@ -148,7 +146,6 @@ public final class AppWorker<R, U> {
      *
      * @return <code>true</code> if this task was cancelled before it completed
      */
-    @SuppressWarnings("WeakerAccess")
     public boolean isCancelled() {
         if (worker == null) {
             return false;
@@ -163,7 +160,6 @@ public final class AppWorker<R, U> {
      *
      * @return <code>true</code> if and only if this work has been completed
      */
-    @SuppressWarnings("WeakerAccess")
     public boolean isCompleted() {
         if (worker == null) {
             return false;
@@ -182,7 +178,6 @@ public final class AppWorker<R, U> {
      * @throws RuntimeException if it's requested to execute this work more than one time, it can only be executed one
      *                          work by each {@link AppWorker} instance
      */
-    @SuppressWarnings("WeakerAccess")
     public void execute(WorkRunnable<R> runnable) {
         if (worker != null) {
             throw new RuntimeException("This worker was already executed");
@@ -202,7 +197,6 @@ public final class AppWorker<R, U> {
      * @return false if the task could not be cancelled, typically because it has already completed normally;
      * true otherwise
      */
-    @SuppressWarnings("WeakerAccess")
     public boolean cancel() {
         if (worker == null) {
             return false;
@@ -218,7 +212,6 @@ public final class AppWorker<R, U> {
      * @throws RuntimeException if {@link AppWorker#execute(WorkRunnable)} has not been called yet or if this instance
      *                          does not allow updates
      */
-    @SuppressWarnings("WeakerAccess")
     public void update(U update) {
         if (worker == null) {
             throw new RuntimeException("This work has not been executed yet");

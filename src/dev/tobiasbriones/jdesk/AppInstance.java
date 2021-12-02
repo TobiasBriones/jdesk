@@ -16,8 +16,9 @@ package dev.tobiasbriones.jdesk;
  * Instance given by the application implementation.
  *
  * @see WindowContext
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface AppInstance extends WindowContext {
     /**
      * Returns the application configuration file. Mainly used to store settings of the application windows.

@@ -14,8 +14,9 @@ package dev.tobiasbriones.jdesk.ui.style;
 
 /**
  * Defines the style for a text.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public enum TextStyle {
     NORMAL, BOLD, ITALIC
 }

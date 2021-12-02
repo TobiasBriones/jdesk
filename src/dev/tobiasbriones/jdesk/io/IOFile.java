@@ -12,9 +12,20 @@
 
 package dev.tobiasbriones.jdesk.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 
+/**
+ * Implements more methods for the {@link File} API. This class is deprecated
+ * since it extends the old {@link File} class and it is not necessary or
+ * general purpose enough to keep using.
+ *
+ * @author Tobias Briones
+ *
+ * @deprecated
+ */
+@Deprecated
 public final class IOFile extends java.io.File {
     /**
      * Character used to identify the separation between the file name and the file extension.

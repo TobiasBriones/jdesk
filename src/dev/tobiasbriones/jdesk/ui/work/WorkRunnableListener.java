@@ -15,7 +15,10 @@ package dev.tobiasbriones.jdesk.ui.work;
 import java.util.List;
 
 /**
- * Implemented by the UI to update the progress of the background task running on {@link AppWorker}.
+ * Implemented by the UI to update the progress of the background task running
+ * on {@link AppWorker}.
+ *
+ * @author Tobias Briones
  */
 public interface WorkRunnableListener<U> {
     /**

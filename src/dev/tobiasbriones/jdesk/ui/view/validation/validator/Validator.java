@@ -14,6 +14,8 @@ package dev.tobiasbriones.jdesk.ui.view.validation.validator;
 
 /**
  * Implemented by a validator to check user inputs.
+ *
+ * @author Tobias Briones
  */
 public interface Validator<I> {
     /**

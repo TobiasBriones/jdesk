@@ -14,8 +14,9 @@ package dev.tobiasbriones.jdesk.ui;
 
 /**
  * Class of tools for helping to construct the user interface.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class Tools {
     /**
      * Returns the string within the given bounds. If <code>maxLength</code> is less than or equal to 3 the same text

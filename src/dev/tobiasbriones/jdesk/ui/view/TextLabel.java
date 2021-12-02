@@ -21,8 +21,9 @@ import java.awt.*;
 
 /**
  * Text label view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class TextLabel extends JLabel {
     private static final long serialVersionUID = 1102069398706966479L;
 
@@ -31,7 +32,6 @@ public class TextLabel extends JLabel {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context) {
         super();
         config(context.getAppStyle());
@@ -43,7 +43,6 @@ public class TextLabel extends JLabel {
      * @param context window context
      * @param text    label text
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, String text) {
         super(text);
         config(context.getAppStyle());
@@ -55,7 +54,6 @@ public class TextLabel extends JLabel {
      * @param context window context
      * @param textRes label text resource
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, int textRes) {
         super(context.getStringResources().get(textRes));
         config(context.getAppStyle());
@@ -67,7 +65,6 @@ public class TextLabel extends JLabel {
      * @param context window context
      * @param icon    label icon
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, Icon icon) {
         super(icon);
         config(context.getAppStyle());
@@ -80,7 +77,6 @@ public class TextLabel extends JLabel {
      * @param icon                label icon
      * @param horizontalAlignment horizontal text alignment
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, Icon icon, int horizontalAlignment) {
         super(icon, horizontalAlignment);
         config(context.getAppStyle());
@@ -94,7 +90,6 @@ public class TextLabel extends JLabel {
      * @param icon                label icon
      * @param horizontalAlignment horizontal text alignment
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, String text, Icon icon, int horizontalAlignment) {
         super(text, icon, horizontalAlignment);
         config(context.getAppStyle());
@@ -108,7 +103,6 @@ public class TextLabel extends JLabel {
      * @param icon                label icon
      * @param horizontalAlignment horizontal text alignment
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, int textRes, Icon icon, int horizontalAlignment) {
         super(context.getStringResources().get(textRes), icon, horizontalAlignment);
         config(context.getAppStyle());
@@ -121,7 +115,6 @@ public class TextLabel extends JLabel {
      * @param text                label text
      * @param horizontalAlignment horizontal text alignment
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, String text, int horizontalAlignment) {
         super(text, horizontalAlignment);
         config(context.getAppStyle());
@@ -134,7 +127,6 @@ public class TextLabel extends JLabel {
      * @param textRes             label text resource
      * @param horizontalAlignment horizontal text alignment
      */
-    @SuppressWarnings("WeakerAccess")
     public TextLabel(WindowContext context, int textRes, int horizontalAlignment) {
         super(context.getStringResources().get(textRes), horizontalAlignment);
         config(context.getAppStyle());
@@ -145,7 +137,6 @@ public class TextLabel extends JLabel {
      *
      * @param textStyle style
      */
-    @SuppressWarnings("WeakerAccess")
     public void setTextStyle(TextStyle textStyle) {
         setFont(getFont(textStyle, getFont().getSize()));
     }
@@ -156,7 +147,6 @@ public class TextLabel extends JLabel {
      * @param textStyle style
      * @param textSize  font size
      */
-    @SuppressWarnings("WeakerAccess")
     public void setTextStyle(TextStyle textStyle, int textSize) {
         setFont(getFont(textStyle, textSize));
     }

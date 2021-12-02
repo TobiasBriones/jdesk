@@ -20,9 +20,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Check menu item view to put on a {@link Menu} or {@link PopupMenu}. This item is a {@link CheckButton}.
+ * Check menu item view to put on a {@link Menu} or {@link PopupMenu}. This item
+ * is a {@link CheckButton}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class CheckMenuItem extends CheckButton {
     private static final long serialVersionUID = 3773434900621498824L;
     private static final Insets PADDING = new Insets(5, 20, 5, 10);
@@ -38,7 +40,6 @@ public class CheckMenuItem extends CheckButton {
      * @param textRes button text resource
      * @param checked mark the button as checked
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckMenuItem(WindowContext context, int textRes, boolean checked) {
         super(context, textRes, checked);
         this.textId = textRes;
@@ -55,7 +56,6 @@ public class CheckMenuItem extends CheckButton {
      * @param context window context
      * @param textRes button text resource
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckMenuItem(WindowContext context, int textRes) {
         this(context, textRes, false);
     }
@@ -67,7 +67,6 @@ public class CheckMenuItem extends CheckButton {
      * @param text    button text
      * @param checked mark the button as checked
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckMenuItem(WindowContext context, String text, boolean checked) {
         super(context, text, checked);
         this.textId = -1;
@@ -84,7 +83,6 @@ public class CheckMenuItem extends CheckButton {
      * @param context window context
      * @param text    button text
      */
-    @SuppressWarnings("WeakerAccess")
     public CheckMenuItem(WindowContext context, String text) {
         this(context, text, false);
     }

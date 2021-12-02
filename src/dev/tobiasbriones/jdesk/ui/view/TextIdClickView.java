@@ -13,7 +13,10 @@
 package dev.tobiasbriones.jdesk.ui.view;
 
 /**
- * Implemented by a view which accepts {@link ClickListener}.
+ * Defines an interface to be implemented by a view which accepts
+ * {@link ClickListener}.
+ *
+ * @author Tobias Briones
  */
 public interface TextIdClickView {
     /**

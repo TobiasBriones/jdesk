@@ -18,9 +18,11 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * View which contains the {@link dev.tobiasbriones.jdesk.ui.view.menu.Menu} elements to build an usual window menu.
+ * View which contains the {@link dev.tobiasbriones.jdesk.ui.view.menu.Menu}
+ * elements to build an usual window menu.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class MenuBar extends JMenuBar {
     private static final long serialVersionUID = -4252109343379286594L;
     private dev.tobiasbriones.jdesk.ui.view.menu.Menu menuShowing;

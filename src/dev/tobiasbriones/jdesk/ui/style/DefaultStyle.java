@@ -19,8 +19,9 @@ import java.awt.*;
  *
  * @see Style
  * @see AppStyle
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class DefaultStyle extends Style {
     private static Color[] createColors(ColorPair[] colors) {
         final Color[] array = {

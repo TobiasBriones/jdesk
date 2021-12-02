@@ -16,14 +16,16 @@ import dev.tobiasbriones.jdesk.Window;
 import dev.tobiasbriones.jdesk.ui.dialog.AppDialog;
 
 /**
- * Callback that handles {@link #workFailed(Exception)} when the work fails by showing a fail message, also
- * overrides {@link #workCancelled()} and does nothing on it.
+ * Callback that handles {@link #workFailed(Exception)} when the work fails by
+ * showing a fail message, also overrides {@link #workCancelled()} and does
+ * nothing on it.
  *
  * @param <R> type of the work result
  *
  * @see WorkCallback
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public abstract class AppWorkCallback<R> implements WorkCallback<R> {
     private final Window window;
 
@@ -32,7 +34,6 @@ public abstract class AppWorkCallback<R> implements WorkCallback<R> {
      *
      * @param window window
      */
-    @SuppressWarnings("WeakerAccess")
     public AppWorkCallback(Window window) {
         this.window = window;
     }

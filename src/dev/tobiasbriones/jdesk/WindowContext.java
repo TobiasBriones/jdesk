@@ -17,6 +17,8 @@ import dev.tobiasbriones.jdesk.ui.style.AppStyle;
 
 /**
  * Context provided from the application.
+ *
+ * @author Tobias Briones
  */
 public interface WindowContext {
     /**

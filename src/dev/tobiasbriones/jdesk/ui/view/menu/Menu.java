@@ -28,9 +28,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Window menu that contains the {@link MenuItem} items to display a menu on the {@link MenuBar}.
+ * Window menu that contains the {@link MenuItem} items to display a menu on the
+ * {@link MenuBar}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class Menu extends TextLabel {
     private static final long serialVersionUID = 3425034364105078041L;
     private static final Border PADDING = new EmptyBorder(2, 8, 2, 8);
@@ -71,7 +73,6 @@ public class Menu extends TextLabel {
      * @param context context context
      * @param name    menu name
      */
-    @SuppressWarnings("WeakerAccess")
     public Menu(WindowContext context, String name) {
         super(context, name);
         this.context = context;
@@ -91,7 +92,6 @@ public class Menu extends TextLabel {
      * @param context context context
      * @param nameRes menu name resource
      */
-    @SuppressWarnings("WeakerAccess")
     public Menu(WindowContext context, int nameRes) {
         this(context, context.getStringResources().get(nameRes));
     }

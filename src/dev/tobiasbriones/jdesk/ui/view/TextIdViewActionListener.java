@@ -17,8 +17,9 @@ import java.awt.event.ActionListener;
 
 /**
  * Used by a {@link TextIdClickView} to perform its {@link ClickListener}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class TextIdViewActionListener implements ActionListener {
     private final ClickListener l;
 
@@ -29,7 +30,6 @@ public final class TextIdViewActionListener implements ActionListener {
      *
      * @param l view click listener
      */
-    @SuppressWarnings("WeakerAccess")
     public TextIdViewActionListener(ClickListener l) {
         this.l = l;
     }

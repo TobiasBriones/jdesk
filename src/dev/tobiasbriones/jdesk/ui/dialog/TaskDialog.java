@@ -33,8 +33,9 @@ import java.awt.event.WindowEvent;
  * App dialog which executes background tasks.
  *
  * @param <R> type of the result of the work to execute
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class TaskDialog<R> extends Dialog {
     private static final long serialVersionUID = -4612812543270615492L;
 
@@ -45,9 +46,7 @@ public final class TaskDialog<R> extends Dialog {
      *
      * @see AppWorkCallback
      */
-    @SuppressWarnings("WeakerAccess")
     public abstract static class TaskDialogCallback<R> extends AppWorkCallback<R> {
-        @SuppressWarnings("WeakerAccess")
         public TaskDialogCallback(dev.tobiasbriones.jdesk.Window window) {
             super(window);
         }
@@ -58,7 +57,6 @@ public final class TaskDialog<R> extends Dialog {
          *
          * @return <code>true</code> if and only if the cancel request is accepted by the application
          */
-        @SuppressWarnings("WeakerAccess")
         public abstract boolean cancelRequest();
     }
 
@@ -69,9 +67,7 @@ public final class TaskDialog<R> extends Dialog {
      *
      * @see TaskDialogCallback
      */
-    @SuppressWarnings("WeakerAccess")
     public abstract static class TaskDialogCallbackCancelEnabled<R> extends TaskDialogCallback<R> {
-        @SuppressWarnings("WeakerAccess")
         public TaskDialogCallbackCancelEnabled(dev.tobiasbriones.jdesk.Window window) {
             super(window);
         }
@@ -89,9 +85,7 @@ public final class TaskDialog<R> extends Dialog {
      *
      * @see TaskDialogCallback
      */
-    @SuppressWarnings("WeakerAccess")
     public abstract static class TaskDialogCallbackCancelDisabled<R> extends TaskDialogCallback<R> {
-        @SuppressWarnings("WeakerAccess")
         public TaskDialogCallbackCancelDisabled(dev.tobiasbriones.jdesk.Window window) {
             super(window);
         }
@@ -152,7 +146,6 @@ public final class TaskDialog<R> extends Dialog {
      * @param msg          dialog message
      * @param isCancelable make this work cancelable
      */
-    @SuppressWarnings("WeakerAccess")
     public TaskDialog(dev.tobiasbriones.jdesk.Window window, String title, String msg, boolean isCancelable) {
         super(window);
         this.msgLabel = new TextLabel(window, msg);
@@ -181,7 +174,6 @@ public final class TaskDialog<R> extends Dialog {
      * @param msgRes       dialog message resource
      * @param isCancelable make this work cancelable
      */
-    @SuppressWarnings("WeakerAccess")
     public TaskDialog(dev.tobiasbriones.jdesk.Window window, int titleRes, int msgRes, boolean isCancelable) {
         this(window, window.getStringResources().get(titleRes), window.getStringResources().get(msgRes), isCancelable);
     }
@@ -193,7 +185,6 @@ public final class TaskDialog<R> extends Dialog {
      * @param title  dialog title
      * @param msg    dialog message
      */
-    @SuppressWarnings("WeakerAccess")
     public TaskDialog(dev.tobiasbriones.jdesk.Window window, String title, String msg) {
         this(window, title, msg, true);
     }
@@ -205,7 +196,6 @@ public final class TaskDialog<R> extends Dialog {
      * @param titleRes dialog title resource
      * @param msgRes   dialog message resource
      */
-    @SuppressWarnings("WeakerAccess")
     public TaskDialog(Window window, int titleRes, int msgRes) {
         this(window, titleRes, msgRes, true);
     }

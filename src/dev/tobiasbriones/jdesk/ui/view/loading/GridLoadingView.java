@@ -22,8 +22,9 @@ import java.util.Random;
 
 /**
  * Loading view with a grid of random running little circles.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class GridLoadingView extends Panel implements LoadingView {
     private static final long serialVersionUID = -1113850587102601895L;
     private static final Dimension SIZE = new Dimension(36, 36);
@@ -42,7 +43,6 @@ public final class GridLoadingView extends Panel implements LoadingView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public GridLoadingView(WindowContext context) {
         super(context);
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();

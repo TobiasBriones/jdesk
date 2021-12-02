@@ -21,8 +21,9 @@ import java.nio.file.Paths;
  * Window to display the UI.
  *
  * @see WindowContext
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public abstract class Window extends FrameWindow {
     private static final long serialVersionUID = 673841114819291383L;
 
@@ -33,7 +34,6 @@ public abstract class Window extends FrameWindow {
      * @param title       window title
      * @param size        window size
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance, String title, Dimension size) {
         super(appInstance, title, size);
     }
@@ -45,7 +45,6 @@ public abstract class Window extends FrameWindow {
      * @param titleRes    window title
      * @param size        window size
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance, int titleRes, Dimension size) {
         super(appInstance, titleRes, size);
     }
@@ -56,7 +55,6 @@ public abstract class Window extends FrameWindow {
      * @param appInstance app instance
      * @param title       window title
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance, String title) {
         super(appInstance, title);
     }
@@ -67,7 +65,6 @@ public abstract class Window extends FrameWindow {
      * @param appInstance app instance
      * @param titleRes    window title
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance, int titleRes) {
         super(appInstance, titleRes);
     }
@@ -78,7 +75,6 @@ public abstract class Window extends FrameWindow {
      * @param appInstance app instance
      * @param size        window size
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance, Dimension size) {
         super(appInstance, "", size);
     }
@@ -88,17 +84,14 @@ public abstract class Window extends FrameWindow {
      *
      * @param appInstance app instance
      */
-    @SuppressWarnings("WeakerAccess")
     public Window(AppInstance appInstance) {
         super(appInstance, "");
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setTitle(int titleRes) {
         setTitle(getStringResources().get(titleRes));
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setIcon(String iconName) {
         final String path = Paths.get(Resources.ICON_DIRECTORY, iconName + ".png").toString();
 

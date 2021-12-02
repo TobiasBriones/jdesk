@@ -13,9 +13,12 @@
 package dev.tobiasbriones.jdesk.ui.work;
 
 /**
- * Requested to perform a background task on a new thread by invoking {@link WorkRunnable#run()}.
+ * Requested to perform a background task on a new thread by invoking
+ * {@link WorkRunnable#run()}.
  *
  * @param <R> type of result to return after completing the background task
+ *
+ * @author Tobias Briones
  */
 public interface WorkRunnable<R> {
     /**

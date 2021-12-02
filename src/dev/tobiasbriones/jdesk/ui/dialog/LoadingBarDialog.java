@@ -22,8 +22,9 @@ import java.awt.*;
 
 /**
  * Dialog implementing a loading bar to display the execution of tasks.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class LoadingBarDialog extends Dialog {
     private static final long serialVersionUID = 1165045874001773979L;
     private final DialogPanel panel;
@@ -34,7 +35,6 @@ public class LoadingBarDialog extends Dialog {
      *
      * @param window window to attach the dialog
      */
-    @SuppressWarnings("WeakerAccess")
     public LoadingBarDialog(Window window) {
         super(window);
         this.panel = new DialogPanel(window);
@@ -49,7 +49,6 @@ public class LoadingBarDialog extends Dialog {
      *
      * @param panelView dialog root panel
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setLBDView(Panel panelView) {
         panel.add(panelView, BorderLayout.CENTER);
         setView(panel, new Insets(0, 0, 0, 0));
@@ -66,7 +65,6 @@ public class LoadingBarDialog extends Dialog {
      *
      * @see AppWorker
      */
-    @SuppressWarnings("WeakerAccess")
     public final <R> AppWorker<R, Void> execute(WorkCallback<R> callback, WorkRunnable<R> runnable) {
         final AppWorker<R, Void> work = new AppWorker<>(lbv, callback);
 

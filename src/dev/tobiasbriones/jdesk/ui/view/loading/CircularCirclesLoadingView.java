@@ -21,8 +21,9 @@ import java.awt.*;
 
 /**
  * Loading view made of circles running circularly.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class CircularCirclesLoadingView extends Panel implements LoadingView {
     private static final long serialVersionUID = -4090727995998929826L;
     private static final Dimension SIZE = new Dimension(36, 36);
@@ -37,7 +38,6 @@ public final class CircularCirclesLoadingView extends Panel implements LoadingVi
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public CircularCirclesLoadingView(WindowContext context) {
         super(context);
         this.timer = new Timer(DELAY, e -> repaint());

@@ -19,40 +19,30 @@ import java.awt.*;
 import java.io.File;
 import java.nio.file.Paths;
 
-@SuppressWarnings("unused")
 public final class Resources {
     /**
      * App icon format.
      */
-    @SuppressWarnings("WeakerAccess")
     public static final FileFormat ICON_FORMAT = FileFormat.IMAGE_PNG;
     /**
      * Font ttf format.
      */
-    @SuppressWarnings("WeakerAccess")
     public static final FileFormat FONT_FORMAT = FileFormat.FONT_TTF;
     /**
      * App resource directory.
      */
-    @SuppressWarnings("WeakerAccess")
     public static final String RESOURCE_DIRECTORY = "resources";
     /**
      * App icons directory.
      */
-    @SuppressWarnings("WeakerAccess")
     public static final String ICON_DIRECTORY = RESOURCE_DIRECTORY + File.separator + "icons";
     /**
      * App fonts directory.
      */
-    @SuppressWarnings("WeakerAccess")
     public static final String FONT_DIRECTORY = RESOURCE_DIRECTORY + File.separator + "fonts";
-    @SuppressWarnings("WeakerAccess")
     public static final int SMALL_FONT_SIZE = 10;
-    @SuppressWarnings("WeakerAccess")
     public static final int NORMAL_FONT_SIZE = 12;
-    @SuppressWarnings("WeakerAccess")
     public static final int TITLE_FONT_SIZE = 14;
-    @SuppressWarnings("WeakerAccess")
     public static final String APP_ICON = "ic_launcher";
 
     /**

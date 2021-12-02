@@ -14,6 +14,8 @@ package dev.tobiasbriones.jdesk.ui.view.validation;
 
 /**
  * Listener sending validation request from an input view.
+ *
+ * @author Tobias Briones
  */
 public interface ValidationListener {
     /**

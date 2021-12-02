@@ -23,14 +23,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("unused")
 public final class StringResources {
     /**
      * Denotes the default file name containing the string resources.
      * Other string resources files from other languages are denoted
      * by <code>StringResources-LANG</code>
      */
-    @SuppressWarnings("WeakerAccess")
     public static final String STRING_RESOURCES_FILE = "StringResources";
     private static final String LANGUAGE_KEY = "language";
 

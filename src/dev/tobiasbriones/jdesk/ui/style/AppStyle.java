@@ -15,9 +15,11 @@ package dev.tobiasbriones.jdesk.ui.style;
 import java.awt.*;
 
 /**
- * App style used to stylize the app UI components such as windows, dialogs and views.
+ * App style used to stylize the app UI components such as windows, dialogs and
+ * views.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public interface AppStyle {
     /**
      * Returns the app font.

@@ -23,8 +23,9 @@ import java.awt.event.FocusListener;
 
 /**
  * Input text view which manages user input passwords.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class PasswordInputText extends JPasswordField {
     private static final long serialVersionUID = 740143870155528177L;
     private static final int HEIGHT = 24;

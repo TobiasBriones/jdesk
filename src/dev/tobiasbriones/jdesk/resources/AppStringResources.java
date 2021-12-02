@@ -12,7 +12,6 @@
 
 package dev.tobiasbriones.jdesk.resources;
 
-@SuppressWarnings("unused")
 public final class AppStringResources {
     public static final int APP_NAME = 0;
     public static final int OK = 1;

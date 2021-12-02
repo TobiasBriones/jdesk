@@ -15,10 +15,11 @@ package dev.tobiasbriones.jdesk.ui.work;
 import java.util.List;
 
 /**
- * It executes a work on background with {@link AppWorker} and updates the {@link ProgressLoadingView} when the update
- * is received.
+ * It executes a work on background with {@link AppWorker} and updates the
+ * {@link ProgressLoadingView} when the update is received.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class ProgressWorkManager<R> {
     private static final class Listener implements WorkRunnableListener<Progress> {
         private final ProgressLoadingView progressLoadingView;
@@ -46,7 +47,6 @@ public final class ProgressWorkManager<R> {
      * @param callback     work callback
      * @param progressSize size of items to be processed
      */
-    @SuppressWarnings("WeakerAccess")
     public ProgressWorkManager(ProgressLoadingView loadingView, WorkCallback<R> callback, int progressSize) {
         this.work = new AppWorker<>(loadingView, callback, new Listener(loadingView));
         this.progress = new Progress(progressSize);
@@ -58,7 +58,6 @@ public final class ProgressWorkManager<R> {
      * @param loadingView loading view
      * @param callback    work callback
      */
-    @SuppressWarnings("WeakerAccess")
     public ProgressWorkManager(ProgressLoadingView loadingView, WorkCallback<R> callback) {
         this(loadingView, callback, -1);
     }
@@ -77,7 +76,6 @@ public final class ProgressWorkManager<R> {
      *
      * @return the progress
      */
-    @SuppressWarnings("WeakerAccess")
     public Progress getProgress() {
         return progress;
     }
@@ -94,7 +92,6 @@ public final class ProgressWorkManager<R> {
     /**
      * It is called from {@link WorkRunnable#run()} to update the progress of the {@link ProgressLoadingView}.
      */
-    @SuppressWarnings("WeakerAccess")
     public void update() {
         work.update(progress);
     }

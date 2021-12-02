@@ -20,8 +20,9 @@ import java.awt.*;
 
 /**
  * Panel used by the application dialogs.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class DialogPanel extends Panel {
     private static final long serialVersionUID = 2745851950237186422L;
 
@@ -30,7 +31,6 @@ public class DialogPanel extends Panel {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public DialogPanel(WindowContext context) {
         super(context);
         config(context.getAppStyle());
@@ -43,7 +43,6 @@ public class DialogPanel extends Panel {
      * @param layoutManager layoutManager
      * @param padding       padding
      */
-    @SuppressWarnings("WeakerAccess")
     public DialogPanel(WindowContext context, LayoutManager layoutManager, Insets padding) {
         super(context, layoutManager, padding);
         config(context.getAppStyle());
@@ -55,7 +54,6 @@ public class DialogPanel extends Panel {
      * @param context       window context
      * @param layoutManager layoutManager
      */
-    @SuppressWarnings("WeakerAccess")
     public DialogPanel(WindowContext context, LayoutManager layoutManager) {
         super(context, layoutManager);
         config(context.getAppStyle());

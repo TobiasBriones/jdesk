@@ -21,10 +21,13 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 
 /**
- * Popup showing a list of items. Use the methods {@link #addItem(String)} to add an item to this popup menu.
- * Call {@link #setItemSelectedListener(ItemSelectedListener)} to receive item events.
+ * Popup showing a list of items. Use the methods {@link #addItem(String)} to
+ * add an item to this popup menu. Call
+ * {@link #setItemSelectedListener(ItemSelectedListener)} to receive item
+ * events.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ListPopupMenu extends PopupMenu {
     private static final long serialVersionUID = 6542389860376614740L;
 

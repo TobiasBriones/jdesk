@@ -18,7 +18,6 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import java.util.Vector;
 
-@SuppressWarnings("unused")
 public class Table extends JTable {
     private static final long serialVersionUID = -6215396228667151097L;
 

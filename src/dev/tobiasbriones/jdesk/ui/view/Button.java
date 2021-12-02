@@ -22,8 +22,9 @@ import java.awt.event.FocusListener;
 
 /**
  * Button view.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class Button extends JButton implements TextIdClickView {
     private static final long serialVersionUID = -8346675620406508178L;
     private final int textId;
@@ -39,7 +40,6 @@ public class Button extends JButton implements TextIdClickView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public Button(WindowContext context) {
         super();
         this.textId = -1;
@@ -54,7 +54,6 @@ public class Button extends JButton implements TextIdClickView {
      * @param context window context
      * @param text    button text
      */
-    @SuppressWarnings("WeakerAccess")
     public Button(WindowContext context, String text) {
         super(text);
         this.textId = -1;
@@ -87,7 +86,6 @@ public class Button extends JButton implements TextIdClickView {
      * @param context window context
      * @param icon    button icon
      */
-    @SuppressWarnings("WeakerAccess")
     public Button(WindowContext context, Icon icon) {
         super(icon);
         this.textId = -1;
@@ -103,7 +101,6 @@ public class Button extends JButton implements TextIdClickView {
      * @param text    button text
      * @param icon    button icon
      */
-    @SuppressWarnings("WeakerAccess")
     public Button(WindowContext context, String text, Icon icon) {
         super(text, icon);
         this.textId = -1;
@@ -120,7 +117,6 @@ public class Button extends JButton implements TextIdClickView {
      * @param textRes button text resource
      * @param icon    button icon
      */
-    @SuppressWarnings("WeakerAccess")
     public Button(WindowContext context, int textRes, Icon icon) {
         super(context.getStringResources().get(textRes), icon);
         this.textId = (context instanceof ClickListener) ? textRes : -1;
@@ -132,52 +128,42 @@ public class Button extends JButton implements TextIdClickView {
         config(context.getAppStyle());
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final Color getBackgroundColor() {
         return backgroundColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final Color getHoverColor() {
         return hoverColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setHoverColor(Color hoverColor) {
         this.hoverColor = hoverColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final Color getPressedColor() {
         return pressedColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setPressedColor(Color pressedColor) {
         this.pressedColor = pressedColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final Color getFocusedColor() {
         return focusedColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final Color getDisabledColor() {
         return disabledColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setDisabledColor(Color disabledColor) {
         this.disabledColor = disabledColor;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final boolean isFocused() {
         return isFocused;
     }
@@ -224,7 +210,6 @@ public class Button extends JButton implements TextIdClickView {
         return textId;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public final void setBold() {
         setFont(getFont().deriveFont(Font.BOLD));
     }

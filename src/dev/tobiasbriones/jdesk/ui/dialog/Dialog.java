@@ -24,8 +24,9 @@ import java.nio.file.Paths;
 
 /**
  * Application dialog.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class Dialog extends JDialog implements WindowContext {
     private static final long serialVersionUID = -597263550794114904L;
     private final transient WindowContext windowContext;
@@ -36,7 +37,6 @@ public class Dialog extends JDialog implements WindowContext {
      * @param window windowContext to be attached
      * @param title  dialog title
      */
-    @SuppressWarnings("WeakerAccess")
     public Dialog(dev.tobiasbriones.jdesk.Window window, String title) {
         super(window, title);
         this.windowContext = window.getWindowContext();
@@ -49,7 +49,6 @@ public class Dialog extends JDialog implements WindowContext {
      *
      * @param window windowContext to be attached
      */
-    @SuppressWarnings("WeakerAccess")
     public Dialog(Window window) {
         this(window, "");
     }
@@ -99,7 +98,6 @@ public class Dialog extends JDialog implements WindowContext {
      * @param panel   root panel for the dialog
      * @param padding padding to put to the panel
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setView(DialogPanel panel, Insets padding) {
         panel.setPadding(padding);
         getContentPane().add(panel);

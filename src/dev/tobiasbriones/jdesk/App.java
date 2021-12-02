@@ -21,8 +21,9 @@ import java.awt.*;
 
 /**
  * Entry point to build an application.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public abstract class App {
     /**
      * File to store the app main configuration.

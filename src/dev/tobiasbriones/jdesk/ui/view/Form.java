@@ -25,8 +25,9 @@ import java.util.List;
 /**
  * Horizontal form that shows to the user a set of inputs to be filled. It handles the user events with
  * {@link SubmitListener} or {@link FormListener}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class Form extends Panel {
     private static final long serialVersionUID = -6321132655015363936L;
 
@@ -130,7 +131,6 @@ public class Form extends Panel {
      *
      * @param error error
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setErrorText(String error) {
         errorLabel.setText(error);
     }
@@ -140,7 +140,6 @@ public class Form extends Panel {
      *
      * @param errorTextRes error text resource
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setErrorText(int errorTextRes) {
         errorLabel.setText(context.getStringResources().get(errorTextRes));
     }
@@ -151,7 +150,6 @@ public class Form extends Panel {
      *
      * @param texts texts for the input text or password input text on this form
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setInputTexts(String... texts) {
         int i = 0;
 
@@ -196,7 +194,6 @@ public class Form extends Panel {
      * @param labelRes label text resource to show on this input
      * @param input    component to place as the input, for example {@link InputText} or any other {@link Component}
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addInput(int labelRes, Component input) {
         final TextLabel label = new TextLabel(context, context.getStringResources().get(labelRes));
 
@@ -230,7 +227,6 @@ public class Form extends Panel {
      *
      * @see SubmitListener
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addSubmitButton(int submitTextRes, SubmitListener l) {
         gbc.insets.top = 2;
         gbc.insets.bottom = 5;
@@ -255,7 +251,6 @@ public class Form extends Panel {
      * @param l             form listener
      * @param horizontal    put the bottoms horizontally
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addCancelSubmitButtons(int cancelTextRes, int submitTextRes, FormListener l, boolean horizontal) {
         if (l == null) {
             throw new NullPointerException("FormListener is null");
@@ -300,7 +295,6 @@ public class Form extends Panel {
      * @param submitTextRes submit button text resource
      * @param l             form listener
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addCancelSubmitButtons(int cancelTextRes, int submitTextRes, FormListener l) {
         addCancelSubmitButtons(cancelTextRes, submitTextRes, l, true);
     }
@@ -315,7 +309,6 @@ public class Form extends Panel {
      * @param l             form listener
      * @param horizontal    put the bottoms horizontally
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addCancelSubmitButtons(int submitTextRes, FormListener l, boolean horizontal) {
         addCancelSubmitButtons(AppStringResources.CANCEL, submitTextRes, l, horizontal);
     }
@@ -329,7 +322,6 @@ public class Form extends Panel {
      * @param submitTextRes submit button text resource
      * @param l             form listener
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addCancelSubmitButtons(int submitTextRes, FormListener l) {
         addCancelSubmitButtons(AppStringResources.CANCEL, submitTextRes, l, true);
     }
@@ -338,7 +330,6 @@ public class Form extends Panel {
      * Adds the error label to the form to display user input errors or fails. It has to be called in the end after
      * setting the form cancel/submit buttons.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void addErrorLabel() {
         errorLabel.setForeground(context.getAppStyle().getErrorTextColor());
         add(errorLabel, gbc);
@@ -348,7 +339,6 @@ public class Form extends Panel {
      * When submitting the form disables the submit button, this methods is used if is needed to enable again
      * the submit button to continue using the form.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void enableSubmit() {
         submitButton.setEnabled(true);
     }
@@ -360,7 +350,6 @@ public class Form extends Panel {
      * @return <code>true</code> if and only if all the {@link InputText} and {@link PasswordInputText} in the form
      * are set.
      */
-    @SuppressWarnings("WeakerAccess")
     public final boolean checkAllInputText() {
         for (Component input : inputs) {
             if (input instanceof InputText || input instanceof PasswordInputText) {
@@ -389,7 +378,6 @@ public class Form extends Panel {
      * Clears all the {@link InputText} and {@link PasswordInputText} added to the form. Other inputs added has to be
      * manually cleared.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void clear() {
         for (Component input : inputs) {
             if (input instanceof InputText || input instanceof PasswordInputText) {
@@ -408,7 +396,6 @@ public class Form extends Panel {
     /**
      * Triggers submit button click and eventually the submit event.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void submit() {
         submitButton.doClick();
     }
@@ -416,7 +403,6 @@ public class Form extends Panel {
     /**
      * Triggers the cancel button click and eventually the cancel event.
      */
-    @SuppressWarnings("WeakerAccess")
     public final void cancel() {
         cancelButton.doClick();
     }

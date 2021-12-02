@@ -13,9 +13,10 @@
 package dev.tobiasbriones.jdesk.io;
 
 /**
- * It contains general common file extensions.
+ * Defines general common file extensions.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public enum FileFormat {
     PLAIN_TEXT_TXT("txt"),
     PLAIN_CONFIG_CONFIG("config"),

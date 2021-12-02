@@ -21,8 +21,9 @@ import java.awt.*;
 
 /**
  * Loading view with little squares running from left to right.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class SquaresLoadingView extends Panel implements LoadingView {
     private static final long serialVersionUID = -3024496598749776705L;
     private static final Dimension SIZE = new Dimension(36, 4);
@@ -37,7 +38,6 @@ public final class SquaresLoadingView extends Panel implements LoadingView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public SquaresLoadingView(WindowContext context) {
         super(context);
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();

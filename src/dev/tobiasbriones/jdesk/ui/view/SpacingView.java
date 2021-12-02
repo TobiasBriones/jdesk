@@ -17,9 +17,11 @@ import dev.tobiasbriones.jdesk.WindowContext;
 import java.awt.*;
 
 /**
- * Empty view which can be added to a container to space components, it can come in handy as a trick.
+ * Empty view which can be added to a container to space components, it can come
+ * in handy as a trick.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public final class SpacingView extends Panel {
     private static final long serialVersionUID = 2038750229780540125L;
     public enum Orientation { HORIZONTAL, VERTICAL }
@@ -31,7 +33,6 @@ public final class SpacingView extends Panel {
      * @param width   view width
      * @param height  view height
      */
-    @SuppressWarnings("WeakerAccess")
     public SpacingView(WindowContext context, int width, int height) {
         super(context);
         setPreferredSize(new Dimension(width, height));
@@ -46,7 +47,6 @@ public final class SpacingView extends Panel {
      *                    the other dimension will be 1px
      * @param orientation view orientation
      */
-    @SuppressWarnings("WeakerAccess")
     public SpacingView(WindowContext context, int size, Orientation orientation) {
         this(
             context,
@@ -61,7 +61,6 @@ public final class SpacingView extends Panel {
      * @param context window context
      * @param width   view width
      */
-    @SuppressWarnings("WeakerAccess")
     public SpacingView(WindowContext context, int width) {
         this(context, width, Orientation.HORIZONTAL);
     }

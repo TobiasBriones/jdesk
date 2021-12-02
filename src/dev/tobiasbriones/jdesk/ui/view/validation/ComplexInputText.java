@@ -30,9 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Input text with complex implementations such as text length counter and input user validations.
+ * Input text with complex implementations such as text length counter and input
+ * user validations.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class ComplexInputText extends Panel implements ValidationView {
     private static final long serialVersionUID = 5444537149754102424L;
 
@@ -42,7 +44,6 @@ public class ComplexInputText extends Panel implements ValidationView {
     public static final class ClearView extends TextLabel {
         private static final long serialVersionUID = -4416773433702042680L;
 
-        @SuppressWarnings("WeakerAccess")
         public ClearView(WindowContext context) {
             super(context, "x");
             setTextStyle(TextStyle.NORMAL, 10);
@@ -118,7 +119,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      * @param context window context
      * @param columns columns for the input text
      */
-    @SuppressWarnings("WeakerAccess")
     public ComplexInputText(WindowContext context, int columns) {
         super(context);
         this.topPanel = new Panel(context);
@@ -136,7 +136,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      *
      * @param context window context
      */
-    @SuppressWarnings("WeakerAccess")
     public ComplexInputText(WindowContext context) {
         this(context, 0);
     }
@@ -150,7 +149,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      *
      * @param l validation listener
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setValidationListener(ValidationListener l) {
         this.validationListener = l;
     }
@@ -164,7 +162,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      *
      * @return the input text of this view
      */
-    @SuppressWarnings("WeakerAccess")
     public final InputText getInputText() {
         return inputText;
     }
@@ -174,7 +171,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      *
      * @return the text of the input
      */
-    @SuppressWarnings("WeakerAccess")
     public final String getText() {
         return inputText.getText();
     }
@@ -184,7 +180,6 @@ public class ComplexInputText extends Panel implements ValidationView {
      *
      * @param text text
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setText(String text) {
         inputText.setText(text);
     }

@@ -12,7 +12,6 @@
 
 package dev.tobiasbriones.jdesk.ui.view.validation.validator;
 
-@SuppressWarnings("unused")
 public final class NumberValidator implements Validator<String> {
     public enum NumberType { INTEGER, DECIMAL, LONG }
 
@@ -33,7 +32,6 @@ public final class NumberValidator implements Validator<String> {
      * @param zero       accept the number zero
      * @param errorText  error text to display when needed
      */
-    @SuppressWarnings("WeakerAccess")
     public NumberValidator(NumberType numberType, boolean unsigned, boolean zero, String errorText) {
         this.type = numberType;
         this.unsigned = unsigned;
@@ -74,7 +72,6 @@ public final class NumberValidator implements Validator<String> {
         return errorText;
     }
 
-    @SuppressWarnings("WeakerAccess")
     public void setErrorText(String errorText) {
         this.errorText = errorText;
     }

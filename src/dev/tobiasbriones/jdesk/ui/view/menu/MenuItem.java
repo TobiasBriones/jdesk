@@ -22,8 +22,9 @@ import javax.swing.border.EmptyBorder;
 
 /**
  * Menu item view to put on a {@link Menu} or {@link PopupMenu}.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class MenuItem extends Button {
     private static final long serialVersionUID = 7869101163125586456L;
     private static final Border PADDING = new EmptyBorder(5, 20, 5, 10);

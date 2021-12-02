@@ -12,7 +12,6 @@
 
 package dev.tobiasbriones.jdesk.ui.work;
 
-@SuppressWarnings("unused")
 public final class Progress {
     private int size;
     private int i;
@@ -22,7 +21,6 @@ public final class Progress {
      *
      * @param size size
      */
-    @SuppressWarnings("WeakerAccess")
     public Progress(int size) {
         this.size = size;
         this.i = 0;
@@ -31,7 +29,6 @@ public final class Progress {
     /**
      * Default constructor for Progress.
      */
-    @SuppressWarnings("WeakerAccess")
     public Progress() {
         this(-1);
     }
@@ -42,7 +39,6 @@ public final class Progress {
      *
      * @return the progress, float form 0 to 1 inclusive
      */
-    @SuppressWarnings("WeakerAccess")
     public float getProgress() {
         if (size == -1) {
             return 0;
@@ -57,7 +53,6 @@ public final class Progress {
      *
      * @return the progress in percentage, float form 0 to 100 inclusive
      */
-    @SuppressWarnings("WeakerAccess")
     public float getProgressPercentage() {
         return getProgress() * 100;
     }
@@ -67,7 +62,6 @@ public final class Progress {
      *
      * @param size size, integer greater than 0, otherwise will be set to -1
      */
-    @SuppressWarnings("WeakerAccess")
     public void setSize(int size) {
         this.size = size;
         this.i = 0;
@@ -82,7 +76,6 @@ public final class Progress {
      *
      * @param items new processed items
      */
-    @SuppressWarnings("WeakerAccess")
     public void add(int items) {
         i += items;
     }
@@ -90,7 +83,6 @@ public final class Progress {
     /**
      * Counts up one processed item.
      */
-    @SuppressWarnings("WeakerAccess")
     public void add() {
         add(1);
     }

@@ -21,6 +21,8 @@ import java.awt.*;
 
 /**
  * Button used by app dialogs to ask for the user action.
+ *
+ * @author Tobias Briones
  */
 public final class OptionButton extends Button {
     private static final long serialVersionUID = 1302281349633313120L;
@@ -33,7 +35,6 @@ public final class OptionButton extends Button {
      * @param context window context
      * @param option  button option text
      */
-    @SuppressWarnings("WeakerAccess")
     public OptionButton(WindowContext context, String option) {
         super(context, option);
         this.borderColor = context.getAppStyle().getAccentColor();

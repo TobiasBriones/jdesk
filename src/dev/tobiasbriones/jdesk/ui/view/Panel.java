@@ -20,8 +20,9 @@ import java.awt.*;
 
 /**
  * Container used to add the GUIs views.
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 public class Panel extends JPanel {
     private static final long serialVersionUID = -5732557247313892983L;
 
@@ -66,7 +67,6 @@ public class Panel extends JPanel {
      *
      * @param padding padding
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setPadding(Insets padding) {
         setBorder(new EmptyBorder(padding));
     }
@@ -79,7 +79,6 @@ public class Panel extends JPanel {
      * @param bottom padding bottom
      * @param right  padding right
      */
-    @SuppressWarnings("WeakerAccess")
     public final void setPadding(int top, int left, int bottom, int right) {
         setBorder(new EmptyBorder(top, left, bottom, right));
     }

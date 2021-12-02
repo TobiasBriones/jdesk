@@ -27,8 +27,9 @@ import java.awt.event.WindowEvent;
  *
  * @see Window
  * @see WindowContext
+ *
+ * @author Tobias Briones
  */
-@SuppressWarnings("unused")
 abstract class FrameWindow extends JFrame implements WindowContext {
     private static final long serialVersionUID = 3319905613616655519L;
 
@@ -173,7 +174,6 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      *
      * @return true if and only if this window is main
      */
-    @SuppressWarnings("WeakerAccess")
     public final boolean isMainWindow() {
         return isMainWindow;
     }
@@ -240,14 +240,12 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      *
      * @param panel root panel of the window
      */
-    @SuppressWarnings("WeakerAccess")
     protected abstract void createWindow(Panel panel);
 
     /**
      * Called immediately after this window is created.
      * It should be decided then to set the window as visible.
      */
-    @SuppressWarnings("WeakerAccess")
     protected abstract void windowCreated();
 
     /**
@@ -255,19 +253,16 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      *
      * @param visible visible
      */
-    @SuppressWarnings("WeakerAccess")
     protected abstract void windowVisible(boolean visible);
 
     /**
      * Called when this window is opened.
      */
-    @SuppressWarnings("WeakerAccess")
     protected abstract void windowOpened();
 
     /**
      * Called when this window is detached. If it is a main window it occurs when is being closed,
      * otherwise when is closed.
      */
-    @SuppressWarnings("WeakerAccess")
     protected abstract void windowDetached();
 }
