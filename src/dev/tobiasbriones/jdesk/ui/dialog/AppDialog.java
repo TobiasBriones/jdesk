@@ -65,14 +65,14 @@ public final class AppDialog {
 
         okButton.addActionListener(l);
         panel.setLayout(new BorderLayout());
-        panel.add(titleLabel, BorderLayout.NORTH);
+        panel.add(titleLabel, BorderLayout.PAGE_START);
         panel.add(msgLabel, BorderLayout.CENTER);
-        panel.add(actionPanel, BorderLayout.SOUTH);
+        panel.add(actionPanel, BorderLayout.PAGE_END);
         if (icon != null) {
             final TextLabel iconLabel = new TextLabel(window, icon);
 
             iconLabel.setBorder(new EmptyBorder(0, 0, 0, ICON_RIGHT_MARGIN));
-            panel.add(iconLabel, BorderLayout.WEST);
+            panel.add(iconLabel, BorderLayout.LINE_START);
         }
         dialog.setView(panel, DIALOG_PADDING);
         dialog.getRootPane().setDefaultButton(okButton);

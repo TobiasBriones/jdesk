@@ -43,7 +43,6 @@ public class ItemInputPane extends Panel implements Iterable<String> {
             this.hoverColor = context.getAppStyle().getItemHoverColor();
             final TextLabel closeLabel = new TextLabel(context, "x");
             final MouseListener l = new MouseAdapter() {
-
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
@@ -191,7 +190,6 @@ public class ItemInputPane extends Panel implements Iterable<String> {
     @Override
     public Iterator<String> iterator() {
         return new Iterator<String>() {
-
             private int next = 0;
 
             @Override

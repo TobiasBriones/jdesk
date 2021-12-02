@@ -26,41 +26,6 @@ import java.awt.event.MouseEvent;
 public class CheckButton extends Panel implements TextIdClickView {
     private static final long serialVersionUID = -1977865084712151136L;
     private static final Insets PADDING = new Insets(4, 8, 4, 8);
-
-    private static final class CheckBoxSquare extends Panel {
-        private static final Dimension SIZE = new Dimension(12, 12);
-        private static final long serialVersionUID = -7554783009089690566L;
-        private final Color backgroundColor;
-        private final Color color;
-        private boolean isChecked;
-
-        private CheckBoxSquare(WindowContext context) {
-            super(context);
-            this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
-            this.color = context.getAppStyle().getAccentColor();
-
-            setPreferredSize(SIZE);
-        }
-
-        private void setChecked(boolean checked) {
-            this.isChecked = checked;
-
-            repaint();
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            g.setColor(backgroundColor);
-            g.fillRect(0, 0, getWidth(), getHeight());
-            g.setColor(color);
-            g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
-
-            if (isChecked) {
-                g.fillRect(3, 3, getWidth() - 6, getHeight() - 6);
-            }
-        }
-    }
-
     private final int textId;
     private final TextLabel label;
     private final CheckBoxSquare checkBox;
@@ -82,8 +47,8 @@ public class CheckButton extends Panel implements TextIdClickView {
     }
 
     /**
-     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check button if
-     * context is instance of {@link ClickListener}.
+     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check
+     * button if context is instance of {@link ClickListener}.
      *
      * @param context window context
      * @param textRes check button text resource
@@ -118,8 +83,8 @@ public class CheckButton extends Panel implements TextIdClickView {
     }
 
     /**
-     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check button if
-     * context is instance of {@link ClickListener}.
+     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check
+     * button if context is instance of {@link ClickListener}.
      *
      * @param context window context
      * @param textRes check button text resource
@@ -174,5 +139,39 @@ public class CheckButton extends Panel implements TextIdClickView {
                 super.mouseClicked(e);
             }
         });
+    }
+
+    private static final class CheckBoxSquare extends Panel {
+        private static final Dimension SIZE = new Dimension(12, 12);
+        private static final long serialVersionUID = -7554783009089690566L;
+        private final Color backgroundColor;
+        private final Color color;
+        private boolean isChecked;
+
+        private CheckBoxSquare(WindowContext context) {
+            super(context);
+            this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
+            this.color = context.getAppStyle().getAccentColor();
+
+            setPreferredSize(SIZE);
+        }
+
+        private void setChecked(boolean checked) {
+            this.isChecked = checked;
+
+            repaint();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            g.setColor(backgroundColor);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            g.setColor(color);
+            g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+
+            if (isChecked) {
+                g.fillRect(3, 3, getWidth() - 6, getHeight() - 6);
+            }
+        }
     }
 }

@@ -62,7 +62,7 @@ public final class ActionPanel extends DialogPanel {
     public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction, Button neutralButton) {
         super(context);
         final DialogPanel leftPanel = new DialogPanel(context);
-        final DialogPanel rightPanel = new DialogPanel(context, new FlowLayout(FlowLayout.RIGHT));
+        final DialogPanel rightPanel = new DialogPanel(context, new FlowLayout(FlowLayout.TRAILING));
 
         leftPanel.add(neutralButton);
         rightPanel.add(negativeAction);

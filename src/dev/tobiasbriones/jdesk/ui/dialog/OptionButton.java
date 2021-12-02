@@ -33,10 +33,10 @@ public final class OptionButton extends Button {
      * Default Constructor for an OptionButton.
      *
      * @param context window context
-     * @param option  button option text
+     * @param text  button option text
      */
-    public OptionButton(WindowContext context, String option) {
-        super(context, option);
+    public OptionButton(WindowContext context, String text) {
+        super(context, text);
         this.borderColor = context.getAppStyle().getAccentColor();
 
         setBorder(BORDER);
@@ -48,6 +48,7 @@ public final class OptionButton extends Button {
         super.paintComponent(g);
         g.setColor(borderColor);
         g.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
+
         if (isFocused()) {
             g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         }

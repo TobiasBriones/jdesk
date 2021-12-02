@@ -128,10 +128,10 @@ public class InputText extends JTextField {
     /**
      * Sets a hint text to show on the input text when this is empty and with requestFocus lost.
      *
-     * @param hintText hint text
+     * @param value hint text
      */
-    public final void setHintText(String hintText) {
-        this.hintText = hintText;
+    public final void setHintText(String value) {
+        this.hintText = value;
 
         checkForApplyingHintText();
     }
@@ -142,7 +142,6 @@ public class InputText extends JTextField {
         setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
         setFont(appStyle.getFont());
         addFocusListener(new FocusListener() {
-
             @Override
             public void focusGained(FocusEvent e) {
                 setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, appStyle.getAccentColor()));

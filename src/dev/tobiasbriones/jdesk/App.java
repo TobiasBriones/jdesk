@@ -29,28 +29,6 @@ public abstract class App {
      * File to store the app main configuration.
      */
     public static final String APP_CONFIG_FILE = "app_config.properties";
-
-    private static void presetUI(Font font) {
-        // Set LookAndFeel
-        if (System.getProperty("os.name").contains("Windows")) {
-            try {
-                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            }
-            catch (Exception ignored) {
-            }
-        }
-        // Register font
-        if (font != null) {
-            final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-
-            try {
-                ge.registerFont(font);
-            }
-            catch (Exception ignored) {
-            }
-        }
-    }
-
     private Window mw;
 
     /**
@@ -58,7 +36,6 @@ public abstract class App {
      *
      * @param font app's main font to be registered
      */
-    @SuppressWarnings("WeakerAccess")
     public App(Font font) {
         this.mw = null;
 
@@ -68,20 +45,9 @@ public abstract class App {
     /**
      * Default constructor for an Application.
      */
-    @SuppressWarnings("WeakerAccess")
     public App() {
         this(null);
     }
-
-    /**
-     * Returns the app instance for this app.
-     *
-     * @return the app instance
-     *
-     * @see AppInstance
-     */
-    @SuppressWarnings("WeakerAccess")
-    protected abstract AppInstance getAppInstance();
 
     /**
      * Adds a main window for the application, if an old main window is already attached it will be
@@ -109,8 +75,37 @@ public abstract class App {
      *
      * @param window window to attach to the application
      */
-    @SuppressWarnings("WeakerAccess")
     public void addWindow(Window window) {
         SwingUtilities.invokeLater(window::createWindow);
+    }
+
+    /**
+     * Returns the app instance for this app.
+     *
+     * @return the app instance
+     *
+     * @see AppInstance
+     */
+    protected abstract AppInstance getAppInstance();
+
+    private static void presetUI(Font font) {
+        // Set LookAndFeel
+        if (System.getProperty("os.name").contains("Windows")) {
+            try {
+                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            }
+            catch (Exception ignored) {
+            }
+        }
+        // Register font
+        if (font != null) {
+            final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+            try {
+                ge.registerFont(font);
+            }
+            catch (Exception ignored) {
+            }
+        }
     }
 }

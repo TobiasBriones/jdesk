@@ -61,12 +61,12 @@ public final class CircularTransitionLoadingView extends Panel implements Loadin
     }
 
     /**
-     * Sets the view color.
+     * Sets the view value.
      *
-     * @param color view color
+     * @param value view value
      */
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColor(Color value) {
+        this.color = value;
     }
 
     @Override

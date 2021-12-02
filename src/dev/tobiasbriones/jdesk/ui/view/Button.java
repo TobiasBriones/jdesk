@@ -132,24 +132,24 @@ public class Button extends JButton implements TextIdClickView {
         return backgroundColor;
     }
 
-    public final void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public final void setBackgroundColor(Color value) {
+        this.backgroundColor = value;
     }
 
     public final Color getHoverColor() {
         return hoverColor;
     }
 
-    public final void setHoverColor(Color hoverColor) {
-        this.hoverColor = hoverColor;
+    public final void setHoverColor(Color value) {
+        this.hoverColor = value;
     }
 
     public final Color getPressedColor() {
         return pressedColor;
     }
 
-    public final void setPressedColor(Color pressedColor) {
-        this.pressedColor = pressedColor;
+    public final void setPressedColor(Color value) {
+        this.pressedColor = value;
     }
 
     public final Color getFocusedColor() {
@@ -160,8 +160,8 @@ public class Button extends JButton implements TextIdClickView {
         return disabledColor;
     }
 
-    public final void setDisabledColor(Color disabledColor) {
-        this.disabledColor = disabledColor;
+    public final void setDisabledColor(Color value) {
+        this.disabledColor = value;
     }
 
     public final boolean isFocused() {
@@ -227,7 +227,6 @@ public class Button extends JButton implements TextIdClickView {
         setContentAreaFilled(false);
         setFocusPainted(false);
         addFocusListener(new FocusListener() {
-
             @Override
             public void focusGained(FocusEvent e) {
                 isFocused = true;

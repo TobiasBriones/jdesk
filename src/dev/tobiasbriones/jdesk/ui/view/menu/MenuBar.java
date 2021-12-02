@@ -43,8 +43,8 @@ public class MenuBar extends JMenuBar {
         return menuShowing;
     }
 
-    void setMenuShowing(Menu menuShowing) {
-        this.menuShowing = menuShowing;
+    void setMenuShowing(Menu value) {
+        this.menuShowing = value;
     }
 
     /**

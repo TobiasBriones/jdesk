@@ -268,8 +268,7 @@ public final class TaskDialog<R> extends Dialog {
         panel.add(topPanel, BorderLayout.PAGE_START);
         panel.add(msgLabel, BorderLayout.CENTER);
         if (isCancelable) {
-            final String cancelStr = context.getStringResources().get(
-                AppStringResources.CANCEL);
+            final String cancelStr = context.getStringResources().get(AppStringResources.CANCEL);
             final OptionButton cancelButton = new OptionButton(context, cancelStr);
             final ActionPanel actionPanel = new ActionPanel(context, cancelButton);
             final ActionListener l = e -> cancelTask();

@@ -51,7 +51,6 @@ public final class DefaultStyle extends Style {
      * to those app style.
      */
     public static final class ColorPair {
-
         private final int id;
         private final Color color;
 

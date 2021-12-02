@@ -34,8 +34,8 @@ public class ListPopupMenu extends PopupMenu {
     /**
      * Listener to handle popup list items events.
      */
+    @FunctionalInterface
     public interface ItemSelectedListener {
-
         /**
          * Called when an item in the popup list has been selected.
          *
@@ -44,6 +44,7 @@ public class ListPopupMenu extends PopupMenu {
          */
         void onItemSelected(String item, int index);
     }
+
     private final DefaultListModel<String> listModel;
     private transient ItemSelectedListener l;
 
@@ -72,10 +73,10 @@ public class ListPopupMenu extends PopupMenu {
     /**
      * Sets the item selected listener for the items added to the popup list.
      *
-     * @param l item selected listener
+     * @param value item selected listener
      */
-    public final void setItemSelectedListener(ItemSelectedListener l) {
-        this.l = l;
+    public final void setItemSelectedListener(ItemSelectedListener value) {
+        this.l = value;
     }
 
     /**

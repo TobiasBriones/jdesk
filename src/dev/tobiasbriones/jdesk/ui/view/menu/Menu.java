@@ -12,11 +12,11 @@
 
 package dev.tobiasbriones.jdesk.ui.view.menu;
 
+import dev.tobiasbriones.jdesk.WindowContext;
+import dev.tobiasbriones.jdesk.ui.style.AppStyle;
 import dev.tobiasbriones.jdesk.ui.view.ClickListener;
 import dev.tobiasbriones.jdesk.ui.view.TextIdClickView;
 import dev.tobiasbriones.jdesk.ui.view.TextLabel;
-import dev.tobiasbriones.jdesk.WindowContext;
-import dev.tobiasbriones.jdesk.ui.style.AppStyle;
 
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
@@ -28,37 +28,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Window menu that contains the {@link MenuItem} items to display a menu on the
- * {@link MenuBar}.
+ * Window menu that contains the {@link MenuItem} items to display a menu on the {@link MenuBar}.
  *
  * @author Tobias Briones
  */
 public class Menu extends TextLabel {
     private static final long serialVersionUID = 3425034364105078041L;
     private static final Border PADDING = new EmptyBorder(2, 8, 2, 8);
-
-    private static final class MenuItemClickListener extends MouseAdapter {
-        private final Menu menu;
-
-        private MenuItemClickListener(Menu menu) {
-            this.menu = menu;
-        }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            final TextIdClickView textIdClickView = (TextIdClickView) e.getSource();
-            final WindowContext context = menu.getContext();
-
-            if (menu.getPopup().isShowing()) {
-                menu.getPopup().setVisible(false);
-            }
-            if (textIdClickView.getTextId() != -1 && context instanceof ClickListener) {
-                ((ClickListener) context).onClick(textIdClickView, textIdClickView.getTextId());
-            }
-            super.mouseClicked(e);
-        }
-    }
-
     private final Color backgroundColor;
     private final Color hoverColor;
     private final Color pressedColor;
@@ -71,10 +47,10 @@ public class Menu extends TextLabel {
      * Constructor for Menu with the menu name.
      *
      * @param context context context
-     * @param name    menu name
+     * @param text    menu name
      */
-    public Menu(WindowContext context, String name) {
-        super(context, name);
+    public Menu(WindowContext context, String text) {
+        super(context, text);
         this.context = context;
         this.backgroundColor = context.getAppStyle().getTopBackgroundColor();
         this.hoverColor = context.getAppStyle().getItemHoverColor();
@@ -104,8 +80,8 @@ public class Menu extends TextLabel {
         return popup;
     }
 
-    void setMenuBar(MenuBar menuBar) {
-        this.menuBar = menuBar;
+    void setMenuBar(MenuBar value) {
+        this.menuBar = value;
     }
 
     /**
@@ -155,7 +131,11 @@ public class Menu extends TextLabel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 setBackground(hoverColor);
-                if (menuBar != null && menuBar.getMenuShowing() != null && menuBar.getMenuShowing() != Menu.this) {
+                if (
+                    menuBar != null &&
+                    menuBar.getMenuShowing() != null &&
+                    menuBar.getMenuShowing() != Menu.this
+                ) {
                     menuBar.getMenuShowing().popup.setVisible(false);
                     showPopup();
                 }
@@ -172,15 +152,15 @@ public class Menu extends TextLabel {
         });
         popup.addPopupMenuListener(new PopupMenuListener() {
             @Override
+            public void popupMenuWillBecomeVisible(PopupMenuEvent e) {}
+
+            @Override
             public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
                 if (menuBar != null) {
                     menuBar.setMenuShowing(null);
                 }
                 setBackground(backgroundColor);
             }
-
-            @Override
-            public void popupMenuWillBecomeVisible(PopupMenuEvent e) {}
 
             @Override
             public void popupMenuCanceled(PopupMenuEvent e) {}
@@ -192,5 +172,27 @@ public class Menu extends TextLabel {
             menuBar.setMenuShowing(this);
         }
         popup.show(this, 0, getHeight());
+    }
+
+    private static final class MenuItemClickListener extends MouseAdapter {
+        private final Menu menu;
+
+        private MenuItemClickListener(Menu menu) {
+            this.menu = menu;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            final TextIdClickView textIdClickView = (TextIdClickView) e.getSource();
+            final WindowContext context = menu.getContext();
+
+            if (menu.getPopup().isShowing()) {
+                menu.getPopup().setVisible(false);
+            }
+            if (textIdClickView.getTextId() != -1 && context instanceof ClickListener) {
+                ((ClickListener) context).onClick(textIdClickView, textIdClickView.getTextId());
+            }
+            super.mouseClicked(e);
+        }
     }
 }
