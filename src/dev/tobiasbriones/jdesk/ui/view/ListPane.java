@@ -38,7 +38,11 @@ public class ListPane<E> extends JList<E> {
         private final Color pressedColor;
         private final TextLabel label;
 
-        public DefaultCellRender(WindowContext context, Color backgroundColor, Color pressedColor) {
+        public DefaultCellRender(
+            WindowContext context,
+            Color backgroundColor,
+            Color pressedColor
+        ) {
             super(context);
             this.backgroundColor = backgroundColor;
             this.pressedColor = pressedColor;

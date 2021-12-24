@@ -33,7 +33,7 @@ public final class OptionButton extends Button {
      * Default Constructor for an OptionButton.
      *
      * @param context window context
-     * @param text  button option text
+     * @param text    button option text
      */
     public OptionButton(WindowContext context, String text) {
         super(context, text);

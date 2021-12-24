@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.work.LoadingView;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,26 +58,6 @@ public final class SquaresLoadingView extends Panel implements LoadingView {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        final int x = n * getHeight() + 4 * (n + 1);
-
-        g.setColor(backgroundColor);
-        g.fillRect(0, 0, getWidth(), getHeight());
-        if (n == -1) {
-            g.setColor(backgroundColor);
-            g.fillRect(0, 0, getWidth(), getHeight());
-            n++;
-            return;
-        }
-        if (n == 3) {
-            n = -2;
-        }
-        g.setColor(color);
-        g.fillRect(x, 0, getHeight(), getHeight());
-        n++;
-    }
-
-    @Override
     public boolean isRunning() {
         return timer.isRunning();
     }
@@ -102,5 +82,25 @@ public final class SquaresLoadingView extends Panel implements LoadingView {
 
         timer.stop();
         repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        final int x = n * getHeight() + 4 * (n + 1);
+
+        g.setColor(backgroundColor);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        if (n == -1) {
+            g.setColor(backgroundColor);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            n++;
+            return;
+        }
+        if (n == 3) {
+            n = -2;
+        }
+        g.setColor(color);
+        g.fillRect(x, 0, getHeight(), getHeight());
+        n++;
     }
 }

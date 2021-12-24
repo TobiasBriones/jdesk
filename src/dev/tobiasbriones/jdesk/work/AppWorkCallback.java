@@ -22,9 +22,8 @@ import dev.tobiasbriones.jdesk.ui.dialog.AppDialog;
  *
  * @param <R> type of the work result
  *
- * @see WorkCallback
- *
  * @author Tobias Briones
+ * @see WorkCallback
  */
 public abstract class AppWorkCallback<R> implements WorkCallback<R> {
     private final Window window;
@@ -40,7 +39,11 @@ public abstract class AppWorkCallback<R> implements WorkCallback<R> {
 
     @Override
     public void workFailed(Exception exception) {
-        AppDialog.showMessage(window, exception.getMessage(), AppDialog.Type.FAIL);
+        AppDialog.showMessage(
+            window,
+            exception.getMessage(),
+            AppDialog.Type.FAIL
+        );
     }
 
     @Override

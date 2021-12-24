@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.work.LoadingView;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,43 +48,6 @@ public final class CircularCirclesLoadingView extends Panel implements LoadingVi
         this.i = -1;
 
         setPreferredSize(SIZE);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        final Graphics2D g2 = (Graphics2D) g;
-
-        g2.setColor(getBackground());
-        g2.fillRect(0, 0, getWidth(), getHeight());
-        if (i == -1) {
-            return;
-        }
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        if (i >= colors.length) {
-            i = 0;
-        }
-        g2.setColor(colors[i++]);
-        g2.fillOval(getWidth() - CIRCLE_SIZE, getHeight() / 2 - CIRCLE_SIZE / 2, CIRCLE_SIZE, CIRCLE_SIZE);
-        if (i >= colors.length) {
-            i = 0;
-        }
-        g2.setColor(colors[i++]);
-        g2.fillOval(getWidth() / 2 - CIRCLE_SIZE / 2, getHeight() - CIRCLE_SIZE, CIRCLE_SIZE, CIRCLE_SIZE);
-        if (i >= colors.length) {
-            i = 0;
-        }
-        g2.setColor(colors[i++]);
-        g2.fillOval(0, getHeight() / 2 - CIRCLE_SIZE / 2, CIRCLE_SIZE, CIRCLE_SIZE);
-        if (i >= colors.length) {
-            i = 0;
-        }
-        g2.setColor(colors[i++]);
-        g2.fillOval(getWidth() / 2 - CIRCLE_SIZE / 2, 0, CIRCLE_SIZE, CIRCLE_SIZE);
-        if (i >= colors.length) {
-            i = 0;
-        }
-        i++;
     }
 
     @Override
@@ -122,10 +85,75 @@ public final class CircularCirclesLoadingView extends Panel implements LoadingVi
      * @param color3 circle 3 color
      * @param color4 circle 4 color
      */
-    public void setColors(Color color1, Color color2, Color color3, Color color4) {
+    public void setColors(
+        Color color1,
+        Color color2,
+        Color color3,
+        Color color4
+    ) {
         colors[0] = color1;
         colors[1] = color2;
         colors[2] = color3;
         colors[3] = color4;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        final Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(getBackground());
+        g2.fillRect(0, 0, getWidth(), getHeight());
+        if (i == -1) {
+            return;
+        }
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+        );
+        if (i >= colors.length) {
+            i = 0;
+        }
+        g2.setColor(colors[i++]);
+        g2.fillOval(
+            getWidth() - CIRCLE_SIZE,
+            getHeight() / 2 - CIRCLE_SIZE / 2,
+            CIRCLE_SIZE,
+            CIRCLE_SIZE
+        );
+        if (i >= colors.length) {
+            i = 0;
+        }
+        g2.setColor(colors[i++]);
+        g2.fillOval(
+            getWidth() / 2 - CIRCLE_SIZE / 2,
+            getHeight() - CIRCLE_SIZE,
+            CIRCLE_SIZE,
+            CIRCLE_SIZE
+        );
+        if (i >= colors.length) {
+            i = 0;
+        }
+        g2.setColor(colors[i++]);
+        g2.fillOval(
+            0,
+            getHeight() / 2 - CIRCLE_SIZE / 2,
+            CIRCLE_SIZE,
+            CIRCLE_SIZE
+        );
+        if (i >= colors.length) {
+            i = 0;
+        }
+        g2.setColor(colors[i++]);
+        g2.fillOval(
+            getWidth() / 2 - CIRCLE_SIZE / 2,
+            0,
+            CIRCLE_SIZE,
+            CIRCLE_SIZE
+        );
+        if (i >= colors.length) {
+            i = 0;
+        }
+        i++;
     }
 }

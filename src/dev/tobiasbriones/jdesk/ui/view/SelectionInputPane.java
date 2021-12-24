@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view;
 
-import dev.tobiasbriones.jdesk.work.LoadingView;
 import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.menu.ListPopupMenu;
+import dev.tobiasbriones.jdesk.work.LoadingView;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -35,44 +35,17 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
     private static final long serialVersionUID = -460382072727635296L;
 
     /**
-     * Listener for requesting the list of items to display as user inputText according to what the user currently
-     * writes on
-     * the inputText text.
+     * Listener for requesting the list of items to display as user inputText
+     * according to what the user currently writes on the inputText text.
      */
     public interface ItemsRequestListener {
-
         /**
-         * Requests the list of items to display as the user inputText from the search the user is entering.
+         * Requests the list of items to display as the user inputText from the
+         * search the user is entering.
          *
          * @param search user search
          */
         void onItemsRequested(String search);
-    }
-
-    private static final class InputListener implements DocumentListener {
-        private final SelectionInputPane pane;
-
-        private InputListener(SelectionInputPane pane) {
-            this.pane = pane;
-        }
-
-        @Override
-        public void insertUpdate(DocumentEvent e) {
-            update();
-        }
-
-        @Override
-        public void removeUpdate(DocumentEvent e) {
-            update();
-        }
-
-        @Override
-        public void changedUpdate(DocumentEvent e) {
-        }
-
-        private void update() {
-            pane.updateItemsRequest();
-        }
     }
 
     private final ItemInputPane selectedInputs;
@@ -81,7 +54,8 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
     private transient ItemsRequestListener l;
 
     /**
-     * Creates a pane with and dynamical inputText to let the user select several items.
+     * Creates a pane with and dynamical inputText to let the user select
+     * several items.
      *
      * @param context window context
      * @param rows    number of rows for the {@link ItemInputPane}
@@ -98,12 +72,14 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
             popup.setVisible(false);
         };
         final MouseListener ml = new MouseAdapter() {
-
             private boolean flag = false;
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (flag && !selectedInputs.getInputText().getText().trim().isEmpty()) {
+                if (flag && !selectedInputs.getInputText()
+                                           .getText()
+                                           .trim()
+                                           .isEmpty()) {
                     popup.setVisible(true);
                     selectedInputs.getInputText().requestFocus();
                 }
@@ -117,15 +93,25 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
         };
 
         selectedInputs.setUserInputLocked(true);
-        selectedInputs.getInputText().getDocument().addDocumentListener(new InputListener(this));
+        selectedInputs.getInputText()
+                      .getDocument()
+                      .addDocumentListener(new InputListener(this));
         selectedInputs.getInputText().addMouseListener(ml);
-        popup.setBorder(BorderFactory.createMatteBorder(0, 1, 1, 0, context.getAppStyle().getSecondaryTextColor()));
+        popup.setBorder(BorderFactory.createMatteBorder(
+            0,
+            1,
+            1,
+            0,
+            context.getAppStyle()
+                   .getSecondaryTextColor()
+        ));
         popup.setItemSelectedListener(l);
         add(selectedInputs);
     }
 
     /**
-     * Default constructor for SelectionInputPane with 1 row and 1 column for the {@link ItemInputPane}.
+     * Default constructor for SelectionInputPane with 1 row and 1 column for
+     * the {@link ItemInputPane}.
      *
      * @param context window context
      */
@@ -134,8 +120,9 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
     }
 
     /**
-     * Sets the ItemsRequestListener which listens for the user inputs and request to the application the list of
-     * possible items to display so the user can choose the appropriate item.
+     * Sets the ItemsRequestListener which listens for the user inputs and
+     * request to the application the list of possible items to display so the
+     * user can choose the appropriate item.
      *
      * @param l items request listener
      */
@@ -175,11 +162,40 @@ public class SelectionInputPane<E> extends Panel implements LoadingView {
     }
 
     private void updateItemsRequest() {
-        if (l != null && !selectedInputs.getInputText().getText().trim().isEmpty()) {
+        if (l != null && !selectedInputs.getInputText()
+                                        .getText()
+                                        .trim()
+                                        .isEmpty()) {
             l.onItemsRequested(selectedInputs.getInputText().getText());
         }
         else if (selectedInputs.getInputText().getText().trim().isEmpty()) {
             popup.setVisible(false);
+        }
+    }
+
+    private static final class InputListener implements DocumentListener {
+        private final SelectionInputPane pane;
+
+        private InputListener(SelectionInputPane pane) {
+            this.pane = pane;
+        }
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            update();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            update();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+        }
+
+        private void update() {
+            pane.updateItemsRequest();
         }
     }
 }

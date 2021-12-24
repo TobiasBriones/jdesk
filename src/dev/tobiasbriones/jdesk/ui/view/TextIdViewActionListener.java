@@ -24,9 +24,10 @@ public final class TextIdViewActionListener implements ActionListener {
     private final ClickListener l;
 
     /**
-     * Constructor for TextIdViewActionListener. This {@link ActionListener} object will trigger
-     * {@link ClickListener#onClick(Object, int)} when this view has a click event.
-     * The view must be a {@link TextIdClickView} to add this listener.
+     * Constructor for TextIdViewActionListener. This {@link ActionListener}
+     * object will trigger {@link ClickListener#onClick(Object, int)} when this
+     * view has a click event. The view must be a {@link TextIdClickView} to add
+     * this listener.
      *
      * @param l view click listener
      */

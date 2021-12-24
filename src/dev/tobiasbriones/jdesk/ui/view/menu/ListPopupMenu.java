@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.menu;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.ListPane;
 import dev.tobiasbriones.jdesk.ui.view.ScrollPane;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
@@ -23,8 +23,8 @@ import java.awt.*;
 /**
  * Popup showing a list of items. Use the methods {@link #addItem(String)} to
  * add an item to this popup menu. Call
- * {@link #setItemSelectedListener(ItemSelectedListener)} to receive item
- * events.
+ * {@link #setItemSelectedListener(ItemSelectedListener)}
+ * to receive item events.
  *
  * @author Tobias Briones
  */
@@ -60,7 +60,10 @@ public class ListPopupMenu extends PopupMenu {
         final ScrollPane scroll = new ScrollPane(context, list);
         final ListSelectionListener lsl = e -> {
             if (!e.getValueIsAdjusting() && list.getSelectedIndex() != -1 && l != null) {
-                l.onItemSelected(list.getSelectedValue(), list.getSelectedIndex());
+                l.onItemSelected(
+                    list.getSelectedValue(),
+                    list.getSelectedIndex()
+                );
             }
         };
 

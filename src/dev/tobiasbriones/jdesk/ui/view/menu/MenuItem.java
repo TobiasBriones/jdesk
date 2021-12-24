@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.menu;
 
-import dev.tobiasbriones.jdesk.ui.view.Button;
 import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.style.AppStyle;
+import dev.tobiasbriones.jdesk.ui.view.Button;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -68,7 +68,10 @@ public class MenuItem extends Button {
         super(context, icon);
         this.textId = textRes;
 
-        config(context.getAppStyle(), context.getStringResources().get(textRes));
+        config(
+            context.getAppStyle(),
+            context.getStringResources().get(textRes)
+        );
     }
 
     /**
@@ -81,7 +84,10 @@ public class MenuItem extends Button {
         super(context);
         this.textId = textRes;
 
-        config(context.getAppStyle(), context.getStringResources().get(textRes));
+        config(
+            context.getAppStyle(),
+            context.getStringResources().get(textRes)
+        );
     }
 
     // Click listener is handled by Menu

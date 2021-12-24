@@ -18,8 +18,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * View which contains the {@link Menu}
- * elements to build an usual window menu.
+ * View which contains the {@link Menu} elements to build an usual window menu.
  *
  * @author Tobias Briones
  */

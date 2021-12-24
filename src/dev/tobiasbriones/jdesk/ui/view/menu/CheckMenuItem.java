@@ -12,8 +12,8 @@
 
 package dev.tobiasbriones.jdesk.ui.view.menu;
 
-import dev.tobiasbriones.jdesk.ui.view.CheckButton;
 import dev.tobiasbriones.jdesk.WindowContext;
+import dev.tobiasbriones.jdesk.ui.view.CheckButton;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -51,7 +51,8 @@ public class CheckMenuItem extends CheckButton {
     }
 
     /**
-     * Constructor for CheckMenuItem with text, it sets the button as unchecked by default.
+     * Constructor for CheckMenuItem with text, it sets the button as unchecked
+     * by default.
      *
      * @param context window context
      * @param textRes button text resource
@@ -78,7 +79,8 @@ public class CheckMenuItem extends CheckButton {
     }
 
     /**
-     * Constructor for CheckMenuItem with text, it sets the button as unchecked by default.
+     * Constructor for CheckMenuItem with text, it sets the button as unchecked
+     * by default.
      *
      * @param context window context
      * @param text    button text

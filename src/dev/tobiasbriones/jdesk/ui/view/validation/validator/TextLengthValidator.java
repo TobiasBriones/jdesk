@@ -19,7 +19,8 @@ public final class TextLengthValidator implements Validator<String> {
     private String errorText;
 
     /**
-     * Constructor for TextLengthValidator with minimum, maximum length, and error text to display when needed.
+     * Constructor for TextLengthValidator with minimum, maximum length, and
+     * error text to display when needed.
      *
      * @param minLength minimum length
      * @param maxLength maximum length
@@ -31,7 +32,8 @@ public final class TextLengthValidator implements Validator<String> {
     }
 
     /**
-     * Constructor for TextLengthValidator with maximum length, minimum length is set without any restrictions.
+     * Constructor for TextLengthValidator with maximum length, minimum length
+     * is set without any restrictions.
      *
      * @param maxLength maximum length
      */
@@ -40,7 +42,8 @@ public final class TextLengthValidator implements Validator<String> {
     }
 
     /**
-     * Default constructor for TextLengthValidator. Sets no restrictions for the lengths.
+     * Default constructor for TextLengthValidator. Sets no restrictions for the
+     * lengths.
      */
     public TextLengthValidator() {
         this(LENGTH_NOT_RESTRICTED, LENGTH_NOT_RESTRICTED, "");
@@ -52,8 +55,9 @@ public final class TextLengthValidator implements Validator<String> {
     }
 
     /**
-     * Returns <code>true</code> if and only if the length of input is greater than or equal to minimum length and
-     * less than or equal to maximum length. If input is null then <code>false</code> is returned.
+     * Returns <code>true</code> if and only if the length of input is greater
+     * than or equal to minimum length and less than or equal to maximum length.
+     * If input is null then <code>false</code> is returned.
      *
      * @param input input to check
      *
@@ -88,8 +92,9 @@ public final class TextLengthValidator implements Validator<String> {
      * @param minLength minimum length
      * @param maxLength maximum length
      *
-     * @throws RuntimeException if one of the lengths is neither non negative nor LENGTH_NOT_RESTRICTED, or minLength is
-     *                          is greater than maxLength
+     * @throws RuntimeException if one of the lengths is neither non negative
+     *                          nor LENGTH_NOT_RESTRICTED, or minLength is is
+     *                          greater than maxLength
      */
     public void setLengths(int minLength, int maxLength) {
         if (minLength < -1 || maxLength < -1) {

@@ -78,7 +78,8 @@ public interface AppStyle {
     Color getButtonBackgroundColor();
 
     /**
-     * Returns the accent color used for remarkable parts and elements of the UI.
+     * Returns the accent color used for remarkable parts and elements of the
+     * UI.
      *
      * @return the accent color
      */

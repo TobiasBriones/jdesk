@@ -13,8 +13,8 @@
 package dev.tobiasbriones.jdesk.ui.dialog;
 
 import dev.tobiasbriones.jdesk.WindowContext;
-import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.ui.style.AppStyle;
+import dev.tobiasbriones.jdesk.ui.view.Panel;
 
 import java.awt.*;
 
@@ -43,7 +43,11 @@ public class DialogPanel extends Panel {
      * @param layoutManager layoutManager
      * @param padding       padding
      */
-    public DialogPanel(WindowContext context, LayoutManager layoutManager, Insets padding) {
+    public DialogPanel(
+        WindowContext context,
+        LayoutManager layoutManager,
+        Insets padding
+    ) {
         super(context, layoutManager, padding);
         config(context.getAppStyle());
     }

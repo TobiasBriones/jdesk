@@ -18,9 +18,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Popup menu to display over a GUI. Use the methods
- * {@link #addItem(MenuItem)} and
- * {@link #addItem(CheckMenuItem)} to add a menu item to this popup menu.
+ * Popup menu to display over a GUI. Use the methods {@link #addItem(MenuItem)}
+ * and {@link #addItem(CheckMenuItem)} to add a menu item to this popup menu.
  *
  * @author Tobias Briones
  */
@@ -69,20 +68,15 @@ public class PopupMenu extends JPopupMenu {
     }
 
     /**
-     * By default this PopupMenu has a {@link GridBagLayout} set, this method returns the {@link GridBagConstraints}
-     * held on this instance and which should be passed when calling {@link #add(String)} method to add an item or
-     * otherwise set another layout with its corresponding parameters.
+     * By default this PopupMenu has a {@link GridBagLayout} set, this method
+     * returns the {@link GridBagConstraints} held on this instance and which
+     * should be passed when calling {@link #add(String)} method to add an item
+     * or otherwise set another layout with its corresponding parameters.
      *
      * @return the GridBagConstraints held in this popup menu instance
      */
     protected GridBagConstraints getGBC() {
         return gbc;
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        g.setColor(backgroundColor);
-        g.fillRect(0, 0, getWidth(), getHeight());
     }
 
     @Override
@@ -109,6 +103,12 @@ public class PopupMenu extends JPopupMenu {
     public void addItem(CheckMenuItem item) {
         add(item, gbc);
         gbc.gridy++;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        g.setColor(backgroundColor);
+        g.fillRect(0, 0, getWidth(), getHeight());
     }
 
     private void config() {

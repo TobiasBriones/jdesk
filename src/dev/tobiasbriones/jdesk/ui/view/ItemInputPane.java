@@ -23,83 +23,14 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Pane that receives short input texts form the user and displays the entered items on the pane with availability to
- * remove them. To retrieve the entered items, this class implements {@link Iterable}.
+ * Pane that receives short input texts form the user and displays the entered
+ * items on the pane with availability to remove them. To retrieve the entered
+ * items, this class implements {@link Iterable}.
  *
  * @author Tobias Briones
  */
 public class ItemInputPane extends Panel implements Iterable<String> {
     private static final long serialVersionUID = -352531864001279392L;
-
-    static final class ItemView extends Panel implements MouseListener {
-        private static final long serialVersionUID = 1391246170951661932L;
-        private final Color backgroundColor;
-        private final Color hoverColor;
-
-        private ItemView(WindowContext context, ItemInputPane panel, String text) {
-            super(context);
-            this.backgroundColor = context.getAppStyle().getButtonBackgroundColor();
-            this.hoverColor = context.getAppStyle().getItemHoverColor();
-            final TextLabel closeLabel = new TextLabel(context, "x");
-            final MouseListener l = new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                    panel.remove(ItemView.this);
-                }
-            };
-            closeLabel.setBorder(new EmptyBorder(0, 10, 0, 0));
-            closeLabel.setForeground(context.getAppStyle().getErrorTextColor());
-            closeLabel.addMouseListener(l);
-            setName(text);
-            setToolTipText(text);
-            setLayout(new BorderLayout());
-            setPadding(5, 10, 5, 10);
-            setBackground(backgroundColor);
-            add(new TextLabel(context, TextLabel.getEllipsisText(text, 25)), BorderLayout.WEST);
-            add(closeLabel, BorderLayout.LINE_END);
-            addMouseListener(this);
-        }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            setBackground(hoverColor);
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            setBackground(hoverColor);
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            setBackground(backgroundColor);
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            setBackground(hoverColor);
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            setBackground(backgroundColor);
-        }
-    }
-
-    private static final class InputListener implements ActionListener {
-        private final ItemInputPane panel;
-
-        private InputListener(ItemInputPane panel) {
-            this.panel = panel;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            panel.addItemRequest();
-        }
-    }
-
     private final int columns;
     private final List<ItemView> items;
     private final GridBagConstraints gbc;
@@ -111,8 +42,9 @@ public class ItemInputPane extends Panel implements Iterable<String> {
     private boolean isLocked;
 
     /**
-     * Constructor for ItemInputPane, it sets the number of columns and rows for the pane, that will determine its size.
-     * There is always vertical scroll if needed. It is recommended to set at least two rows.
+     * Constructor for ItemInputPane, it sets the number of columns and rows for
+     * the pane, that will determine its size. There is always vertical scroll
+     * if needed. It is recommended to set at least two rows.
      *
      * @param context window context
      * @param rows    number of rows
@@ -133,16 +65,18 @@ public class ItemInputPane extends Panel implements Iterable<String> {
         this.scroll = new ScrollPane(context);
         this.panelTop = new Panel(context);
         this.panelBottom = new Panel(context);
-        this.inputText = new InputText(context, (columns > 1) ? 20 * columns : 30);
+        this.inputText = new InputText(
+            context,
+            (columns > 1) ? 20 * columns : 30
+        );
         this.isLocked = false;
 
         scroll.setPreferredSize(new Dimension(0, 35 * rows));
         config();
     }
-
     /**
-     * Default constructor for ItemInputPane, it sets 2 rows and 4 columns for the pane. There is always vertical
-     * scroll if needed.
+     * Default constructor for ItemInputPane, it sets 2 rows and 4 columns for
+     * the pane. There is always vertical scroll if needed.
      *
      * @param context window context
      */
@@ -178,29 +112,13 @@ public class ItemInputPane extends Panel implements Iterable<String> {
     }
 
     /**
-     * Sets a hint text to show on the input text when this is empty and with requestFocus lost.
+     * Sets a hint text to show on the input text when this is empty and with
+     * requestFocus lost.
      *
      * @param hintText hint text
      */
     public final void setHint(String hintText) {
         inputText.setHintText(hintText);
-    }
-
-    @Override
-    public Iterator<String> iterator() {
-        return new Iterator<String>() {
-            private int next = 0;
-
-            @Override
-            public boolean hasNext() {
-                return next < items.size();
-            }
-
-            @Override
-            public String next() {
-                return items.get(next++).getName();
-            }
-        };
     }
 
     /**
@@ -237,6 +155,23 @@ public class ItemInputPane extends Panel implements Iterable<String> {
         inputText.setText("");
         items.add(item);
         addItem(item);
+    }
+
+    @Override
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
+            private int next = 0;
+
+            @Override
+            public boolean hasNext() {
+                return next < items.size();
+            }
+
+            @Override
+            public String next() {
+                return items.get(next++).getName();
+            }
+        };
     }
 
     private void config() {
@@ -296,5 +231,86 @@ public class ItemInputPane extends Panel implements Iterable<String> {
             addItem(item);
         }
         repaint();
+    }
+
+    static final class ItemView extends Panel implements MouseListener {
+        private static final long serialVersionUID = 1391246170951661932L;
+        private final Color backgroundColor;
+        private final Color hoverColor;
+
+        private ItemView(
+            WindowContext context,
+            ItemInputPane panel,
+            String text
+        ) {
+            super(context);
+            this.backgroundColor = context.getAppStyle()
+                                          .getButtonBackgroundColor();
+            this.hoverColor = context.getAppStyle().getItemHoverColor();
+            final TextLabel closeLabel = new TextLabel(context, "x");
+            final MouseListener l = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    panel.remove(ItemView.this);
+                }
+            };
+
+            closeLabel.setBorder(new EmptyBorder(0, 10, 0, 0));
+            closeLabel.setForeground(context.getAppStyle().getErrorTextColor());
+            closeLabel.addMouseListener(l);
+            setName(text);
+            setToolTipText(text);
+            setLayout(new BorderLayout());
+            setPadding(5, 10, 5, 10);
+            setBackground(backgroundColor);
+            add(
+                new TextLabel(
+                    context,
+                    TextLabel.getEllipsisText(text, 25)
+                ),
+                BorderLayout.WEST
+            );
+            add(closeLabel, BorderLayout.LINE_END);
+            addMouseListener(this);
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            setBackground(hoverColor);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            setBackground(hoverColor);
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            setBackground(backgroundColor);
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setBackground(hoverColor);
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setBackground(backgroundColor);
+        }
+    }
+
+    private static final class InputListener implements ActionListener {
+        private final ItemInputPane panel;
+
+        private InputListener(ItemInputPane panel) {
+            this.panel = panel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            panel.addItemRequest();
+        }
     }
 }

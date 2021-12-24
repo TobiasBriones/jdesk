@@ -57,7 +57,12 @@ public class InputText extends JTextField {
      * @param text    text
      * @param columns columns
      */
-    public InputText(WindowContext context, Document doc, String text, int columns) {
+    public InputText(
+        WindowContext context,
+        Document doc,
+        String text,
+        int columns
+    ) {
         super(doc, text, columns);
         this.textColor = context.getAppStyle().getTextColor();
         this.hintTextColor = context.getAppStyle().getSecondaryTextColor();
@@ -119,14 +124,16 @@ public class InputText extends JTextField {
     /**
      * Checks if {@link #getText()} applying <code>trim()</code> is not empty .
      *
-     * @return <code>true</code> if and only if the trimmed input text is not empty
+     * @return <code>true</code> if and only if the trimmed input text is not
+     * empty
      */
     public final boolean isSet() {
         return !getText().trim().isEmpty();
     }
 
     /**
-     * Sets a hint text to show on the input text when this is empty and with requestFocus lost.
+     * Sets a hint text to show on the input text when this is empty and with
+     * requestFocus lost.
      *
      * @param value hint text
      */
@@ -139,18 +146,36 @@ public class InputText extends JTextField {
     private void config(AppStyle appStyle) {
         setLayout(new FlowLayout(FlowLayout.TRAILING, 5, 0));
         setPreferredSize(new Dimension(0, HEIGHT));
-        setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
+        setBorder(BorderFactory.createMatteBorder(
+            0,
+            0,
+            1,
+            0,
+            appStyle.getAccentColor()
+        ));
         setFont(appStyle.getFont());
         addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, appStyle.getAccentColor()));
+                setBorder(BorderFactory.createMatteBorder(
+                    0,
+                    0,
+                    2,
+                    0,
+                    appStyle.getAccentColor()
+                ));
                 checkForRemovingHintText();
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
+                setBorder(BorderFactory.createMatteBorder(
+                    0,
+                    0,
+                    1,
+                    0,
+                    appStyle.getAccentColor()
+                ));
                 checkForApplyingHintText();
             }
         });

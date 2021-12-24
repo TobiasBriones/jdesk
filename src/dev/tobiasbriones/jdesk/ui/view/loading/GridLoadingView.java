@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.work.LoadingView;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,7 +55,8 @@ public final class GridLoadingView extends Panel implements LoadingView {
     }
 
     /**
-     * Sets the view squares color which are not activated in the current animation tick.
+     * Sets the view squares color which are not activated in the current
+     * animation tick.
      *
      * @param color view color
      */
@@ -64,34 +65,13 @@ public final class GridLoadingView extends Panel implements LoadingView {
     }
 
     /**
-     * Sets the view squares color which are activated in the current animation tick.
+     * Sets the view squares color which are activated in the current animation
+     * tick.
      *
      * @param activatedColor view activatedColor
      */
     public void setActivatedColor(Color activatedColor) {
         this.activatedColor = activatedColor;
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        int currentLeft;
-        int currentTop;
-
-        g.setColor(backgroundColor);
-        g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(color);
-        if (clean) {
-            clean = false;
-            return;
-        }
-        for (int y = 0; y < 3; y++) {
-            for (int x = 0; x < 3; x++) {
-                currentLeft = x * SQUARE_SIZE + 2 * MARGIN * x + MARGIN;
-                currentTop = y * SQUARE_SIZE + 2 * MARGIN * y + MARGIN;
-
-                paintSquare(g, currentLeft, currentTop, RANDOM.nextBoolean());
-            }
-        }
     }
 
     @Override
@@ -121,10 +101,35 @@ public final class GridLoadingView extends Panel implements LoadingView {
         repaint();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        int currentLeft;
+        int currentTop;
+
+        g.setColor(backgroundColor);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setColor(color);
+        if (clean) {
+            clean = false;
+            return;
+        }
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                currentLeft = x * SQUARE_SIZE + 2 * MARGIN * x + MARGIN;
+                currentTop = y * SQUARE_SIZE + 2 * MARGIN * y + MARGIN;
+
+                paintSquare(g, currentLeft, currentTop, RANDOM.nextBoolean());
+            }
+        }
+    }
+
     private void paintSquare(Graphics g, int x, int y, boolean activated) {
         final Graphics2D g2 = (Graphics2D) g;
 
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+        );
         if (activated) {
             final int increasedPixels = 2;
 

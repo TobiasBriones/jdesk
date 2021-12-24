@@ -31,7 +31,8 @@ public class LoadingBarDialog extends Dialog {
     private final BarLoadingView lbv;
 
     /**
-     * Creates a LoadingBarDialog, to set the dialog content call {@link #setLBDView(Panel)}.
+     * Creates a LoadingBarDialog, to set the dialog content call {@link
+     * #setLBDView(Panel)}.
      *
      * @param window window to attach the dialog
      */
@@ -65,7 +66,10 @@ public class LoadingBarDialog extends Dialog {
      *
      * @see AppWorker
      */
-    public final <R> AppWorker<R, Void> execute(WorkCallback<R> callback, WorkRunnable<R> runnable) {
+    public final <R> AppWorker<R, Void> execute(
+        WorkCallback<R> callback,
+        WorkRunnable<R> runnable
+    ) {
         final AppWorker<R, Void> work = new AppWorker<>(lbv, callback);
 
         work.execute(runnable);

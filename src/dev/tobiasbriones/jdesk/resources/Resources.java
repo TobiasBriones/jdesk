@@ -24,22 +24,29 @@ public final class Resources {
      * App icon format.
      */
     public static final FileFormat ICON_FORMAT = FileFormat.IMAGE_PNG;
+
     /**
      * Font ttf format.
      */
     public static final FileFormat FONT_FORMAT = FileFormat.FONT_TTF;
+
     /**
      * App resource directory.
      */
     public static final String RESOURCE_DIRECTORY = "resources";
+
     /**
      * App icons directory.
      */
-    public static final String ICON_DIRECTORY = RESOURCE_DIRECTORY + File.separator + "icons";
+    public static final String ICON_DIRECTORY =
+        RESOURCE_DIRECTORY + File.separator + "icons";
+
     /**
      * App fonts directory.
      */
-    public static final String FONT_DIRECTORY = RESOURCE_DIRECTORY + File.separator + "fonts";
+    public static final String FONT_DIRECTORY =
+        RESOURCE_DIRECTORY + File.separator + "fonts";
+
     public static final int SMALL_FONT_SIZE = 10;
     public static final int NORMAL_FONT_SIZE = 12;
     public static final int TITLE_FONT_SIZE = 14;
@@ -53,7 +60,11 @@ public final class Resources {
      * @return the icon loaded into {@link ImageIcon}
      */
     public static Icon loadIcon(String iconName) {
-        return new ImageIcon(getFilePath(ICON_DIRECTORY, iconName, ICON_FORMAT));
+        return new ImageIcon(getFilePath(
+            ICON_DIRECTORY,
+            iconName,
+            ICON_FORMAT
+        ));
     }
 
     /**
@@ -69,7 +80,8 @@ public final class Resources {
         final String path = getFilePath(FONT_DIRECTORY, fontName, FONT_FORMAT);
 
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(style, (float) size);
+            return Font.createFont(Font.TRUETYPE_FONT, new File(path))
+                       .deriveFont(style, (float) size);
         }
         catch (Exception e) {
             System.err.println("Fail to load font " + fontName);
@@ -89,7 +101,8 @@ public final class Resources {
         final String path = getFilePath(FONT_DIRECTORY, fontName, FONT_FORMAT);
 
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont((float) size);
+            return Font.createFont(Font.TRUETYPE_FONT, new File(path))
+                       .deriveFont((float) size);
         }
         catch (Exception e) {
             System.err.println("Fail to load font " + fontName);
@@ -108,7 +121,8 @@ public final class Resources {
         final String path = getFilePath(FONT_DIRECTORY, fontName, FONT_FORMAT);
 
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont((float) NORMAL_FONT_SIZE);
+            return Font.createFont(Font.TRUETYPE_FONT, new File(path))
+                       .deriveFont((float) NORMAL_FONT_SIZE);
         }
         catch (Exception e) {
             System.err.println("Fail to load font " + fontName);
@@ -116,9 +130,13 @@ public final class Resources {
         return null;
     }
 
-    private static String getFilePath(String directory, String fileName, Object fileExtension) {
+    private Resources() {}
+
+    private static String getFilePath(
+        String directory,
+        String fileName,
+        Object fileExtension
+    ) {
         return Paths.get(directory, fileName + "." + fileExtension).toString();
     }
-
-    private Resources() {}
 }

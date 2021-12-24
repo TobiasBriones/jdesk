@@ -28,7 +28,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Window menu that contains the {@link MenuItem} items to display a menu on the {@link MenuBar}.
+ * Window menu that contains the {@link MenuItem} items to display a menu on the
+ * {@link MenuBar}.
  *
  * @author Tobias Briones
  */
@@ -183,14 +184,18 @@ public class Menu extends TextLabel {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            final TextIdClickView textIdClickView = (TextIdClickView) e.getSource();
+            final TextIdClickView textIdClickView =
+                (TextIdClickView) e.getSource();
             final WindowContext context = menu.getContext();
 
             if (menu.getPopup().isShowing()) {
                 menu.getPopup().setVisible(false);
             }
             if (textIdClickView.getTextId() != -1 && context instanceof ClickListener) {
-                ((ClickListener) context).onClick(textIdClickView, textIdClickView.getTextId());
+                ((ClickListener) context).onClick(
+                    textIdClickView,
+                    textIdClickView.getTextId()
+                );
             }
             super.mouseClicked(e);
         }

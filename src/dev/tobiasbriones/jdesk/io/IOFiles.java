@@ -21,8 +21,8 @@ import java.nio.file.Paths;
 /**
  * Provides functions to work with system files at a higher level.
  *
- * This class is not recommended since it is better to use the standard
- * {@link Files} and {@link Paths} API available for Java 11+.
+ * This class is not recommended since it is better to use the standard {@link
+ * Files} and {@link Paths} API available for Java 11+.
  *
  * @author Tobias Briones
  */
@@ -88,7 +88,8 @@ public final class IOFiles {
     }
 
     /**
-     * Returns the string containing the file's content with the specified charset.
+     * Returns the string containing the file's content with the specified
+     * charset.
      *
      * @param file    file to load
      * @param charset charset to specify when loading the stream

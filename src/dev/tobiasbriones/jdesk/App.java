@@ -50,8 +50,18 @@ public abstract class App {
     }
 
     /**
-     * Adds a main window for the application, if an old main window is already attached it will be
-     * detached from the application and replaced by the new main window.
+     * Returns the app instance for this app.
+     *
+     * @return the app instance
+     *
+     * @see AppInstance
+     */
+    protected abstract AppInstance getAppInstance();
+
+    /**
+     * Adds a main window for the application, if an old main window is already
+     * attached it will be detached from the application and replaced by the new
+     * main window.
      *
      * @param window main window to attach to the application
      *
@@ -79,27 +89,20 @@ public abstract class App {
         SwingUtilities.invokeLater(window::createWindow);
     }
 
-    /**
-     * Returns the app instance for this app.
-     *
-     * @return the app instance
-     *
-     * @see AppInstance
-     */
-    protected abstract AppInstance getAppInstance();
-
     private static void presetUI(Font font) {
         // Set LookAndFeel
         if (System.getProperty("os.name").contains("Windows")) {
             try {
-                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+                UIManager.setLookAndFeel(
+                    "com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             }
             catch (Exception ignored) {
             }
         }
         // Register font
         if (font != null) {
-            final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            final GraphicsEnvironment ge =
+                GraphicsEnvironment.getLocalGraphicsEnvironment();
 
             try {
                 ge.registerFont(font);

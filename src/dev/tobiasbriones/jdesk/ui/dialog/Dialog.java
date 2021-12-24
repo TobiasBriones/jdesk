@@ -68,7 +68,10 @@ public class Dialog extends JDialog implements WindowContext {
      * @param iconName dialog icon name
      */
     public final void setIcon(String iconName) {
-        final String path = Paths.get(Resources.ICON_DIRECTORY, iconName + ".png").toString();
+        final String path = Paths.get(
+            Resources.ICON_DIRECTORY,
+            iconName + ".png"
+        ).toString();
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(path));
     }

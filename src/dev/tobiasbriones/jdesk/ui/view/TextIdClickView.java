@@ -13,8 +13,8 @@
 package dev.tobiasbriones.jdesk.ui.view;
 
 /**
- * Defines an interface to be implemented by a view which accepts
- * {@link ClickListener}.
+ * Defines an interface to be implemented by a view which accepts {@link
+ * ClickListener}.
  *
  * @author Tobias Briones
  */

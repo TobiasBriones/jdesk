@@ -47,8 +47,9 @@ public class CheckButton extends Panel implements TextIdClickView {
     }
 
     /**
-     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check
-     * button if context is instance of {@link ClickListener}.
+     * Constructor for CheckButton. It automatically adds a {@link
+     * ClickListener} to this check button if context is instance of {@link
+     * ClickListener}.
      *
      * @param context window context
      * @param textRes check button text resource
@@ -83,8 +84,9 @@ public class CheckButton extends Panel implements TextIdClickView {
     }
 
     /**
-     * Constructor for CheckButton. It automatically adds a {@link ClickListener} to this check
-     * button if context is instance of {@link ClickListener}.
+     * Constructor for CheckButton. It automatically adds a {@link
+     * ClickListener} to this check button if context is instance of {@link
+     * ClickListener}.
      *
      * @param context window context
      * @param textRes check button text resource
@@ -150,7 +152,8 @@ public class CheckButton extends Panel implements TextIdClickView {
 
         private CheckBoxSquare(WindowContext context) {
             super(context);
-            this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
+            this.backgroundColor = context.getAppStyle()
+                                          .getWindowBackgroundColor();
             this.color = context.getAppStyle().getAccentColor();
 
             setPreferredSize(SIZE);

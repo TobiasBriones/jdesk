@@ -24,6 +24,7 @@ import java.awt.*;
  */
 public final class SpacingView extends Panel {
     private static final long serialVersionUID = 2038750229780540125L;
+
     public enum Orientation { HORIZONTAL, VERTICAL }
 
     /**
@@ -43,11 +44,16 @@ public final class SpacingView extends Panel {
      * Constructor for SpacingView with size and orientation.
      *
      * @param context     window context
-     * @param size        view dimension, depending on the orientation this is the view width or height,
-     *                    the other dimension will be 1px
+     * @param size        view dimension, depending on the orientation this is
+     *                    the view width or height, the other dimension will be
+     *                    1px
      * @param orientation view orientation
      */
-    public SpacingView(WindowContext context, int size, Orientation orientation) {
+    public SpacingView(
+        WindowContext context,
+        int size,
+        Orientation orientation
+    ) {
         this(
             context,
             (orientation == Orientation.HORIZONTAL) ? size : 1,
@@ -56,7 +62,8 @@ public final class SpacingView extends Panel {
     }
 
     /**
-     * Default constructor for SpacingView, it sets an horizontal SpacingView with the specified width.
+     * Default constructor for SpacingView, it sets an horizontal SpacingView
+     * with the specified width.
      *
      * @param context window context
      * @param width   view width

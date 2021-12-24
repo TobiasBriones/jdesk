@@ -19,7 +19,8 @@ package dev.tobiasbriones.jdesk.ui.view.validation;
  */
 public interface ValidationListener {
     /**
-     * Called when the input view has changed and is requested to validate the new user input.
+     * Called when the input view has changed and is requested to validate the
+     * new user input.
      *
      * @param validationView view which validates user input
      */

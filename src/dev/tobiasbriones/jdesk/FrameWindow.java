@@ -12,11 +12,11 @@
 
 package dev.tobiasbriones.jdesk;
 
-import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.resources.StringResources;
 import dev.tobiasbriones.jdesk.ui.style.AppStyle;
 import dev.tobiasbriones.jdesk.ui.style.DefaultStyle;
 import dev.tobiasbriones.jdesk.ui.style.Style;
+import dev.tobiasbriones.jdesk.ui.view.Panel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,55 +25,15 @@ import java.awt.event.WindowEvent;
 /**
  * Abstract frame to build a window.
  *
+ * @author Tobias Briones
  * @see Window
  * @see WindowContext
- *
- * @author Tobias Briones
  */
 abstract class FrameWindow extends JFrame implements WindowContext {
     private static final long serialVersionUID = 3319905613616655519L;
-
-    private static final class WindowListener implements java.awt.event.WindowListener {
-        private final FrameWindow window;
-
-        private WindowListener(FrameWindow window) {
-            this.window = window;
-        }
-
-        @Override
-        public void windowOpened(WindowEvent e) {
-            window.windowOpened();
-        }
-
-        @Override
-        public void windowClosing(WindowEvent e) {
-            if (window.isMainWindow()) {
-                window.windowDetached();
-            }
-        }
-
-        @Override
-        public void windowClosed(WindowEvent e) {
-            window.windowDetached();
-        }
-
-        @Override
-        public void windowIconified(WindowEvent e) {}
-
-        @Override
-        public void windowDeiconified(WindowEvent e) {}
-
-        @Override
-        public void windowActivated(WindowEvent e) {}
-
-        @Override
-        public void windowDeactivated(WindowEvent e) {}
-    }
-
     private final boolean hasSizeSet;
     private final transient AppInstance appInstance;
     private boolean isMainWindow;
-
     /**
      * Constructor for a window to be build with title and size.
      *
@@ -89,7 +49,8 @@ abstract class FrameWindow extends JFrame implements WindowContext {
 
         // Check app instance window context
         if (getStringResources() == null || getAppStyle() == null) {
-            throw new NullPointerException("Window context is not set, you must implement AppInstance");
+            throw new NullPointerException(
+                "Window context is not set, you must implement AppInstance");
         }
         if (size != null) {
             setSize(size);
@@ -113,7 +74,8 @@ abstract class FrameWindow extends JFrame implements WindowContext {
 
         // Check app instance window context
         if (getStringResources() == null || getAppStyle() == null) {
-            throw new NullPointerException("Window context is not set, you must implement AppInstance");
+            throw new NullPointerException(
+                "Window context is not set, you must implement AppInstance");
         }
         if (size != null) {
             setSize(size);
@@ -243,8 +205,8 @@ abstract class FrameWindow extends JFrame implements WindowContext {
     protected abstract void createWindow(Panel panel);
 
     /**
-     * Called immediately after this window is created.
-     * It should be decided then to set the window as visible.
+     * Called immediately after this window is created. It should be decided
+     * then to set the window as visible.
      */
     protected abstract void windowCreated();
 
@@ -261,8 +223,45 @@ abstract class FrameWindow extends JFrame implements WindowContext {
     protected abstract void windowOpened();
 
     /**
-     * Called when this window is detached. If it is a main window it occurs when is being closed,
-     * otherwise when is closed.
+     * Called when this window is detached. If it is a main window it occurs
+     * when is being closed, otherwise when is closed.
      */
     protected abstract void windowDetached();
+
+    private static final class WindowListener implements java.awt.event.WindowListener {
+        private final FrameWindow window;
+
+        private WindowListener(FrameWindow window) {
+            this.window = window;
+        }
+
+        @Override
+        public void windowOpened(WindowEvent e) {
+            window.windowOpened();
+        }
+
+        @Override
+        public void windowClosing(WindowEvent e) {
+            if (window.isMainWindow()) {
+                window.windowDetached();
+            }
+        }
+
+        @Override
+        public void windowClosed(WindowEvent e) {
+            window.windowDetached();
+        }
+
+        @Override
+        public void windowIconified(WindowEvent e) {}
+
+        @Override
+        public void windowDeiconified(WindowEvent e) {}
+
+        @Override
+        public void windowActivated(WindowEvent e) {}
+
+        @Override
+        public void windowDeactivated(WindowEvent e) {}
+    }
 }

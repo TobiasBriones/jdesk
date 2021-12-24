@@ -12,11 +12,11 @@
 
 package dev.tobiasbriones.jdesk.ui.view.validation;
 
-import dev.tobiasbriones.jdesk.ui.view.InputText;
-import dev.tobiasbriones.jdesk.ui.view.TextLabel;
 import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.style.TextStyle;
+import dev.tobiasbriones.jdesk.ui.view.InputText;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
+import dev.tobiasbriones.jdesk.ui.view.TextLabel;
 import dev.tobiasbriones.jdesk.ui.view.validation.validator.Validator;
 
 import javax.swing.border.Border;
@@ -39,7 +39,8 @@ public class ComplexInputText extends Panel implements ValidationView {
     private static final long serialVersionUID = 5444537149754102424L;
 
     /**
-     * View used for adding it to a {@link ComplexInputText} to clear the input text.
+     * View used for adding it to a {@link ComplexInputText} to clear the input
+     * text.
      */
     public static final class ClearView extends TextLabel {
         private static final long serialVersionUID = -4416773433702042680L;
@@ -54,65 +55,12 @@ public class ComplexInputText extends Panel implements ValidationView {
             setForeground(color);
         }
     }
-
-    private static final class InputTextDocumentListener implements DocumentListener {
-        private final ComplexInputText inputText;
-
-        private InputTextDocumentListener(ComplexInputText inputText) {
-            this.inputText = inputText;
-        }
-
-        @Override
-        public void insertUpdate(DocumentEvent e) {
-            update();
-        }
-
-        @Override
-        public void removeUpdate(DocumentEvent e) {
-            update();
-        }
-
-        @Override
-        public void changedUpdate(DocumentEvent e) {}
-
-        private void update() {
-            final String text = inputText.getText();
-
-            inputText.setLengthText(text.length());
-            inputText.hideValidationText();
-            if (text.isEmpty()) {
-                return;
-            }
-            // Validate
-            if (inputText.getValidationListener() != null) {
-                final List<Validator<String>> validators = inputText.getValidators();
-                boolean checkValidationListener = true;
-
-                // First update all the validators put on the ComplexInputText, at last check for the validation
-                // listener
-                for (Validator<String> validator : validators) {
-                    if (!validator.validate(text)) {
-                        checkValidationListener = false;
-
-                        inputText.setValidationText(validator.getErrorText());
-                        break;
-                    }
-                }
-                if (checkValidationListener) {
-                    // Is left to the app implementation
-                    inputText.getValidationListener().onValidate(inputText);
-                }
-            }
-        }
-    }
-
     private final Panel topPanel;
     private final InputText inputText;
     private final TextLabel lengthLabel;
     private final TextLabel validationLabel;
     private final transient List<Validator<String>> validators;
     private transient ValidationListener validationListener;
-
     /**
      * Constructor for ComplexInputText.
      *
@@ -145,7 +93,8 @@ public class ComplexInputText extends Panel implements ValidationView {
     }
 
     /**
-     * Sets the validation listener on this view to trigger input changes to be validated by the application.
+     * Sets the validation listener on this view to trigger input changes to be
+     * validated by the application.
      *
      * @param l validation listener
      */
@@ -207,7 +156,10 @@ public class ComplexInputText extends Panel implements ValidationView {
     }
 
     @Override
-    public final void setValidationTextStyle(TextStyle textStyle, int textSize) {
+    public final void setValidationTextStyle(
+        TextStyle textStyle,
+        int textSize
+    ) {
         validationLabel.setTextStyle(textStyle, textSize);
     }
 
@@ -246,10 +198,12 @@ public class ComplexInputText extends Panel implements ValidationView {
         final GridBagConstraints gbc = new GridBagConstraints();
 
         inputText.setBorder(new EmptyBorder(2, 0, 2, 0));
-        inputText.getDocument().addDocumentListener(new InputTextDocumentListener(this));
+        inputText.getDocument()
+                 .addDocumentListener(new InputTextDocumentListener(this));
         lengthLabel.setTextStyle(TextStyle.NORMAL, 10);
         lengthLabel.setText("0");
-        validationLabel.setForeground(context.getAppStyle().getErrorTextColor());
+        validationLabel.setForeground(context.getAppStyle()
+                                             .getErrorTextColor());
         validationLabel.setBorder(new EmptyBorder(2, 5, 2, 5));
         validationLabel.setText(" ");
         topPanel.setLayout(new GridBagLayout());
@@ -269,5 +223,58 @@ public class ComplexInputText extends Panel implements ValidationView {
         setLayout(new BorderLayout());
         add(topPanel, BorderLayout.PAGE_START);
         add(validationLabel, BorderLayout.CENTER);
+    }
+
+    private static final class InputTextDocumentListener implements DocumentListener {
+        private final ComplexInputText inputText;
+
+        private InputTextDocumentListener(ComplexInputText inputText) {
+            this.inputText = inputText;
+        }
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            update();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            update();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {}
+
+        private void update() {
+            final String text = inputText.getText();
+
+            inputText.setLengthText(text.length());
+            inputText.hideValidationText();
+            if (text.isEmpty()) {
+                return;
+            }
+            // Validate
+            if (inputText.getValidationListener() != null) {
+                final List<Validator<String>> validators =
+                    inputText.getValidators();
+                boolean checkValidationListener = true;
+
+                // First update all the validators put on the
+                // ComplexInputText, at last check for the validation
+                // listener
+                for (Validator<String> validator : validators) {
+                    if (!validator.validate(text)) {
+                        checkValidationListener = false;
+
+                        inputText.setValidationText(validator.getErrorText());
+                        break;
+                    }
+                }
+                if (checkValidationListener) {
+                    // Is left to the app implementation
+                    inputText.getValidationListener().onValidate(inputText);
+                }
+            }
+        }
     }
 }

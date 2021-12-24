@@ -14,8 +14,8 @@ package dev.tobiasbriones.jdesk.work;
 
 /**
  * WorkCallback to notify the work results such as finished, failed or
- * cancelled. The methods of this callback are invoked on the EDT to process
- * the result on the GUI thread.
+ * cancelled. The methods of this callback are invoked on the EDT to process the
+ * result on the GUI thread.
  *
  * @param <R> type of result return by {@link WorkRunnable#run()}.
  *
@@ -30,16 +30,16 @@ public interface WorkCallback<R> {
     void workFinished(R result);
 
     /**
-     * Called when the work is completed and did not finished successfully because an exception was thrown on
-     * {@link WorkRunnable#run()}.
+     * Called when the work is completed and did not finished successfully
+     * because an exception was thrown on {@link WorkRunnable#run()}.
      *
      * @param exception exception thrown by the task
      */
     void workFailed(Exception exception);
 
     /**
-     * Called when the work is completed and cancelled. Notice that the work might be cancelled after
-     * being completed and will not be notified.
+     * Called when the work is completed and cancelled. Notice that the work
+     * might be cancelled after being completed and will not be notified.
      */
     void workCancelled();
 }

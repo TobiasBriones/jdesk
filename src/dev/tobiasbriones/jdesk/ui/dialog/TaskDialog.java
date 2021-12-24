@@ -52,16 +52,19 @@ public final class TaskDialog<R> extends Dialog {
         }
 
         /**
-         * Invoked when the user asks for cancelling the work. Returns <code>true</code> if and only if the cancel
-         * request is accepted by the application and so the work will be cancelled.
+         * Invoked when the user asks for cancelling the work. Returns
+         * <code>true</code> if and only if the cancel request is accepted by
+         * the application and so the work will be cancelled.
          *
-         * @return <code>true</code> if and only if the cancel request is accepted by the application
+         * @return <code>true</code> if and only if the cancel request is
+         * accepted by the application
          */
         public abstract boolean cancelRequest();
     }
 
     /**
-     * Task dialog callback which implements {@link #cancelRequest()} to allow all user cancel requests.
+     * Task dialog callback which implements {@link #cancelRequest()} to allow
+     * all user cancel requests.
      *
      * @param <R> type of the work result
      *
@@ -79,7 +82,8 @@ public final class TaskDialog<R> extends Dialog {
     }
 
     /**
-     * Task dialog callback which implements {@link #cancelRequest()} to disallow all user cancel requests.
+     * Task dialog callback which implements {@link #cancelRequest()} to
+     * disallow all user cancel requests.
      *
      * @param <R> type of the work result
      *
@@ -93,40 +97,6 @@ public final class TaskDialog<R> extends Dialog {
         @Override
         public boolean cancelRequest() {
             return false;
-        }
-    }
-
-    private static final class DialogWorkCallback<R> implements WorkCallback<R> {
-        private final TaskDialog<R> td;
-        private final TaskDialogCallback<R> tdc;
-
-        private DialogWorkCallback(TaskDialog<R> td, TaskDialogCallback<R> tdc) {
-            this.td = td;
-            this.tdc = tdc;
-        }
-
-        @Override
-        public void workFinished(R result) {
-            td.dispose();
-            if (tdc != null) {
-                tdc.workFinished(result);
-            }
-        }
-
-        @Override
-        public void workFailed(Exception exception) {
-            td.dispose();
-            if (tdc != null) {
-                tdc.workFailed(exception);
-            }
-        }
-
-        @Override
-        public void workCancelled() {
-            td.dispose();
-            if (tdc != null) {
-                tdc.workCancelled();
-            }
         }
     }
 
@@ -146,7 +116,12 @@ public final class TaskDialog<R> extends Dialog {
      * @param msg          dialog message
      * @param isCancelable make this work cancelable
      */
-    public TaskDialog(Window window, String title, String msg, boolean isCancelable) {
+    public TaskDialog(
+        Window window,
+        String title,
+        String msg,
+        boolean isCancelable
+    ) {
         super(window);
         this.msgLabel = new TextLabel(window, msg);
         this.isCancelable = isCancelable;
@@ -174,8 +149,18 @@ public final class TaskDialog<R> extends Dialog {
      * @param msgRes       dialog message resource
      * @param isCancelable make this work cancelable
      */
-    public TaskDialog(Window window, int titleRes, int msgRes, boolean isCancelable) {
-        this(window, window.getStringResources().get(titleRes), window.getStringResources().get(msgRes), isCancelable);
+    public TaskDialog(
+        Window window,
+        int titleRes,
+        int msgRes,
+        boolean isCancelable
+    ) {
+        this(
+            window,
+            window.getStringResources().get(titleRes),
+            window.getStringResources().get(msgRes),
+            isCancelable
+        );
     }
 
     /**
@@ -201,7 +186,8 @@ public final class TaskDialog<R> extends Dialog {
     }
 
     /**
-     * Returns the {@link BarLoadingView} displayed on the dialog while loading.
+     * Returns the {@link BarLoadingView} displayed on the dialog while
+     * loading.
      *
      * @return the dialog loading bar view
      */
@@ -238,9 +224,13 @@ public final class TaskDialog<R> extends Dialog {
      */
     public void execute(WorkRunnable<R> runnable) {
         if (work != null) {
-            throw new RuntimeException("This dialog has already executed a work");
+            throw new RuntimeException("This dialog has already executed a "
+                                       + "work");
         }
-        work = new AppWorker<>(barLoadingView, new DialogWorkCallback<>(this, callback));
+        work = new AppWorker<>(
+            barLoadingView,
+            new DialogWorkCallback<>(this, callback)
+        );
 
         work.execute(runnable);
         setVisible(true);
@@ -256,7 +246,11 @@ public final class TaskDialog<R> extends Dialog {
         final Panel topPanel = new Panel(context);
         final TextLabel titleLabel = new TextLabel(context, title);
 
-        titleLabel.setFont(context.getAppStyle().getFont().deriveFont(Font.BOLD));
+        titleLabel.setFont(
+            context.getAppStyle()
+                   .getFont()
+                   .deriveFont(Font.BOLD)
+        );
         titleLabel.setBorder(new EmptyBorder(0, 0, 5, 0));
         msgLabel.setForeground(context.getAppStyle().getSecondaryTextColor());
         msgLabel.setBorder(new EmptyBorder(0, 0, 5, 0));
@@ -268,9 +262,16 @@ public final class TaskDialog<R> extends Dialog {
         panel.add(topPanel, BorderLayout.PAGE_START);
         panel.add(msgLabel, BorderLayout.CENTER);
         if (isCancelable) {
-            final String cancelStr = context.getStringResources().get(AppStringResources.CANCEL);
-            final OptionButton cancelButton = new OptionButton(context, cancelStr);
-            final ActionPanel actionPanel = new ActionPanel(context, cancelButton);
+            final String cancelStr = context.getStringResources()
+                                            .get(AppStringResources.CANCEL);
+            final OptionButton cancelButton = new OptionButton(
+                context,
+                cancelStr
+            );
+            final ActionPanel actionPanel = new ActionPanel(
+                context,
+                cancelButton
+            );
             final ActionListener l = e -> cancelTask();
 
             cancelButton.addActionListener(l);
@@ -294,6 +295,43 @@ public final class TaskDialog<R> extends Dialog {
         }
         else {
             work.cancel();
+        }
+    }
+
+    private static final class DialogWorkCallback<R> implements WorkCallback<R> {
+        private final TaskDialog<R> td;
+        private final TaskDialogCallback<R> tdc;
+
+        private DialogWorkCallback(
+            TaskDialog<R> td,
+            TaskDialogCallback<R> tdc
+        ) {
+            this.td = td;
+            this.tdc = tdc;
+        }
+
+        @Override
+        public void workFinished(R result) {
+            td.dispose();
+            if (tdc != null) {
+                tdc.workFinished(result);
+            }
+        }
+
+        @Override
+        public void workFailed(Exception exception) {
+            td.dispose();
+            if (tdc != null) {
+                tdc.workFailed(exception);
+            }
+        }
+
+        @Override
+        public void workCancelled() {
+            td.dispose();
+            if (tdc != null) {
+                tdc.workCancelled();
+            }
         }
     }
 }

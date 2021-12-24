@@ -34,8 +34,9 @@ public final class Progress {
     }
 
     /**
-     * Returns the progress of the current process. If the size is not set it will return 0 or if the the processed
-     * items is greater than the size of the process it will return 1.
+     * Returns the progress of the current process. If the size is not set it
+     * will return 0 or if the the processed items is greater than the size of
+     * the process it will return 1.
      *
      * @return the progress, float form 0 to 1 inclusive
      */
@@ -48,8 +49,9 @@ public final class Progress {
     }
 
     /**
-     * Returns the progress of the current process. If the size is not set it will return 0 or if the the processed
-     * items is greater than the size of the process it will return 100.
+     * Returns the progress of the current process. If the size is not set it
+     * will return 0 or if the the processed items is greater than the size of
+     * the process it will return 100.
      *
      * @return the progress in percentage, float form 0 to 100 inclusive
      */

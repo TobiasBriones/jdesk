@@ -44,7 +44,11 @@ public final class ActionPanel extends DialogPanel {
      * @param negativeAction negative action button
      * @param positiveAction positive action button
      */
-    public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction) {
+    public ActionPanel(
+        WindowContext context,
+        Button negativeAction,
+        Button positiveAction
+    ) {
         super(context);
         setLayout(new FlowLayout(FlowLayout.TRAILING));
         add(negativeAction);
@@ -52,17 +56,26 @@ public final class ActionPanel extends DialogPanel {
     }
 
     /**
-     * Constructor for an ActionPanel with negative, positive and neutral actions.
+     * Constructor for an ActionPanel with negative, positive and neutral
+     * actions.
      *
      * @param context        window context
      * @param negativeAction negative action button
      * @param positiveAction positive action button
      * @param neutralButton  neutral action button
      */
-    public ActionPanel(WindowContext context, Button negativeAction, Button positiveAction, Button neutralButton) {
+    public ActionPanel(
+        WindowContext context,
+        Button negativeAction,
+        Button positiveAction,
+        Button neutralButton
+    ) {
         super(context);
         final DialogPanel leftPanel = new DialogPanel(context);
-        final DialogPanel rightPanel = new DialogPanel(context, new FlowLayout(FlowLayout.TRAILING));
+        final DialogPanel rightPanel = new DialogPanel(
+            context,
+            new FlowLayout(FlowLayout.TRAILING)
+        );
 
         leftPanel.add(neutralButton);
         rightPanel.add(negativeAction);

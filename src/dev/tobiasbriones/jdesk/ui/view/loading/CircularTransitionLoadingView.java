@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.work.LoadingView;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,29 +70,6 @@ public final class CircularTransitionLoadingView extends Panel implements Loadin
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (!isRunning()) {
-            return;
-        }
-        final Graphics2D g2 = (Graphics2D) g;
-
-        if (z == -1) {
-            g2.setColor(getBackground());
-            g2.fillRect(z, z, getWidth() + z, getHeight() + z);
-            z++;
-            return;
-        }
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setColor(color);
-        g2.fillOval(0, 0, getWidth(), getHeight());
-        g2.setColor(getBackground());
-        g2.fillOval(z, z, getWidth() + z, getHeight() + z);
-        g2.setColor(getBackground());
-        g2.fillOval(4, 4, getWidth() - 8, getHeight() - 8);
-    }
-
-    @Override
     public boolean isRunning() {
         return timer.isRunning();
     }
@@ -126,5 +103,31 @@ public final class CircularTransitionLoadingView extends Panel implements Loadin
      */
     public void setBig() {
         setPreferredSize(BIG_SIZE);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (!isRunning()) {
+            return;
+        }
+        final Graphics2D g2 = (Graphics2D) g;
+
+        if (z == -1) {
+            g2.setColor(getBackground());
+            g2.fillRect(z, z, getWidth() + z, getHeight() + z);
+            z++;
+            return;
+        }
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+        );
+        g2.setColor(color);
+        g2.fillOval(0, 0, getWidth(), getHeight());
+        g2.setColor(getBackground());
+        g2.fillOval(z, z, getWidth() + z, getHeight() + z);
+        g2.setColor(getBackground());
+        g2.fillOval(4, 4, getWidth() - 8, getHeight() - 8);
     }
 }

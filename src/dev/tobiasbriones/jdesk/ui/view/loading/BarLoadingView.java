@@ -12,9 +12,9 @@
 
 package dev.tobiasbriones.jdesk.ui.view.loading;
 
+import dev.tobiasbriones.jdesk.WindowContext;
 import dev.tobiasbriones.jdesk.ui.view.Panel;
 import dev.tobiasbriones.jdesk.work.LoadingView;
-import dev.tobiasbriones.jdesk.WindowContext;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,43 +86,6 @@ public final class BarLoadingView extends Panel implements LoadingView {
         setPreferredSize(new Dimension(width, HEIGHT));
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        final float time = System.currentTimeMillis() - lastTime;
-        final int width = getWidth();
-        int xChange;
-
-        if (x == -1) {
-            g.setColor(backgroundColor);
-            g.clearRect(0, 0, width, HEIGHT);
-            return;
-        }
-        if (style == STYLE_NORMAL) {
-            xChange = (int) ((time / 1000) * (speed * width));
-        }
-        else {
-            xChange = (int) ((time / 1000) * speed * x);
-        }
-        if (xChange == 0) {
-            xChange = 1;
-        }
-        if (x >= width) {
-            x = 0;
-        }
-        else {
-            x += xChange;
-
-            if (x > width) {
-                x = width;
-            }
-        }
-        g.setColor(backgroundColor);
-        g.clearRect(0, 0, width, HEIGHT);
-        g.setColor(barColor);
-        g.fillRect(0, 0, x, HEIGHT);
-        lastTime = System.currentTimeMillis();
-    }
-
     /**
      * Sets the preferred size only by taking into account the width dimension.
      *
@@ -158,5 +121,42 @@ public final class BarLoadingView extends Panel implements LoadingView {
         x = -1;
 
         repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        final float time = System.currentTimeMillis() - lastTime;
+        final int width = getWidth();
+        int xChange;
+
+        if (x == -1) {
+            g.setColor(backgroundColor);
+            g.clearRect(0, 0, width, HEIGHT);
+            return;
+        }
+        if (style == STYLE_NORMAL) {
+            xChange = (int) ((time / 1000) * (speed * width));
+        }
+        else {
+            xChange = (int) ((time / 1000) * speed * x);
+        }
+        if (xChange == 0) {
+            xChange = 1;
+        }
+        if (x >= width) {
+            x = 0;
+        }
+        else {
+            x += xChange;
+
+            if (x > width) {
+                x = width;
+            }
+        }
+        g.setColor(backgroundColor);
+        g.clearRect(0, 0, width, HEIGHT);
+        g.setColor(barColor);
+        g.fillRect(0, 0, x, HEIGHT);
+        lastTime = System.currentTimeMillis();
     }
 }

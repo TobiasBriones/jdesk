@@ -26,7 +26,8 @@ public interface Validator<I> {
     String getErrorText();
 
     /**
-     * Returns <code>true</code> if and only if this input is accepted by the validator.
+     * Returns <code>true</code> if and only if this input is accepted by the
+     * validator.
      *
      * @param input input to check
      *

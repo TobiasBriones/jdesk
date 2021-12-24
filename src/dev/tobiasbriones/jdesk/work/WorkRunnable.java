@@ -13,8 +13,8 @@
 package dev.tobiasbriones.jdesk.work;
 
 /**
- * Requested to perform a background task on a new thread by invoking
- * {@link WorkRunnable#run()}.
+ * Requested to perform a background task on a new thread by invoking {@link
+ * WorkRunnable#run()}.
  *
  * @param <R> type of result to return after completing the background task
  *
@@ -22,7 +22,8 @@ package dev.tobiasbriones.jdesk.work;
  */
 public interface WorkRunnable<R> {
     /**
-     * Called when the corresponding background task is going to be performed on a new thread.
+     * Called when the corresponding background task is going to be performed on
+     * a new thread.
      *
      * @return the result of the task
      *

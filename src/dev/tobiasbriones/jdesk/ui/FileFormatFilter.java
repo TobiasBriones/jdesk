@@ -21,9 +21,8 @@ import java.io.File;
 /**
  * Filters all files with the specified format or extension.
  *
- * @see FileFilter
- *
  * @author Tobias Briones
+ * @see FileFilter
  */
 public final class FileFormatFilter extends FileFilter {
     private final String extension;
@@ -47,12 +46,12 @@ public final class FileFormatFilter extends FileFilter {
     }
 
     @Override
-    public boolean accept(File file) {
-        return IOFile.getExtension(file.getName()).equals(extension);
+    public String getDescription() {
+        return "Files " + "(" + IOFile.EXTENSION_SEPARATOR + extension.toUpperCase() + ")";
     }
 
     @Override
-    public String getDescription() {
-        return "Files " + "(" + IOFile.EXTENSION_SEPARATOR + extension.toUpperCase() + ")";
+    public boolean accept(File file) {
+        return IOFile.getExtension(file.getName()).equals(extension);
     }
 }

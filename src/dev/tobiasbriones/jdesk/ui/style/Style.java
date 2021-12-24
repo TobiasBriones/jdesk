@@ -17,8 +17,8 @@ import java.awt.*;
 /**
  * Class to implement the app style.
  *
- * @see AppStyle
  * @author Tobias Briones
+ * @see AppStyle
  */
 public class Style implements AppStyle {
     public static final int TOP_BACKGROUND = 0;
@@ -35,44 +35,46 @@ public class Style implements AppStyle {
     public static final int ERROR_TEXT = 11;
 
     /**
-     * Returns the text wrapped into HTML applying text style,
-     * it does not take into account the color alpha value,
-     * the text will be inserted inside the body tag.
+     * Returns the text wrapped into HTML applying text style, it does not take
+     * into account the color alpha value, the text will be inserted inside the
+     * body tag.
      *
      * @param appStyle application style
      * @param htmlText HTML text
      *
-     * @return the HTML string which body contains <code>htmlText</code> and application text style
+     * @return the HTML string which body contains <code>htmlText</code> and
+     * application text style
      */
     public static String wrapTextInHTML(AppStyle appStyle, String htmlText) {
-        return wrapTextInHTML(appStyle.getFont(), appStyle.getTextColor(), htmlText);
+        return wrapTextInHTML(
+            appStyle.getFont(),
+            appStyle.getTextColor(),
+            htmlText
+        );
     }
 
     /**
-     * Returns the text wrapped into HTML applying dialog message style,
-     * it does not take into account the color alpha value,
-     * the text will be inserted inside the body tag.
+     * Returns the text wrapped into HTML applying dialog message style, it does
+     * not take into account the color alpha value, the text will be inserted
+     * inside the body tag.
      *
      * @param appStyle application style
      * @param htmlText HTML text
      *
-     * @return the HTML string which body contains <code>htmlText</code> and application text style
+     * @return the HTML string which body contains <code>htmlText</code> and
+     * application text style
      */
-    public static String wrapDialogTextInHTML(AppStyle appStyle, String htmlText) {
-        return wrapTextInHTML(appStyle.getFont(), appStyle.getSecondaryTextColor(), htmlText);
+    public static String wrapDialogTextInHTML(
+        AppStyle appStyle,
+        String htmlText
+    ) {
+        return wrapTextInHTML(
+            appStyle.getFont(),
+            appStyle.getSecondaryTextColor(),
+            htmlText
+        );
     }
 
-    private static String wrapTextInHTML(Font font, Color color, String htmlText) {
-        final String fontFamily = font.getFamily();
-        final int fontSize = font.getSize();
-        final int r = color.getRed();
-        final int g = color.getGreen();
-        final int b = color.getBlue();
-        final String textColor = "rgb(" + r + "," + g + "," + b + ")";
-        final String css = "font-family:" + fontFamily + ";font-size:" + fontSize + ";" + "color:" + textColor + ";";
-
-        return "<html><body style='" + css + "'>" + htmlText + "</body></html>";
-    }
     private final Font font;
     private final Color topBackgroundColor;
     private final Color windowBackgroundColor;
@@ -175,5 +177,23 @@ public class Style implements AppStyle {
     @Override
     public Color getErrorTextColor() {
         return errorTextColor;
+    }
+
+    private static String wrapTextInHTML(
+        Font font,
+        Color color,
+        String htmlText
+    ) {
+        final String fontFamily = font.getFamily();
+        final int fontSize = font.getSize();
+        final int r = color.getRed();
+        final int g = color.getGreen();
+        final int b = color.getBlue();
+        final String textColor = "rgb(" + r + "," + g + "," + b + ")";
+        final String css =
+            "font-family:" + fontFamily + ";font-size:" + fontSize + ";" +
+            "color:" + textColor + ";";
+
+        return "<html><body style='" + css + "'>" + htmlText + "</body></html>";
     }
 }

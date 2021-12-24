@@ -17,38 +17,14 @@ import java.awt.*;
 /**
  * Default app style. It can be customized to the app style.
  *
+ * @author Tobias Briones
  * @see Style
  * @see AppStyle
- *
- * @author Tobias Briones
  */
 public final class DefaultStyle extends Style {
-    private static Color[] createColors(ColorPair[] colors) {
-        final Color[] array = {
-            Color.WHITE,
-            Color.WHITE,
-            Color.WHITE,
-            Color.decode("#D0D0D0"),
-            Color.decode("#CACACA"),
-            Color.decode("#90CAF9"),
-            Color.decode("#DADADA"),
-            Color.decode("#212121"),
-            Color.decode("#DDDDDD"),
-            Color.decode("#212121"),
-            Color.decode("#757575"),
-            Color.decode("#E64A19")
-        };
-        if (colors != null) {
-            for (ColorPair pair : colors) {
-                array[pair.id] = pair.color;
-            }
-        }
-        return array;
-    }
-
     /**
-     * Pair of colors to pass to {@link DefaultStyle} constructor and apply
-     * to those app style.
+     * Pair of colors to pass to {@link DefaultStyle} constructor and apply to
+     * those app style.
      */
     public static final class ColorPair {
         private final int id;
@@ -89,5 +65,28 @@ public final class DefaultStyle extends Style {
         if (font == null) {
             throw new NullPointerException("Font can't be null");
         }
+    }
+
+    private static Color[] createColors(ColorPair[] colors) {
+        final Color[] array = {
+            Color.WHITE,
+            Color.WHITE,
+            Color.WHITE,
+            Color.decode("#D0D0D0"),
+            Color.decode("#CACACA"),
+            Color.decode("#90CAF9"),
+            Color.decode("#DADADA"),
+            Color.decode("#212121"),
+            Color.decode("#DDDDDD"),
+            Color.decode("#212121"),
+            Color.decode("#757575"),
+            Color.decode("#E64A19")
+        };
+        if (colors != null) {
+            for (ColorPair pair : colors) {
+                array[pair.id] = pair.color;
+            }
+        }
+        return array;
     }
 }

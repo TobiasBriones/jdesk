@@ -20,9 +20,8 @@ import java.nio.file.Paths;
 /**
  * Window to display the UI.
  *
- * @see WindowContext
- *
  * @author Tobias Briones
+ * @see WindowContext
  */
 public abstract class Window extends FrameWindow {
     private static final long serialVersionUID = 673841114819291383L;
@@ -93,7 +92,10 @@ public abstract class Window extends FrameWindow {
     }
 
     public final void setIcon(String iconName) {
-        final String path = Paths.get(Resources.ICON_DIRECTORY, iconName + ".png").toString();
+        final String path = Paths.get(
+            Resources.ICON_DIRECTORY,
+            iconName + ".png"
+        ).toString();
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(path));
     }

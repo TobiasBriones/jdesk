@@ -63,8 +63,9 @@ public class Button extends JButton implements TextIdClickView {
     }
 
     /**
-     * Constructor for a button. It automatically adds a {@link ClickListener} with the passed text resource id provided
-     * that context is instance of {@link ClickListener}, otherwise it won't add the listener.
+     * Constructor for a button. It automatically adds a {@link ClickListener}
+     * with the passed text resource id provided that context is instance of
+     * {@link ClickListener}, otherwise it won't add the listener.
      *
      * @param context window context
      * @param textRes button text resource
@@ -110,8 +111,9 @@ public class Button extends JButton implements TextIdClickView {
     }
 
     /**
-     * Constructor for a button. It automatically adds a {@link ClickListener} with the passed text resource id provided
-     * that context is instance of {@link ClickListener}, otherwise it won't add the listener.
+     * Constructor for a button. It automatically adds a {@link ClickListener}
+     * with the passed text resource id provided that context is instance of
+     * {@link ClickListener}, otherwise it won't add the listener.
      *
      * @param context window context
      * @param textRes button text resource
@@ -169,7 +171,8 @@ public class Button extends JButton implements TextIdClickView {
     }
 
     /**
-     * Sets the button text as is passed, it doesn't apply capitalization to the text.
+     * Sets the button text as is passed, it doesn't apply capitalization to the
+     * text.
      *
      * @param text button text
      */
@@ -180,6 +183,15 @@ public class Button extends JButton implements TextIdClickView {
     @Override
     public void setText(String text) {
         super.setText(text.toUpperCase());
+    }
+
+    @Override
+    public int getTextId() {
+        return textId;
+    }
+
+    public final void setBold() {
+        setFont(getFont().deriveFont(Font.BOLD));
     }
 
     @Override
@@ -203,15 +215,6 @@ public class Button extends JButton implements TextIdClickView {
             g.fillRect(0, 0, getWidth(), getHeight());
         }
         super.paintComponent(g);
-    }
-
-    @Override
-    public int getTextId() {
-        return textId;
-    }
-
-    public final void setBold() {
-        setFont(getFont().deriveFont(Font.BOLD));
     }
 
     private void init(AppStyle appStyle) {

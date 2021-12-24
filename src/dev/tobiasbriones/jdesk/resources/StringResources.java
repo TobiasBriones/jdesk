@@ -12,8 +12,8 @@
 
 package dev.tobiasbriones.jdesk.resources;
 
-import dev.tobiasbriones.jdesk.Config;
 import dev.tobiasbriones.jdesk.App;
+import dev.tobiasbriones.jdesk.Config;
 import dev.tobiasbriones.jdesk.io.IOFile;
 
 import java.io.BufferedReader;
@@ -25,9 +25,9 @@ import java.util.List;
 
 public final class StringResources {
     /**
-     * Denotes the default file name containing the string resources.
-     * Other string resources files from other languages are denoted
-     * by <code>StringResources-LANG</code>
+     * Denotes the default file name containing the string resources. Other
+     * string resources files from other languages are denoted by
+     * <code>StringResources-LANG</code>
      */
     public static final String STRING_RESOURCES_FILE = "StringResources";
     private static final String LANGUAGE_KEY = "language";
@@ -49,11 +49,16 @@ public final class StringResources {
     /**
      * Constructs an app string resources object with the passed language.
      *
-     * @param src class contained into the package in which the string resource files are going to be loaded
+     * @param src class contained into the package in which the string resource
+     *            files are going to be loaded
      */
     public StringResources(Class<?> src) throws IOException {
         this.strings = new ArrayList<>();
-        final String language = Config.get(new IOFile(App.APP_CONFIG_FILE), LANGUAGE_KEY, "");
+        final String language = Config.get(
+            new IOFile(App.APP_CONFIG_FILE),
+            LANGUAGE_KEY,
+            ""
+        );
         String file = STRING_RESOURCES_FILE;
 
         if (!language.isEmpty()) {
@@ -80,11 +85,14 @@ public final class StringResources {
      *
      * @return the requested string
      *
-     * @throws RuntimeException if stringRes does not belong to the list of the loaded strings
+     * @throws RuntimeException if stringRes does not belong to the list of the
+     *                          loaded strings
      */
     public String get(int stringRes) {
         if (stringRes < 0) {
-            throw new RuntimeException("String resources IDs are not negative integers.");
+            throw new RuntimeException(
+                "String resources IDs are not negative integers."
+            );
         }
         if (stringRes >= strings.size()) {
             throw new RuntimeException("String resource not found " + stringRes);

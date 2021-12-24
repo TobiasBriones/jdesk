@@ -14,25 +14,25 @@ package dev.tobiasbriones.jdesk.ui.view.validation.validator;
 
 public final class NumberValidator implements Validator<String> {
     public enum NumberType { INTEGER, DECIMAL, LONG }
-
-    private static double getDouble(String input) {
-        return Double.parseDouble(input);
-    }
-
     private final NumberType type;
     private final boolean unsigned;
     private final boolean zero;
     private String errorText;
-
     /**
-     * Constructor for NumberValidator with type of number to accept and whether is unsigned and zero.
+     * Constructor for NumberValidator with type of number to accept and whether
+     * is unsigned and zero.
      *
      * @param numberType number type to accept
      * @param unsigned   accept unsigned values
      * @param zero       accept the number zero
      * @param errorText  error text to display when needed
      */
-    public NumberValidator(NumberType numberType, boolean unsigned, boolean zero, String errorText) {
+    public NumberValidator(
+        NumberType numberType,
+        boolean unsigned,
+        boolean zero,
+        String errorText
+    ) {
         this.type = numberType;
         this.unsigned = unsigned;
         this.zero = zero;
@@ -46,7 +46,11 @@ public final class NumberValidator implements Validator<String> {
      * @param unsigned   accept unsigned values
      * @param errorText  error text to display when needed
      */
-    public NumberValidator(NumberType numberType, boolean unsigned, String errorText) {
+    public NumberValidator(
+        NumberType numberType,
+        boolean unsigned,
+        String errorText
+    ) {
         this(numberType, unsigned, true, errorText);
     }
 
@@ -61,7 +65,8 @@ public final class NumberValidator implements Validator<String> {
     }
 
     /**
-     * Default constructor for NumberValidator. It sets number type to INTEGER, signed and can be zero.
+     * Default constructor for NumberValidator. It sets number type to INTEGER,
+     * signed and can be zero.
      */
     public NumberValidator() {
         this(NumberType.INTEGER, false, true, "");
@@ -77,8 +82,9 @@ public final class NumberValidator implements Validator<String> {
     }
 
     /**
-     * Returns <code>true</code> if and only if this input is a valid number checking the parameters of this
-     * NumberValidator, note that if the input is out of range of the specified number type it will return
+     * Returns <code>true</code> if and only if this input is a valid number
+     * checking the parameters of this NumberValidator, note that if the input
+     * is out of range of the specified number type it will return
      * <code>false</code>.
      *
      * @param input input to check
@@ -114,5 +120,9 @@ public final class NumberValidator implements Validator<String> {
             return false;
         }
         return true;
+    }
+
+    private static double getDouble(String input) {
+        return Double.parseDouble(input);
     }
 }

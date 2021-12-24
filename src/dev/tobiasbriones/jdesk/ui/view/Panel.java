@@ -57,7 +57,11 @@ public class Panel extends JPanel {
      * @param layoutManager panel layout manager
      * @param padding       panel padding
      */
-    public Panel(WindowContext context, LayoutManager layoutManager, Insets padding) {
+    public Panel(
+        WindowContext context,
+        LayoutManager layoutManager,
+        Insets padding
+    ) {
         this(context, layoutManager);
         setPadding(padding);
     }

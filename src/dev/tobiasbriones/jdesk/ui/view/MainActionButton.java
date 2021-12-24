@@ -19,8 +19,8 @@ import java.awt.*;
 
 /**
  * Rounded button which functionality is to provide the user a main action on
- * the window or dialog. It shouldn't be added to a window or dialog more
- * than once because of UI design patterns.
+ * the window or dialog. It shouldn't be added to a window or dialog more than
+ * once because of UI design patterns.
  *
  * @author Tobias Briones
  */
@@ -28,8 +28,8 @@ public class MainActionButton extends Button {
     private static final long serialVersionUID = -578290235961396969L;
 
     /**
-     * Constructor for MainActionButton, it adds the button icon which should be half the size of the button.
-     * The default button size is 56px.
+     * Constructor for MainActionButton, it adds the button icon which should be
+     * half the size of the button. The default button size is 56px.
      *
      * @param context window context
      * @param icon    button icon
@@ -44,16 +44,21 @@ public class MainActionButton extends Button {
     }
 
     /**
-     * Constructor for MainActionButton, it adds the button icon which should be half the size of the button.
-     * The default button size is 56px. The argument hidingTextRes gives to this button the text id to listen to
+     * Constructor for MainActionButton, it adds the button icon which should be
+     * half the size of the button. The default button size is 56px. The
+     * argument hidingTextRes gives to this button the text id to listen to
      * {@link ClickListener} but it does not show the text.
      *
      * @param context       window context
      * @param icon          button icon
-     * @param hidingTextRes text resource to provide to this button to add the {@link ClickListener}, the text won't
-     *                      be displayed
+     * @param hidingTextRes text resource to provide to this button to add the
+     *                      {@link ClickListener}, the text won't be displayed
      */
-    public MainActionButton(WindowContext context, Icon icon, int hidingTextRes) {
+    public MainActionButton(
+        WindowContext context,
+        Icon icon,
+        int hidingTextRes
+    ) {
         super(context, hidingTextRes, icon);
         setText("");
         setBackgroundColor(context.getAppStyle().getAccentColor());
@@ -82,7 +87,10 @@ public class MainActionButton extends Button {
     protected void paintComponent(Graphics g) {
         final Graphics2D g2 = (Graphics2D) g;
 
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(
+            RenderingHints.KEY_ANTIALIASING,
+            RenderingHints.VALUE_ANTIALIAS_ON
+        );
         if (getPressedColor() != null && getModel().isPressed()) {
             g.setColor(getPressedColor());
             g.fillOval(0, 0, getWidth(), getHeight());
@@ -100,7 +108,8 @@ public class MainActionButton extends Button {
             g.setColor(getBackgroundColor());
             g.fillOval(0, 0, getWidth(), getHeight());
         }
-        getIcon().paintIcon(this,
+        getIcon().paintIcon(
+            this,
             g,
             ((getWidth() - 1) - (getIcon().getIconWidth() - 1)) / 2,
             ((getHeight() - 1) - (getIcon().getIconHeight() - 1)) / 2

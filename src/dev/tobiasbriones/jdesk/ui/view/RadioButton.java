@@ -60,7 +60,12 @@ public class RadioButton extends JRadioButton {
         config(context.getAppStyle());
     }
 
-    public RadioButton(WindowContext context, String text, Icon icon, boolean selected) {
+    public RadioButton(
+        WindowContext context,
+        String text,
+        Icon icon,
+        boolean selected
+    ) {
         super(text, icon, selected);
         config(context.getAppStyle());
     }

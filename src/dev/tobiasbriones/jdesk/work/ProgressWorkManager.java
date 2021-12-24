@@ -21,44 +21,40 @@ import java.util.List;
  * @author Tobias Briones
  */
 public final class ProgressWorkManager<R> {
-    private static final class Listener implements WorkRunnableListener<Progress> {
-        private final ProgressLoadingView progressLoadingView;
-
-        private Listener(ProgressLoadingView progressLoadingView) {
-            this.progressLoadingView = progressLoadingView;
-        }
-
-        @Override
-        public void update(List<Progress> updates) {
-            final Progress progress = updates.get(updates.size() - 1);
-
-            progressLoadingView.setProgress(progress.getProgress());
-        }
-    }
-
     private final AppWorker<R, Progress> work;
     private final Progress progress;
-
     /**
-     * Constructor for ProgressWorkManager with the size of the progress to be used to update the
-     * {@link ProgressLoadingView}.
+     * Constructor for ProgressWorkManager with the size of the progress to be
+     * used to update the {@link ProgressLoadingView}.
      *
      * @param loadingView  loading view
      * @param callback     work callback
      * @param progressSize size of items to be processed
      */
-    public ProgressWorkManager(ProgressLoadingView loadingView, WorkCallback<R> callback, int progressSize) {
-        this.work = new AppWorker<>(loadingView, callback, new Listener(loadingView));
+    public ProgressWorkManager(
+        ProgressLoadingView loadingView,
+        WorkCallback<R> callback,
+        int progressSize
+    ) {
+        this.work = new AppWorker<>(
+            loadingView,
+            callback,
+            new Listener(loadingView)
+        );
         this.progress = new Progress(progressSize);
     }
 
     /**
-     * Constructor for ProgressWorkManager with no size specified. Call {@link #getProgress()} to set the progress.
+     * Constructor for ProgressWorkManager with no size specified. Call {@link
+     * #getProgress()} to set the progress.
      *
      * @param loadingView loading view
      * @param callback    work callback
      */
-    public ProgressWorkManager(ProgressLoadingView loadingView, WorkCallback<R> callback) {
+    public ProgressWorkManager(
+        ProgressLoadingView loadingView,
+        WorkCallback<R> callback
+    ) {
         this(loadingView, callback, -1);
     }
 
@@ -90,9 +86,25 @@ public final class ProgressWorkManager<R> {
     }
 
     /**
-     * It is called from {@link WorkRunnable#run()} to update the progress of the {@link ProgressLoadingView}.
+     * It is called from {@link WorkRunnable#run()} to update the progress of
+     * the {@link ProgressLoadingView}.
      */
     public void update() {
         work.update(progress);
+    }
+
+    private static final class Listener implements WorkRunnableListener<Progress> {
+        private final ProgressLoadingView progressLoadingView;
+
+        private Listener(ProgressLoadingView progressLoadingView) {
+            this.progressLoadingView = progressLoadingView;
+        }
+
+        @Override
+        public void update(List<Progress> updates) {
+            final Progress progress = updates.get(updates.size() - 1);
+
+            progressLoadingView.setProgress(progress.getProgress());
+        }
     }
 }

@@ -48,7 +48,12 @@ public class PasswordInputText extends JPasswordField {
      * @param text    text
      * @param columns columns
      */
-    public PasswordInputText(WindowContext context, Document doc, String text, int columns) {
+    public PasswordInputText(
+        WindowContext context,
+        Document doc,
+        String text,
+        int columns
+    ) {
         super(doc, text, columns);
         config(context.getAppStyle());
     }
@@ -89,17 +94,35 @@ public class PasswordInputText extends JPasswordField {
 
     private void config(AppStyle appStyle) {
         setPreferredSize(new Dimension(0, HEIGHT));
-        setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
+        setBorder(BorderFactory.createMatteBorder(
+            0,
+            0,
+            1,
+            0,
+            appStyle.getAccentColor()
+        ));
         setFont(appStyle.getFont());
         addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, appStyle.getAccentColor()));
+                setBorder(BorderFactory.createMatteBorder(
+                    0,
+                    0,
+                    2,
+                    0,
+                    appStyle.getAccentColor()
+                ));
             }
 
             @Override
             public void focusLost(FocusEvent e) {
-                setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, appStyle.getAccentColor()));
+                setBorder(BorderFactory.createMatteBorder(
+                    0,
+                    0,
+                    1,
+                    0,
+                    appStyle.getAccentColor()
+                ));
             }
         });
     }

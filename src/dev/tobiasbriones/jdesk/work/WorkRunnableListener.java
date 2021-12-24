@@ -22,11 +22,10 @@ import java.util.List;
  */
 public interface WorkRunnableListener<U> {
     /**
-     * Called when an update was post from {@link WorkRunnable#run()} to update the progress on the UI.
+     * Called when an update was post from {@link WorkRunnable#run()} to update
+     * the progress on the UI.
      *
      * @param updates list of recently updates
-     *
-     * @see javax.swing.SwingWorker#process(List)
      */
     void update(List<U> updates);
 }
