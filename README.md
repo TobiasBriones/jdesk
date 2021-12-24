@@ -27,4 +27,4 @@ Copyright © 2018-2021 Tobias Briones. All rights reserved.
 
 ### License
 
-This project implementation is licensed under the [BSD 3-Clause LICENSE](./LICENSE).
+This project implementation is licensed under the [BSD 3-Clause License](./LICENSE).
