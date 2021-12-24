@@ -48,11 +48,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
         this.hasSizeSet = (size != null);
         this.isMainWindow = false;
 
-        // Check app instance window context
-        if (getStringResources() == null || getAppStyle() == null) {
-            final String msg = "Window context is not set, you must implement AppInstance";
-            throw new NullPointerException(msg);
-        }
+        requireAppInstance();
         if (size != null) {
             setSize(size);
         }
@@ -73,11 +69,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
         this.hasSizeSet = (size != null);
         this.isMainWindow = false;
 
-        // Check app instance window context
-        if (getStringResources() == null || getAppStyle() == null) {
-            throw new NullPointerException(
-                "Window context is not set, you must implement AppInstance");
-        }
+        requireAppInstance();
         if (size != null) {
             setSize(size);
         }
@@ -229,6 +221,12 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      */
     protected abstract void windowDetached();
 
+    private void requireAppInstance() {
+        if (getStringResources() == null || getAppStyle() == null) {
+            final String msg = "Window context is not set, you must implement AppInstance";
+            throw new NullPointerException(msg);
+        }
+    }
     private static final class WindowListener implements java.awt.event.WindowListener {
         private final FrameWindow window;
 
