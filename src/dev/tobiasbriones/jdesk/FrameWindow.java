@@ -34,6 +34,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
     private final boolean hasSizeSet;
     private final transient AppInstance appInstance;
     private boolean isMainWindow;
+
     /**
      * Constructor for a window to be build with title and size.
      *
@@ -49,8 +50,8 @@ abstract class FrameWindow extends JFrame implements WindowContext {
 
         // Check app instance window context
         if (getStringResources() == null || getAppStyle() == null) {
-            throw new NullPointerException(
-                "Window context is not set, you must implement AppInstance");
+            final String msg = "Window context is not set, you must implement AppInstance";
+            throw new NullPointerException(msg);
         }
         if (size != null) {
             setSize(size);
