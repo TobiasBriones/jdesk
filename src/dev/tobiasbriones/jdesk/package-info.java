@@ -11,7 +11,7 @@
  */
 
 /**
- * Contains an UI library/framework to create Swing apps more easily.
+ * Contains a UI library/framework to create Swing apps more easily.
  *
  * @author Tobias Briones
  */
