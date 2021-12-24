@@ -90,25 +90,30 @@ public abstract class App {
     }
 
     private static void presetUI(Font font) {
-        // Set LookAndFeel
-        if (System.getProperty("os.name").contains("Windows")) {
-            try {
-                UIManager.setLookAndFeel(
-                    "com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            }
-            catch (Exception ignored) {
-            }
-        }
-        // Register font
+        setLookAndFeel();
+
         if (font != null) {
-            final GraphicsEnvironment ge =
-                GraphicsEnvironment.getLocalGraphicsEnvironment();
+            setFont(font);
+        }
+    }
+
+    private static void setLookAndFeel() {
+        if (System.getProperty("os.name").contains("Windows")) {
+            final String value = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 
             try {
-                ge.registerFont(font);
+                UIManager.setLookAndFeel(value);
             }
-            catch (Exception ignored) {
-            }
+            catch (Exception ignored) {}
         }
+    }
+
+    private static void setFont(Font font) {
+        final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+        try {
+            ge.registerFont(font);
+        }
+        catch (Exception ignored) {}
     }
 }
