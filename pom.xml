@@ -114,7 +114,9 @@
                                     <goal>sign</goal>
                                 </goals>
                                 <configuration>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <keyname>${gpg.keyname}</keyname>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <passphraseServerId>
                                         ${gpg.keyname}
                                     </passphraseServerId>
@@ -136,7 +138,8 @@
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots
+            <url>
+                https://s01.oss.sonatype.org/content/repositories/snapshots
             </url>
         </snapshotRepository>
         <repository>
