@@ -10,6 +10,11 @@ Side project library/framework to build better Java Swing desktop apps.
 
 This library works with Java 8+.
 
+## Roadmap
+
+Wish to get rid of legacy Swing and move forward with MVP, system 
+architecture and JFX.
+
 ## Contact
 
 This project: [Docs](https://tobiasbriones.github.io/jdesk),
