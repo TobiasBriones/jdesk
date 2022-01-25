@@ -53,7 +53,7 @@ public final class AppDialog {
      * @param type   dialog type
      */
     public static void showMessage(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         String title,
         String msg,
         Type type
@@ -69,10 +69,9 @@ public final class AppDialog {
         final String okStr = sr.get(AppStringResources.OK);
         final OptionButton okButton = new OptionButton(window, okStr);
         final ActionPanel actionPanel = new ActionPanel(window, okButton);
-        final engineer.mathsoftware.jdesk.ui.dialog.Dialog dialog = new engineer.mathsoftware.jdesk.ui.dialog.Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final Icon icon = (type != null) ? loadIcon(type) : null;
         final ActionListener l = e -> dialog.dispose();
-
         okButton.addActionListener(l);
         panel.setLayout(new BorderLayout());
         panel.add(titleLabel, BorderLayout.PAGE_START);
@@ -80,7 +79,6 @@ public final class AppDialog {
         panel.add(actionPanel, BorderLayout.PAGE_END);
         if (icon != null) {
             final TextLabel iconLabel = new TextLabel(window, icon);
-
             iconLabel.setBorder(new EmptyBorder(0, 0, 0, ICON_RIGHT_MARGIN));
             panel.add(iconLabel, BorderLayout.LINE_START);
         }
@@ -99,7 +97,7 @@ public final class AppDialog {
      * @param type     dialog type
      */
     public static void showMessage(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         int titleRes,
         int msgRes,
         Type type
@@ -117,8 +115,13 @@ public final class AppDialog {
      * @param msg    dialog message
      * @param type   dialog type
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, String msg, Type type) {
-        final int stringPosition = AppStringResources.INFORMATION + type.ordinal();
+    public static void showMessage(
+        Window window,
+        String msg,
+        Type type
+    ) {
+        final int stringPosition =
+            AppStringResources.INFORMATION + type.ordinal();
         final String title = window.getStringResources().get(stringPosition);
         showMessage(window, title, msg, type);
     }
@@ -131,7 +134,11 @@ public final class AppDialog {
      * @param msgRes dialog message resource
      * @param type   dialog type
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, int msgRes, Type type) {
+    public static void showMessage(
+        Window window,
+        int msgRes,
+        Type type
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, msg, type);
     }
@@ -143,10 +150,13 @@ public final class AppDialog {
      * @param title  dialog title
      * @param msg    dialog message
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, String title, String msg) {
+    public static void showMessage(
+        Window window,
+        String title,
+        String msg
+    ) {
         showMessage(window, title, msg, null);
     }
-
     // -------------------- MESSAGE DIALOG -------------------- //
 
     /**
@@ -156,7 +166,11 @@ public final class AppDialog {
      * @param titleRes dialog title resource
      * @param msgRes   dialog message resource
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, int titleRes, int msgRes) {
+    public static void showMessage(
+        Window window,
+        int titleRes,
+        int msgRes
+    ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, title, msg);
@@ -168,7 +182,10 @@ public final class AppDialog {
      * @param window window to attach the dialog
      * @param msg    dialog message
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, String msg) {
+    public static void showMessage(
+        Window window,
+        String msg
+    ) {
         showMessage(window, "", msg, null);
     }
 
@@ -178,7 +195,10 @@ public final class AppDialog {
      * @param window window to attach the dialog
      * @param msgRes dialog message resource
      */
-    public static void showMessage(engineer.mathsoftware.jdesk.Window window, int msgRes) {
+    public static void showMessage(
+        Window window,
+        int msgRes
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, msg);
     }
@@ -196,7 +216,7 @@ public final class AppDialog {
      * request
      */
     public static ConfirmResult showConfirm(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         String title,
         String msg,
         String okAction
@@ -213,7 +233,7 @@ public final class AppDialog {
             cancelButton,
             okButton
         );
-        final engineer.mathsoftware.jdesk.ui.dialog.Dialog dialog = new engineer.mathsoftware.jdesk.ui.dialog.Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final ActionListener l = e -> {
             dialog.dispose();
             if (e.getSource() == okButton) {
@@ -226,7 +246,6 @@ public final class AppDialog {
             }
         };
         final ConfirmResult result;
-
         cancelButton.addActionListener(l);
         okButton.addActionListener(l);
         panel.setLayout(new BorderLayout());
@@ -238,7 +257,6 @@ public final class AppDialog {
         dialog.setVisible(true);
         result = (ConfirmResult) dialog.getRootPane()
                                        .getClientProperty("result");
-
         return (result != null) ? result : ConfirmResult.RESULT_CANCEL;
     }
 
@@ -255,7 +273,7 @@ public final class AppDialog {
      * request
      */
     public static ConfirmResult showConfirm(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         int titleRes,
         int msgRes,
         int okActionRes
@@ -277,7 +295,7 @@ public final class AppDialog {
      * request
      */
     public static ConfirmResult showConfirm(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         String title,
         String msg
     ) {
@@ -297,13 +315,12 @@ public final class AppDialog {
      * request
      */
     public static ConfirmResult showConfirm(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         int titleRes,
         int msgRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
-
         return showConfirm(window, title, msg);
     }
 
@@ -316,12 +333,14 @@ public final class AppDialog {
      * @return RESULT_OK if and only if the user accepts this confirm dialog
      * request
      */
-    public static ConfirmResult showConfirm(engineer.mathsoftware.jdesk.Window window, String msg) {
+    public static ConfirmResult showConfirm(
+        Window window,
+        String msg
+    ) {
         final String title = window.getStringResources()
                                    .get(AppStringResources.CONFIRM);
         return showConfirm(window, title, msg);
     }
-
     // -------------------- CONFIRM DIALOG -------------------- //
 
     /**
@@ -333,7 +352,10 @@ public final class AppDialog {
      * @return RESULT_OK if and only if the user accepts this confirm dialog
      * request
      */
-    public static ConfirmResult showConfirm(engineer.mathsoftware.jdesk.Window window, int msgRes) {
+    public static ConfirmResult showConfirm(
+        Window window,
+        int msgRes
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         return showConfirm(window, msg);
     }
@@ -350,7 +372,7 @@ public final class AppDialog {
      * @return the text entered by the user
      */
     public static String showInput(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         String title,
         String msg,
         Object content
@@ -377,7 +399,7 @@ public final class AppDialog {
      * @return the text entered by the user
      */
     public static String showInput(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         int titleRes,
         int msgRes,
         Object content
@@ -397,7 +419,11 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, String title, String msg) {
+    public static String showInput(
+        Window window,
+        String title,
+        String msg
+    ) {
         return showInput(window, title, msg, "");
     }
 
@@ -411,7 +437,11 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, int titleRes, int msgRes) {
+    public static String showInput(
+        Window window,
+        int titleRes,
+        int msgRes
+    ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, title, msg);
@@ -427,12 +457,15 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, String msg, Object content) {
+    public static String showInput(
+        Window window,
+        String msg,
+        Object content
+    ) {
         final String title = window.getStringResources()
                                    .get(AppStringResources.INPUT);
         return showInput(window, title, msg, content);
     }
-
     // -------------------- INPUT DIALOG -------------------- //
 
     /**
@@ -445,7 +478,11 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, int msgRes, Object content) {
+    public static String showInput(
+        Window window,
+        int msgRes,
+        Object content
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, msg, content);
     }
@@ -459,7 +496,10 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, String msg) {
+    public static String showInput(
+        Window window,
+        String msg
+    ) {
         final String title = window.getStringResources()
                                    .get(AppStringResources.INPUT);
         return showInput(window, title, msg, "");
@@ -474,7 +514,10 @@ public final class AppDialog {
      *
      * @return the text entered by the user
      */
-    public static String showInput(engineer.mathsoftware.jdesk.Window window, int msgRes) {
+    public static String showInput(
+        Window window,
+        int msgRes
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, msg);
     }
@@ -490,7 +533,7 @@ public final class AppDialog {
      * @return the string containing the user entered password
      */
     public static String showPasswordInput(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         String title,
         String msg
     ) {
@@ -515,7 +558,7 @@ public final class AppDialog {
      * @return the string containing the user entered password
      */
     public static String showPasswordInput(
-        engineer.mathsoftware.jdesk.Window window,
+        Window window,
         int titleRes,
         int msgRes
     ) {
@@ -533,7 +576,10 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(engineer.mathsoftware.jdesk.Window window, String msg) {
+    public static String showPasswordInput(
+        Window window,
+        String msg
+    ) {
         final String title = window.getStringResources()
                                    .get(AppStringResources.PASSWORD);
         return showPasswordInput(window, title, msg);
@@ -548,7 +594,10 @@ public final class AppDialog {
      *
      * @return the string containing the user entered password
      */
-    public static String showPasswordInput(engineer.mathsoftware.jdesk.Window window, int msgRes) {
+    public static String showPasswordInput(
+        Window window,
+        int msgRes
+    ) {
         final String msg = window.getStringResources().get(msgRes);
         return showPasswordInput(window, msg);
     }
@@ -557,33 +606,28 @@ public final class AppDialog {
 
     private static Icon loadIcon(Type type) {
         final String iconName;
-
         switch (type) {
             case INFO:
                 iconName = ICON_INFO;
                 break;
-
             case SUCCESS:
                 iconName = ICON_INFO;
                 break;
-
             case WARNING:
                 iconName = ICON_WARNING;
                 break;
-
             case ERROR:
                 iconName = ICON_ERROR;
                 break;
-
             case FAIL:
                 iconName = ICON_ERROR;
                 break;
-
             default:
                 iconName = ICON_INFO;
                 break;
         }
-        return new ImageIcon(AppDialog.class.getResource(iconName));
+        return new ImageIcon(AppDialog.class.getClassLoader()
+                                            .getResource(iconName));
     }
 
     private static TextLabel getTitleLabel(
@@ -592,7 +636,6 @@ public final class AppDialog {
         boolean hasIcon
     ) {
         final TextLabel label = new TextLabel(context, title);
-
         label.setFont(context.getAppStyle().getFont().deriveFont(Font.BOLD));
         if (hasIcon) {
             label.setBorder(new EmptyBorder(
@@ -613,7 +656,6 @@ public final class AppDialog {
         String msg
     ) {
         final TextLabel label = new TextLabel(context, msg);
-
         label.setForeground(context.getAppStyle().getSecondaryTextColor());
         return label;
     }
@@ -640,11 +682,10 @@ public final class AppDialog {
             cancelButton,
             okButton
         );
-        final engineer.mathsoftware.jdesk.ui.dialog.Dialog dialog = new Dialog(window);
+        final Dialog dialog = new Dialog(window);
         final ActionListener l = e -> {
             if (e.getSource() == okButton) {
                 final String text;
-
                 if (isPassword) {
                     text =
                         new String(((PasswordInputText) component).getPassword());
@@ -680,9 +721,10 @@ public final class AppDialog {
         panel.add(center, BorderLayout.CENTER);
         panel.add(actionPanel, BorderLayout.PAGE_END);
         if (isPassword) {
-            final Icon icon = new ImageIcon(AppDialog.class.getResource(ICON_PASSWORD));
+            final Icon icon =
+                new ImageIcon(AppDialog.class.getClassLoader()
+                                             .getResource(ICON_PASSWORD));
             final TextLabel iconLabel = new TextLabel(window, icon);
-
             iconLabel.setBorder(new EmptyBorder(0, 0, 0, ICON_RIGHT_MARGIN));
             panel.add(iconLabel, BorderLayout.LINE_START);
         }
