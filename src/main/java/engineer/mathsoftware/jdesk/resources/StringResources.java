@@ -17,11 +17,13 @@ import engineer.mathsoftware.jdesk.Config;
 import engineer.mathsoftware.jdesk.io.IOFile;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public final class StringResources {
     /**
@@ -29,7 +31,10 @@ public final class StringResources {
      * string resources files from other languages are denoted by
      * <code>StringResources-LANG</code>
      */
-    public static final String STRING_RESOURCES_FILE = "StringResources";
+    public static final String STRING_RESOURCES_FILE = File.separator +
+                                                       "strings" +
+                                                       File.separator +
+                                                       "StringResources";
     private static final String LANGUAGE_KEY = "language";
 
     /**
@@ -66,7 +71,10 @@ public final class StringResources {
         }
         try (
             BufferedReader br = new BufferedReader(new InputStreamReader(
-                src.getResourceAsStream(file),
+                Objects.requireNonNull(
+                    src.getClassLoader()
+                       .getResourceAsStream(file)
+                ),
                 StandardCharsets.UTF_8
             ))
         ) {
