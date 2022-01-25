@@ -96,8 +96,12 @@ public abstract class Window extends FrameWindow {
             Resources.ICON_DIRECTORY,
             iconName + ".png"
         ).toString();
-
-        setIconImage(Toolkit.getDefaultToolkit().getImage(path));
+        setIconImage(
+            Toolkit.getDefaultToolkit()
+                   .getImage(
+                       getClass().getClassLoader().getResource(path)
+                   )
+        );
     }
 
     @Override

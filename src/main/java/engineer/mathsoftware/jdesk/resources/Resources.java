@@ -54,11 +54,11 @@ public final class Resources {
      * @return the icon loaded into {@link ImageIcon}
      */
     public static Icon loadIcon(String iconName) {
-        return new ImageIcon(getFilePath(
-            ICON_DIRECTORY,
-            iconName,
-            ICON_FORMAT
-        ));
+        final String path = getFilePath(ICON_DIRECTORY, iconName, ICON_FORMAT);
+        return new ImageIcon(
+            Objects.requireNonNull(Resources.class.getClassLoader()
+                                                  .getResource(path))
+        );
     }
 
     /**
@@ -75,7 +75,8 @@ public final class Resources {
         try {
             return Font.createFont(
                 Font.TRUETYPE_FONT,
-                Objects.requireNonNull(Resources.class.getClassLoader().getResourceAsStream(path))
+                Objects.requireNonNull(Resources.class.getClassLoader()
+                                                      .getResourceAsStream(path))
             ).deriveFont(style, (float) size);
         }
         catch (Exception e) {
@@ -97,7 +98,8 @@ public final class Resources {
         try {
             return Font.createFont(
                 Font.TRUETYPE_FONT,
-                Objects.requireNonNull(Resources.class.getClassLoader().getResourceAsStream(path))
+                Objects.requireNonNull(Resources.class.getClassLoader()
+                                                      .getResourceAsStream(path))
             ).deriveFont((float) size);
         }
         catch (Exception e) {
@@ -118,7 +120,8 @@ public final class Resources {
         try {
             return Font.createFont(
                 Font.TRUETYPE_FONT,
-                Objects.requireNonNull(Resources.class.getClassLoader().getResourceAsStream(path))
+                Objects.requireNonNull(Resources.class.getClassLoader()
+                                                      .getResourceAsStream(path))
             ).deriveFont((float) NORMAL_FONT_SIZE);
         }
         catch (Exception e) {
