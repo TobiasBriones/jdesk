@@ -12,11 +12,8 @@ This library works with Java 8+.
 
 ## Roadmap
 
-Wish to get rid of legacy Swing and move forward with MVP, system architecture
-and JFX. This project is going to work successfully for Java 8+ Swing
-applications and MVP. I'm not going to enhance or add much more to the Swing
-components. For documentation about the JDesk Swing components check POSLANS 
-version 0.1 alpha.
+Wish to get rid of legacy Swing and move forward with MVP, system 
+architecture and JFX.
 
 ## Contact
 
@@ -35,5 +32,4 @@ Copyright © 2018-2021 Tobias Briones. All rights reserved.
 
 ### License
 
-This project implementation is licensed under
-the [BSD 3-Clause License](./LICENSE).
+This project is licensed under the [BSD 3-Clause License](LICENSE).
