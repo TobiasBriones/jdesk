@@ -59,7 +59,7 @@ Tobias Briones: [GitHub](https://github.com/tobiasbriones)
 
 Side project library/framework to build better Java Swing desktop apps.
 
-Copyright © 2018-2021 Tobias Briones. All rights reserved.
+Copyright © 2018-2022 Tobias Briones. All rights reserved.
 
 ### License
 
