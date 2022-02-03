@@ -149,7 +149,7 @@ public final class AppWorker<R, U> {
     }
 
     /**
-     * Call this methods from {@link WorkRunnable#run()} to post updates to the
+     * Call this method from {@link WorkRunnable#run()} to post updates to the
      * UI.
      *
      * @param update update
