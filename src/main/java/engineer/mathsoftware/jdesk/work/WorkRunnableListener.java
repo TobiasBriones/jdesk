@@ -20,6 +20,7 @@ import java.util.List;
  *
  * @author Tobias Briones
  */
+@FunctionalInterface
 public interface WorkRunnableListener<U> {
     /**
      * Called when an update was post from {@link WorkRunnable#run()} to update
