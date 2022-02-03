@@ -20,6 +20,7 @@ package engineer.mathsoftware.jdesk.work;
  *
  * @author Tobias Briones
  */
+@FunctionalInterface
 public interface WorkRunnable<R> {
     /**
      * Called when the corresponding background task is going to be performed on
