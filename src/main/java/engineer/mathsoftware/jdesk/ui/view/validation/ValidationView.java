@@ -21,9 +21,9 @@ import engineer.mathsoftware.jdesk.ui.style.TextStyle;
  */
 public interface ValidationView {
     /**
-     * Returns <code>true</code> if and only if the input has been accepted.
+     * Returns {@code true} if and only if the input has been accepted.
      *
-     * @return <code>true</code> if and only if the input has been accepted
+     * @return {@code true} if and only if the input has been accepted
      */
     boolean isInputAccepted();
 

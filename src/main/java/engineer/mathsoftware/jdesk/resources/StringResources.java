@@ -29,7 +29,7 @@ public final class StringResources {
     /**
      * Denotes the default file name containing the string resources. Other
      * string resources files from other languages are denoted by
-     * <code>StringResources-LANG</code>
+     * {@code StringResources-LANG}
      */
     public static final String STRING_RESOURCES_FILE = File.separator +
                                                        "strings" +

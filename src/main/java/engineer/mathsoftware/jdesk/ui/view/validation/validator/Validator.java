@@ -26,12 +26,12 @@ public interface Validator<I> {
     String getErrorText();
 
     /**
-     * Returns <code>true</code> if and only if this input is accepted by the
+     * Returns {@code true} if and only if this input is accepted by the
      * validator.
      *
      * @param input input to check
      *
-     * @return <code>true</code> if and only if this input is accepted
+     * @return {@code true} if and only if this input is accepted
      */
     boolean validate(I input);
 }

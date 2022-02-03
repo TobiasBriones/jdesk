@@ -24,7 +24,7 @@ import java.util.Properties;
 
 /**
  * It manages configuration for a given file, the class can be used statically
- * by its static methods or by an object instance recommended to put or get
+ * by its static methods or by an object instance recommended putting or get
  * several values and save later, for example in a settings window.
  *
  * @author Tobias Briones

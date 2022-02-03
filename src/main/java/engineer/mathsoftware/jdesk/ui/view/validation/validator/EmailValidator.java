@@ -16,9 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Email validator. This validator does not cover the 100% of email addresses so
- * it should not be generally trusted and hence some valid email addresses can
- * be checked as invalid.
+ * Email validator. This validator does not cover the 100% of email addresses,
+ * so it should not be generally trusted and hence some valid email addresses
+ * can be checked as invalid.
  *
  * @author Tobias Briones
  */
@@ -54,16 +54,16 @@ public final class EmailValidator implements Validator<String> {
     }
 
     /**
-     * Returns <code>true</code> if and only if the input has a valid email
-     * address structure. It checks the input against the regex {@link
+     * Returns {@code true} if and only if the input has a valid email address
+     * structure. It checks the input against the regex {@link
      * EmailValidator#EMAIL_REGEX}. This validator does not cover the 100% of
      * email addresses so it should not be generally trusted and hence some
      * valid email addresses can be checked as invalid.
      *
      * @param input input to check
      *
-     * @return <code>true</code> if and only if the input has a valid email
-     * address structure
+     * @return {@code true} if and only if the input has a valid email address
+     * structure
      */
     @Override
     public boolean validate(String input) {

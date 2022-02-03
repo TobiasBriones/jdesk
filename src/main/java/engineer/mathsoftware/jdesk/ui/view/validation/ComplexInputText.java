@@ -55,6 +55,7 @@ public class ComplexInputText extends Panel implements ValidationView {
             setForeground(color);
         }
     }
+
     private final Panel topPanel;
     private final InputText inputText;
     private final TextLabel lengthLabel;

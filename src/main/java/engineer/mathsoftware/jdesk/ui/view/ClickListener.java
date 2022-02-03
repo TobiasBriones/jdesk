@@ -35,7 +35,7 @@ import engineer.mathsoftware.jdesk.ui.dialog.Dialog;
  */
 public interface ClickListener {
     /**
-     * Called when a view with {@link ClickListener} triggers a click event.
+     * Called when a view with ClickListener triggers a click event.
      *
      * @param view       view which triggered this click event
      * @param viewTextId id of the text resource set on the view

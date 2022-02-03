@@ -77,11 +77,11 @@ public final class AppWorker<R, U> {
     }
 
     /**
-     * Returns <code>true</code> if this task was cancelled before it completed
+     * Returns {@code true} if this task was cancelled before it completed
      * normally. If {@link AppWorker#execute(WorkRunnable)} has not been called
      * yet it returns false.
      *
-     * @return <code>true</code> if this task was cancelled before it completed
+     * @return {@code true} if this task was cancelled before it completed
      */
     public boolean isCancelled() {
         if (worker == null) {
@@ -91,12 +91,12 @@ public final class AppWorker<R, U> {
     }
 
     /**
-     * Returns <code>true</code> if this work has been completed, that is
-     * immediately after finishing the background task and before calling the
-     * callback. If {@link AppWorker#execute(WorkRunnable)} has not been called
-     * yet it returns false.
+     * Returns {@code true} if this work has been completed, that is immediately
+     * after finishing the background task and before calling the callback. If
+     * {@link AppWorker#execute(WorkRunnable)} has not been called yet it
+     * returns false.
      *
-     * @return <code>true</code> if and only if this work has been completed
+     * @return {@code true} if and only if this work has been completed
      */
     public boolean isCompleted() {
         if (worker == null) {
@@ -117,7 +117,7 @@ public final class AppWorker<R, U> {
      *
      * @throws RuntimeException if it's requested to execute this work more than
      *                          one time, it can only be executed one work by
-     *                          each {@link AppWorker} instance
+     *                          each AppWorker instance
      */
     public void execute(WorkRunnable<R> runnable) {
         if (worker != null) {

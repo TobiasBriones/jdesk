@@ -20,9 +20,9 @@ package engineer.mathsoftware.jdesk.work;
  */
 public interface LoadingView {
     /**
-     * Returns <code>true</code> if and only if the view is in running mode.
+     * Returns {@code true} if and only if the view is in running mode.
      *
-     * @return <code>true</code> if and only if the view is in running mode.
+     * @return {@code true} if and only if the view is in running mode.
      */
     boolean isRunning();
 

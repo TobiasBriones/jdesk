@@ -91,7 +91,7 @@ public final class Resources {
      * @param fontName font name without file extension
      * @param size     font size
      *
-     * @return the loaded font, <code>null</code> if fails to load the font
+     * @return the loaded font, {@code null} if fails to load the font
      */
     public static Font loadFont(String fontName, int size) {
         final String path = getFilePath(FONT_DIRECTORY, fontName, FONT_FORMAT);
@@ -113,7 +113,7 @@ public final class Resources {
      *
      * @param fontName font name without file extension
      *
-     * @return the loaded font, <code>null</code> if fails to load the font
+     * @return the loaded font, {@code null} if fails to load the font
      */
     public static Font loadFont(String fontName) {
         final String path = getFilePath(FONT_DIRECTORY, fontName, FONT_FORMAT);

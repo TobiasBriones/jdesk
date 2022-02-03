@@ -61,7 +61,7 @@ public class Style implements AppStyle {
      * @param appStyle application style
      * @param htmlText HTML text
      *
-     * @return the HTML string which body contains <code>htmlText</code> and
+     * @return the HTML string which body contains {@code htmlText} and
      * application text style
      */
     public static String wrapDialogTextInHTML(

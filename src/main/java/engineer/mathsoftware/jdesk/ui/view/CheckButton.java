@@ -96,9 +96,9 @@ public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel imple
     }
 
     /**
-     * Returns <code>true</code> if and only if this check button is checked.
+     * Returns {@code true} if and only if this check button is checked.
      *
-     * @return <code>true</code> if and only if this check button is checked
+     * @return {@code true} if and only if this check button is checked
      */
     public boolean isChecked() {
         return checkBox.isChecked;

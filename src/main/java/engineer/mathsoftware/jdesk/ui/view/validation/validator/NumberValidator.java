@@ -14,10 +14,12 @@ package engineer.mathsoftware.jdesk.ui.view.validation.validator;
 
 public final class NumberValidator implements Validator<String> {
     public enum NumberType { INTEGER, DECIMAL, LONG }
+
     private final NumberType type;
     private final boolean unsigned;
     private final boolean zero;
     private String errorText;
+
     /**
      * Constructor for NumberValidator with type of number to accept and whether
      * is unsigned and zero.
@@ -82,14 +84,13 @@ public final class NumberValidator implements Validator<String> {
     }
 
     /**
-     * Returns <code>true</code> if and only if this input is a valid number
-     * checking the parameters of this NumberValidator, note that if the input
-     * is out of range of the specified number type it will return
-     * <code>false</code>.
+     * Returns {@code true} if and only if this input is a valid number checking
+     * the parameters of this NumberValidator, note that if the input is out of
+     * range of the specified number type it will return {@code false}.
      *
      * @param input input to check
      *
-     * @return <code>true</code> if and only if this input is a valid number
+     * @return {@code true} if and only if this input is a valid number
      */
     @Override
     public boolean validate(String input) {

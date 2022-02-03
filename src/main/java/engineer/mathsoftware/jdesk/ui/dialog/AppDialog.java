@@ -44,8 +44,8 @@ public final class AppDialog {
     public enum ConfirmResult { RESULT_OK, RESULT_CANCEL }
 
     /**
-     * Shows a message dialog with title, message and icon depending on
-     * <code>type</code> argument.
+     * Shows a message dialog with title, message and icon depending on {@code
+     * type} argument.
      *
      * @param window window to attach the dialog
      * @param title  dialog title
@@ -88,8 +88,8 @@ public final class AppDialog {
     }
 
     /**
-     * Shows a message dialog with title, message and icon depending on
-     * <code>type</code> argument.
+     * Shows a message dialog with title, message and icon depending on {@code
+     * type} argument.
      *
      * @param window   window to attach the dialog
      * @param titleRes dialog title resource
@@ -109,7 +109,7 @@ public final class AppDialog {
 
     /**
      * Shows a message dialog with message and default title and icon depending
-     * on <code>type</code> argument.
+     * on {@code type} argument.
      *
      * @param window window to attach the dialog
      * @param msg    dialog message
@@ -127,8 +127,8 @@ public final class AppDialog {
     }
 
     /**
-     * Shows a message dialog with message and default title depending on
-     * <code>type</code> argument.
+     * Shows a message dialog with message and default title depending on {@code
+     * type} argument.
      *
      * @param window window to attach the dialog
      * @param msgRes dialog message resource
@@ -349,7 +349,7 @@ public final class AppDialog {
      * @param window window to attach the dialog
      * @param msgRes dialog message resource
      *
-     * @return RESULT_OK if and only if the user accepts this confirm dialog
+     * @return RESULT_OK if and only if the user accepts this confirm-dialog
      * request
      */
     public static ConfirmResult showConfirm(

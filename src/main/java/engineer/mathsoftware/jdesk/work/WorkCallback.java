@@ -30,7 +30,7 @@ public interface WorkCallback<R> {
     void workFinished(R result);
 
     /**
-     * Called when the work is completed and did not finished successfully
+     * Called when the work is completed and did not finish successfully
      * because an exception was thrown on {@link WorkRunnable#run()}.
      *
      * @param exception exception thrown by the task

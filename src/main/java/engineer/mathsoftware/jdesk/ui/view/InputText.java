@@ -122,10 +122,9 @@ public class InputText extends JTextField {
     }
 
     /**
-     * Checks if {@link #getText()} applying <code>trim()</code> is not empty .
+     * Checks if {@link #getText()} applying {@code trim()} is not empty .
      *
-     * @return <code>true</code> if and only if the trimmed input text is not
-     * empty
+     * @return {@code true} if and only if the trimmed input text is not empty
      */
     public final boolean isSet() {
         return !getText().trim().isEmpty();

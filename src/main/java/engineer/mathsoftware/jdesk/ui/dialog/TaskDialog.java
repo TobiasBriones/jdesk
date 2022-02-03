@@ -164,7 +164,7 @@ public final class TaskDialog<R> extends Dialog {
     }
 
     /**
-     * Constructor for TaskDialog with title, message and it cancelable.
+     * Constructor for TaskDialog with title, message, and it is cancelable.
      *
      * @param window window to attach the dialog
      * @param title  dialog title
@@ -175,7 +175,7 @@ public final class TaskDialog<R> extends Dialog {
     }
 
     /**
-     * Constructor for TaskDialog with title, message and it cancelable.
+     * Constructor for TaskDialog with title, message, and it is cancelable.
      *
      * @param window   window to attach the dialog
      * @param titleRes dialog title resource

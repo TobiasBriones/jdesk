@@ -28,8 +28,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Window menu that contains the {@link engineer.mathsoftware.jdesk.ui.view.menu.MenuItem} items to display a menu on the
- * {@link engineer.mathsoftware.jdesk.ui.view.menu.MenuBar}.
+ * Window menu that contains the {@link MenuItem} items to display a menu on the
+ * {@link MenuBar}.
  *
  * @author Tobias Briones
  */
@@ -39,10 +39,10 @@ public class Menu extends TextLabel {
     private final Color backgroundColor;
     private final Color hoverColor;
     private final Color pressedColor;
-    private final engineer.mathsoftware.jdesk.ui.view.menu.PopupMenu popup;
+    private final PopupMenu popup;
     private final transient WindowContext context;
     private final transient MouseListener ml;
-    private engineer.mathsoftware.jdesk.ui.view.menu.MenuBar menuBar;
+    private MenuBar menuBar;
 
     /**
      * Constructor for Menu with the menu name.

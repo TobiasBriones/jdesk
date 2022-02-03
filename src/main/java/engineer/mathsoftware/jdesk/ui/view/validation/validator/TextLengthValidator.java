@@ -55,13 +55,13 @@ public final class TextLengthValidator implements Validator<String> {
     }
 
     /**
-     * Returns <code>true</code> if and only if the length of input is greater
-     * than or equal to minimum length and less than or equal to maximum length.
-     * If input is null then <code>false</code> is returned.
+     * Returns {@code true} if and only if the length of input is greater than
+     * or equal to minimum length and less than or equal to maximum length. If
+     * input is null then {@code false} is returned.
      *
      * @param input input to check
      *
-     * @return <code>true</code> if and only if the length of input is correct
+     * @return {@code true} if and only if the length of input is correct
      */
     @Override
     public boolean validate(String input) {
@@ -92,8 +92,8 @@ public final class TextLengthValidator implements Validator<String> {
      * @param minLength minimum length
      * @param maxLength maximum length
      *
-     * @throws RuntimeException if one of the lengths is neither non negative
-     *                          nor LENGTH_NOT_RESTRICTED, or minLength is is
+     * @throws RuntimeException if one of the lengths is neither non-negative
+     *                          nor LENGTH_NOT_RESTRICTED, or minLength is
      *                          greater than maxLength
      */
     public void setLengths(int minLength, int maxLength) {
