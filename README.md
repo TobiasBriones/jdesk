@@ -16,7 +16,6 @@ the [Maven Repository](https://search.maven.org/artifact/engineer.mathsoftware.j
 Maven:
 
 ```xml
-
 <dependency>
     <groupId>engineer.mathsoftware.jdesk</groupId>
     <artifactId>jdesk</artifactId>
@@ -43,7 +42,7 @@ I had mainly created this framework to avoid the annoying boilerplate code I had
 to add to my Swing apps (I was getting exhausted of this Java boilerplate).
 
 Lately, I'm adding more modern features that I will eventually port
-to [DeskFX](https://github.com/tobiasbriones/deskfx). The old parts of this 
+to [DeskFX](https://github.com/tobiasbriones/deskfx). The old parts of this
 framework will only be Swing and Java 8 but everything else will be pretty neat.
 
 ## Contact
