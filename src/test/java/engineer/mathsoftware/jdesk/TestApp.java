@@ -20,21 +20,21 @@ import engineer.mathsoftware.jdesk.ui.style.Style;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class TestApp extends App implements AppInstance {
     private static final Font FONT;
-    private static final StringResources STRING_RESOURCES;
-    private static DefaultStyle.ColorPair[] APP_COLORS = {
-        new DefaultStyle.ColorPair(
-            Style.ACCENT,
-            Color.decode("#00B8D4")
-        )
-    };
+    private static final StringResources strings;
+    private static final DefaultStyle.ColorPair[] appColors;
 
     static {
         FONT = Resources.loadFont("Roboto-Light");
-        STRING_RESOURCES = StringResources.load();
+        strings = StringResources.load();
+        appColors = new DefaultStyle.ColorPair[] {
+            new DefaultStyle.ColorPair(
+                Style.ACCENT,
+                Color.decode("#00B8D4")
+            )
+        };
     }
 
     public static void main(String[] args) {
@@ -45,13 +45,13 @@ public class TestApp extends App implements AppInstance {
 
     private TestApp() {
         super(FONT);
-        this.appStyle = new DefaultStyle(FONT, APP_COLORS);
+        this.appStyle = new DefaultStyle(FONT, appColors);
         addMainWindow(new TestWindow(this));
     }
 
     @Override
     public StringResources getStringResources() {
-        return STRING_RESOURCES;
+        return strings;
     }
 
     @Override
