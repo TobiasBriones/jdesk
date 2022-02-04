@@ -32,10 +32,10 @@ import java.awt.event.ActionListener;
  */
 public final class AppDialog {
     private static final Insets DIALOG_PADDING = new Insets(0, 10, 5, 10);
-    private static final String ICON_INFO = "ic_info_message.png";
-    private static final String ICON_WARNING = "ic_warning_message.png";
-    private static final String ICON_ERROR = "ic_error_message.png";
-    private static final String ICON_PASSWORD = "ic_password_message.png";
+    private static final String ICON_INFO = "icons/ic_info_message.png";
+    private static final String ICON_WARNING = "icons/ic_warning_message.png";
+    private static final String ICON_ERROR = "icons/ic_error_message.png";
+    private static final String ICON_PASSWORD = "icons/ic_password_message.png";
     private static final int ICON_SIZE = 48;
     private static final int ICON_RIGHT_MARGIN = 10;
 
