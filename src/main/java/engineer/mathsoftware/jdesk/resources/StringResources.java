@@ -37,6 +37,16 @@ public final class StringResources {
                                                        "StringResources";
     private static final String LANGUAGE_KEY = "language";
 
+    public static StringResources load() {
+        try {
+            return new StringResources(StringResources.class);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Stores the given language to the app config file.
      *

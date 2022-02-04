@@ -34,7 +34,7 @@ public class TestApp extends App implements AppInstance {
 
     static {
         FONT = Resources.loadFont("Roboto-Light");
-        STRING_RESOURCES = loadStringResources();
+        STRING_RESOURCES = StringResources.load();
     }
 
     public static void main(String[] args) {
@@ -67,15 +67,5 @@ public class TestApp extends App implements AppInstance {
     @Override
     protected AppInstance getAppInstance() {
         return this;
-    }
-
-    private static StringResources loadStringResources() {
-        try {
-            return new StringResources(TestApp.class);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
     }
 }
