@@ -17,9 +17,10 @@ import engineer.mathsoftware.jdesk.io.IOFile;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Properties;
 
 /**
@@ -34,97 +35,98 @@ public final class Config {
      * Stores an entry into the destination configuration file. If the file does
      * not exist, it's automatically created.
      *
-     * @param configFile file to store the configuration
-     * @param key        key to put into the configuration
-     * @param value      value to associate to the key
-     * @param comments   a description of the property list
+     * @param path  file to store the configuration
+     * @param key   key to put into the configuration
+     * @param value value to associate to the key
      *
      * @throws IOException if an I/O error occurs
+     * @see #save(Path, String, Object, String)
      */
     public static void save(
-        IOFile configFile,
+        Path path,
         String key,
-        Object value,
-        String comments
+        Object value
     ) throws IOException {
-        final Properties properties = new Properties();
-
-        configFile.createFileIfNotExists();
-        properties.load(new FileInputStream(configFile));
-        put(properties, key, value);
-        properties.store(new FileOutputStream(configFile), comments);
+        save(path, key, value, null);
     }
 
     /**
      * Stores an entry into the destination configuration file. If the file does
      * not exist, it's automatically created.
      *
-     * @param configFile file to store the configuration
-     * @param key        key to put into the configuration
-     * @param value      value to associate to the key
+     * @param path     path to store the configuration file
+     * @param key      key to put into the configuration
+     * @param value    value to associate to the key
+     * @param comments a description of the property list
      *
      * @throws IOException if an I/O error occurs
-     * @see #save(IOFile, String, Object, String)
      */
     public static void save(
-        IOFile configFile,
+        Path path,
         String key,
-        Object value
-    ) throws IOException {
-        save(configFile, key, value, null);
-    }
-
-    /**
-     * Stores a set of entries into the destination configuration file. If the
-     * file does not exist, it's automatically created.
-     *
-     * @param configFile file to store the configuration
-     * @param entries    entries to put into the configuration
-     * @param comments   a description of the property list
-     *
-     * @throws IOException if an I/O error occurs
-     */
-    public static void save(
-        IOFile configFile,
-        Map<String, String> entries,
+        Object value,
         String comments
     ) throws IOException {
         final Properties properties = new Properties();
-        final Iterator<Entry<String, String>> i = entries.entrySet().iterator();
-        Entry<String, String> currentEntry;
 
-        configFile.createFileIfNotExists();
-        properties.load(new FileInputStream(configFile));
-        while (i.hasNext()) {
-            currentEntry = i.next();
-
-            put(properties, currentEntry.getKey(), currentEntry.getValue());
-        }
-        properties.store(new FileOutputStream(configFile), comments);
+        createFileIfNotExists(path);
+        properties.load(Files.newInputStream(path));
+        put(properties, key, value);
+        properties.store(Files.newOutputStream(path), comments);
     }
 
     /**
      * Stores a list of entries into the destination configuration file. If the
      * file does not exist, it's automatically created.
      *
-     * @param configFile file to store the configuration
-     * @param entries    entries to put into the configuration
+     * @param path    path file to store the configuration file
+     * @param entries entries to put into the configuration
      *
      * @throws IOException if an I/O error occurs
-     * @see #save(IOFile, Map, String)
+     * @see #save(Path, Map, String)
      */
     public static void save(
-        IOFile configFile,
+        Path path,
         Map<String, String> entries
     ) throws IOException {
-        save(configFile, entries, null);
+        save(path, entries, null);
+    }
+
+    /**
+     * Stores a set of entries into the destination configuration file. If the
+     * file does not exist, it's automatically created.
+     *
+     * @param path     path file to store the configuration file
+     * @param entries  entries to put into the configuration
+     * @param comments a description of the property list
+     *
+     * @throws IOException if an I/O error occurs
+     */
+    public static void save(
+        Path path,
+        Map<String, String> entries,
+        String comments
+    ) throws IOException {
+        final Properties properties = new Properties();
+        final Iterator<Map.Entry<String, String>> i = entries.entrySet()
+                                                             .iterator();
+        Map.Entry<String, String> currentEntry;
+
+        createFileIfNotExists(path);
+        properties.load(Files.newInputStream(path));
+        while (i.hasNext()) {
+            currentEntry = i.next();
+
+            put(properties, currentEntry.getKey(), currentEntry.getValue());
+        }
+        properties.store(Files.newOutputStream(path), comments);
     }
 
     /**
      * Gets the value from the associated key in the configuration file. If the
      * file does not exist, it's automatically created.
      *
-     * @param configFile   file to get the configuration
+     * @param path         path file to get the configuration
      * @param key          key to get the value
      * @param defaultValue default value to return if is not in the
      *                     configuration file yet
@@ -135,34 +137,35 @@ public final class Config {
      * @throws IOException if an I/O error occurs
      */
     public static String get(
-        IOFile configFile,
+        Path path,
         String key,
         Object defaultValue
     ) throws IOException {
         final Properties properties = new Properties();
 
-        configFile.createFileIfNotExists();
-        properties.load(new FileInputStream(configFile));
+        createFileIfNotExists(path);
+        properties.load(Files.newInputStream(path));
         return properties.getProperty(key, defaultValue.toString());
     }
-    private final IOFile file;
+
+    private final Path path;
     private final Properties properties;
 
     /**
      * It loads the given configuration file. If the file does not exist, it's
      * automatically created.
      *
-     * @param file file containing the configuration
+     * @param path path file containing the configuration
      *
      * @throws IOException if an I/O error occurs
      * @see Properties
      */
-    public Config(IOFile file) throws IOException {
-        this.file = file;
+    public Config(Path path) throws IOException {
+        this.path = path;
         this.properties = new Properties();
 
-        file.createFileIfNotExists();
-        properties.load(new FileInputStream(file));
+        createFileIfNotExists(path);
+        properties.load(Files.newInputStream(path));
     }
 
     public Properties getProperties() {
@@ -197,24 +200,30 @@ public final class Config {
      * Stores the configuration into the destination file. If the file does not
      * exist, it's automatically created.
      *
-     * @param comments a description of the property list
-     *
      * @throws IOException if an I/O error occurs
+     * @see #store(String)
      */
-    public void store(String comments) throws IOException {
-        file.createFileIfNotExists();
-        properties.store(new FileOutputStream(file), comments);
+    public void store() throws IOException {
+        store(null);
     }
 
     /**
      * Stores the configuration into the destination file. If the file does not
      * exist, it's automatically created.
      *
+     * @param comments a description of the property list
+     *
      * @throws IOException if an I/O error occurs
-     * @see #store(String)
      */
-    public void store() throws IOException {
-        store(null);
+    public void store(String comments) throws IOException {
+        createFileIfNotExists(path);
+        properties.store(Files.newOutputStream(path), comments);
+    }
+
+    private static void createFileIfNotExists(Path path) throws IOException {
+        if (!Files.exists(path)) {
+            Files.createFile(path);
+        }
     }
 
     private static void put(Properties properties, String key, Object value) {

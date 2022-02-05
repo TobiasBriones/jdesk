@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -56,7 +57,7 @@ public final class StringResources {
      * @see App#APP_CONFIG_FILE
      */
     public static void saveLanguage(String language) throws IOException {
-        Config.save(new IOFile(App.APP_CONFIG_FILE), LANGUAGE_KEY, language);
+        Config.save(Paths.get(App.APP_CONFIG_FILE), LANGUAGE_KEY, language);
     }
 
     private final List<String> strings;
@@ -70,7 +71,7 @@ public final class StringResources {
     public StringResources(Class<?> src) throws IOException {
         this.strings = new ArrayList<>();
         final String language = Config.get(
-            new IOFile(App.APP_CONFIG_FILE),
+            Paths.get(App.APP_CONFIG_FILE),
             LANGUAGE_KEY,
             ""
         );
