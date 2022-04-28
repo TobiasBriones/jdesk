@@ -55,3 +55,18 @@ proceed. Then you will be assisted by a bot to complete your request.
 
 As shown above, you have to fill your domain name, the git repository. Then
 prove ownership by adding a text record to your domain.
+
+### Next Steps
+
+That was the overall process. You can read
+[Publish Artifacts to Maven Central \| JetBrains Space](https://www.jetbrains.com/help/space/publish-artifacts-to-maven-central.html)
+for more details.
+
+Two kind of releases are used for Java packages. The normal versions, like 0.
+1.0 and SNAPSHOT versions like 0.1.0-SNAPSHOT. This is also confusing, but 
+it only means that the SNAPSHOT version that goes to a basic repository can 
+still have minimum changes by the developer, so the consumer knows that 
+version might change a little yet. The normal version on the other hand, is 
+deployed to the main repository, and it takes about 4 hours to reflect the 
+changes.
+
