@@ -63,6 +63,11 @@ That was the overall process. You can read
 and [OSSRH Guide - The Central Repository Documentation](https://central.sonatype.org/publish/publish-guide)
 for more details.
 
+You will need to upload your PG key, read
+[Working with PGP Signatures - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/gpg/#installing-gnupg)
+to complete this step. Recall to set a secure passphrase, expiration date, and
+store the key, and its backup safely too.
+
 Two kind of releases are used for Java packages. The normal versions, like 0.
 1.0 and SNAPSHOT versions like 0.1.0-SNAPSHOT. This is also confusing, but it
 only means that the SNAPSHOT version that goes to a basic repository can still
@@ -70,3 +75,50 @@ have minimum changes by the developer, so the consumer knows that version might
 change a little yet. The normal version on the other hand, is deployed to the
 main repository, and it takes about 4 hours to reflect the changes.
 
+#### Save your Environment Variables
+
+You can safely store your credentials into the `.m2/settings.xml` file in your
+user's home directory.
+
+In order to connect to your OSSRH, you will give your credentials to the maven
+command.
+
+Your file will look like this:
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <id>ossrh</id>
+            <username>{ username }</username>
+            <password>{ password }</password>
+        </server>
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.keyname>{ gpg-key }</gpg.keyname>
+                <gpg.passphrase>{ gpg-passphrase }</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
+</settings>
+```
+
+You will add your credentials. I would like to store encrypted passwords
+instead, but that would be another step to add tho this guide.
+
+**TIP:** Run `gpg --list-secret-keys --keyid-format=long` to check the GPG keys
+installed on your machine. Then you can get your key's id. You will copy the
+long HEX number, read the PG guide given above to check more details.
+
+This process can be tricky, so you will likely have to solve some issues in the
+way.
