@@ -15,7 +15,7 @@ I will show the general steps to publish the artifact.
 
 You need to own a domain name where the package is going to live or be hosted.
 It is not necessary to have a domain name for each package, you can use the
-github.io page that is generated from your project, but for real packages is
+GitHub.io page that is generated from your project, but for real packages is
 required to have a professional domain. In this case, the domain is
 jdesk.mathsoftware.engineer.
 
@@ -122,3 +122,61 @@ long HEX number, read the PG guide given above to check more details.
 
 This process can be tricky, so you will likely have to solve some issues in the
 way.
+
+## Set Up Maven in the Project
+
+This is the configuration that was applied to the project. It has many 
+things, so it is exhausting. Once this is done properly until this step, the 
+release without error will be trivial.
+
+The following is to be added to the `pom.xml` file of the project, apart 
+from the standard properties like group id, version, etc.
+
+The general information like name, description, etc., will be shown when the 
+artifact gets deployed on Maven.
+
+As you can see, the first tags are just general project information:
+
+```xml
+<project>
+    <!--- ... -->
+    <name>JDesk</name>
+    <description>
+        Library/Framework to build better Java Swing desktop apps.
+    </description>
+    <url>https://jdesk.mathsoftware.engineer</url>
+
+    <licenses>
+        <license>
+            <name>BSD 3-Clause License</name>
+            <url>https://opensource.org/licenses/BSD-3-Clause</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Tobias Briones</name>
+            <email>dev@mathsoftware.engineer</email>
+            <organization>Tobias Briones</organization>
+            <organizationUrl>https://mathsoftware.engineer</organizationUrl>
+        </developer>
+    </developers>
+</project>
+```
+
+Then, other information about the project's repository:
+
+```xml
+<project>
+    <!--- ... -->
+    <scm>
+        <connection>
+            scm:git:git://github.com/tobiasbriones/jdesk.git
+        </connection>
+        <developerConnection>
+            scm:git:ssh://github.com:tobiasbriones/jdesk.git
+        </developerConnection>
+        <url>https://github.com/tobiasbriones/jdesk</url>
+    </scm>
+</project>
+```
