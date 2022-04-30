@@ -331,3 +331,58 @@ Add this child to the project's root:
 That way, you set the repositories for snapshots, and final release. If you 
 go to the snapshot repository link, you will literally find the directory 
 for all the repositories added with their reverse DNS.
+
+### Profiles Config
+
+We'll want to run a profile called ci-cd with the following configuration:
+
+```xml
+<profiles>
+    <profile>
+        <id>ci-cd</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                            <configuration>
+                                <keyname>${gpg.keyname}</keyname>
+                                <passphraseServerId>
+                                    ${gpg.keyname}
+                                </passphraseServerId>
+                                <gpgArguments>
+                                    <arg>--pinentry-mode</arg>
+                                    <arg>loopback</arg>
+                                </gpgArguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
+```
+
+Visit [Introduction to Build Profiles \| Apache Maven](https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
+to learn more about Maven profiles.
+
+This configuration is tricky. It's useful for verification of the GPG signature,
+and it looks like it'll prevent some issues.
+
+I copied this profile from internet months ago to complete my configuration, it
+would be good to elaborate more on this step if required. I have also read that
+you have to use the GPG agent GUI to enter your passphrase, and do not enter it
+on the terminal, to take into account. As documented above, the GPG 
+passphrase is stored in the `settings.xml` file, so this should not concern 
+here.
+
+This is the profile to run when deploying the artifact.
