@@ -4,20 +4,12 @@
 
 package engineer.mathsoftware.jdesk.resources;
 
-public final class StringResourceId {
-    private final int id;
-    private final String key;
+public interface StringResourceId {
+    int getId();
 
-    public StringResourceId(int id, String key) {
-        this.id = id;
-        this.key = key;
-    }
+    String getKey();
 
-    public int getId() {
-        return id;
-    }
-
-    public String getKey() {
-        return key;
+    static StringResourceId of(int id, String key) {
+        return new StringResourceIdImpl(id, key);
     }
 }
