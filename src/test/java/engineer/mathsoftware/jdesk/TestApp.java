@@ -38,7 +38,7 @@ public class TestApp extends App implements AppInstance {
     public TestApp() {
         super(FONT);
         this.appStyle = new DefaultStyle(FONT, appColors);
-        addMainWindow(new TestWindow(this));
+        addMainWindow(new BackgroundWorkTestWindow(this));
     }
 
     @Override

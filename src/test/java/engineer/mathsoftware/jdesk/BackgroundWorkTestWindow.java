@@ -9,15 +9,14 @@ import engineer.mathsoftware.jdesk.ui.view.Panel;
 import engineer.mathsoftware.jdesk.ui.view.loading.BarLoadingView;
 import engineer.mathsoftware.jdesk.work.AppWorkCallback;
 import engineer.mathsoftware.jdesk.work.AppWorker;
-import engineer.mathsoftware.jdesk.work.WorkCallback;
 import engineer.mathsoftware.jdesk.work.WorkRunnable;
 
 import java.awt.*;
 
-public class TestWindow extends Window {
+public class BackgroundWorkTestWindow extends Window {
     private final BarLoadingView loadingView;
 
-    public TestWindow(AppInstance appInstance) {
+    public BackgroundWorkTestWindow(AppInstance appInstance) {
         super(appInstance);
         this.loadingView = new BarLoadingView(this);
     }
@@ -47,7 +46,7 @@ public class TestWindow extends Window {
             @Override
             public void workFinished(String result) {
                 AppDialog.showMessage(
-                    TestWindow.this,
+                    BackgroundWorkTestWindow.this,
                     "Background Work",
                     result,
                     AppDialog.Type.SUCCESS
