@@ -306,3 +306,28 @@ The final build configuration will look like this:
     </plugins>
 </build>
 ```
+
+### Distribution Management Config
+
+Add this child to the project's root:
+
+```xml
+<distributionManagement>
+    <snapshotRepository>
+        <id>ossrh</id>
+        <url>
+            https://s01.oss.sonatype.org/content/repositories/snapshots
+        </url>
+    </snapshotRepository>
+    <repository>
+        <id>ossrh</id>
+        <url>
+            https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
+        </url>
+    </repository>
+</distributionManagement>
+```
+
+That way, you set the repositories for snapshots, and final release. If you 
+go to the snapshot repository link, you will literally find the directory 
+for all the repositories added with their reverse DNS.
