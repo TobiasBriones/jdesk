@@ -4,10 +4,34 @@
 
 package engineer.mathsoftware.jdesk.view;
 
+import engineer.mathsoftware.jdesk.BackgroundWorkTestApp;
 import engineer.mathsoftware.jdesk.TestApp;
+import engineer.mathsoftware.jdesk.TestWindow;
+import engineer.mathsoftware.jdesk.Window;
+import engineer.mathsoftware.jdesk.ui.view.Button;
 
-public class ButtonTestApp extends TestApp {
+import javax.swing.*;
+
+public final class ButtonTestApp extends TestApp {
+    private Button button;
+
     public ButtonTestApp() {
         super();
+    }
+
+    @Override
+    protected void createWindow() {
+        addWindow(newWindow());
+        button.setText("Click the Button");
+        button.addActionListener(e -> System.out.println("Click!"));
+    }
+
+    private Window newWindow() {
+        button = new Button(this);
+        return new TestWindow(this, new JComponent[] { button });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(ButtonTestApp::new);
     }
 }
