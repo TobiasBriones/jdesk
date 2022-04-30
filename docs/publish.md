@@ -33,6 +33,11 @@ You can use Gradle or Maven as the build tool. Because of the nature of this
 project, I chose to use Maven in the beginning. So this article will use Maven
 to configure the `pom.xml` file.
 
+You need to have Maven installed into your system. Go to [download Apache 
+Maven](https://maven.apache.org/download.cgi), uncompress the file, and add 
+the environment variables "M2_HOME", and then add the entry to the Path env 
+variable with the value of the binaries "%M2_HOME\bin" (Windows).
+
 ### Create a JIRA Account and Request a Ticket
 
 First, you will need to have a
