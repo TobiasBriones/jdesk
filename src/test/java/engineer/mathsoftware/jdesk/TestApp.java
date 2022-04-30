@@ -13,7 +13,7 @@ import engineer.mathsoftware.jdesk.ui.style.Style;
 import javax.swing.*;
 import java.awt.*;
 
-public class TestApp extends App implements AppInstance {
+public abstract class TestApp extends App implements AppInstance {
     private static final Font FONT;
     private static final StringResources strings;
     private static final DefaultStyle.ColorPair[] appColors;
@@ -29,16 +29,12 @@ public class TestApp extends App implements AppInstance {
         };
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(TestApp::new);
-    }
-
     private final AppStyle appStyle;
 
     public TestApp() {
         super(FONT);
         this.appStyle = new DefaultStyle(FONT, appColors);
-        addMainWindow(new BackgroundWorkTestWindow(this));
+        createWindow();
     }
 
     @Override
@@ -60,4 +56,6 @@ public class TestApp extends App implements AppInstance {
     protected AppInstance getAppInstance() {
         return this;
     }
+
+    protected abstract void createWindow();
 }
