@@ -8,16 +8,22 @@ import engineer.mathsoftware.jdesk.Strings;
 import engineer.mathsoftware.jdesk.TestApp;
 import engineer.mathsoftware.jdesk.TestWindow;
 import engineer.mathsoftware.jdesk.Window;
+import engineer.mathsoftware.jdesk.resources.StringResource;
 import engineer.mathsoftware.jdesk.ui.view.Button;
 import engineer.mathsoftware.jdesk.ui.view.ClickListener;
 
 import javax.swing.*;
 
 /**
- * This test case shows how to set the button's text via constructor and
- * using the text id. This will take the text id as the button id, and if the
+ * This test case shows how to set the button's text via constructor and using
+ * the text id. This will take the text id as the button id, and if the
  * underlying window implements {@link ClickListener} then the button will
  * automatically be bound to that listener.
+ *
+ * The text id was an int for initials versions 0.1.0-. Now it is an {@link
+ * StringResource} object.
+ *
+ * @author Tobias Briones
  */
 public final class TextIdButtonTestApp extends TestApp implements ClickListener {
     private Button button;
