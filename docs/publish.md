@@ -395,3 +395,28 @@ This is the profile to run when deploying the artifact.
 ### Maven pom.xml File
 
 The final `pom.xml` file ends up [like this](../pom.xml).
+
+## Deploy the Project
+
+In this last step, if everything is all right, we can now deploy the 
+artifact. Add "-SNAPSHOT" if you will deploy to the snapshot repository. For 
+example:
+
+```xml
+<version>0.1.0-SNAPSHOT</version>
+```
+
+or else:
+
+```xml
+<version>0.1.0</version>
+```
+
+Open Git Bash into the project's directory and run the deploy-command with 
+the "ci-cd" profile:
+
+`mvn clean deploy -Pci-cd`
+
+This will give you an output like this if you deploy a snapshot:
+
+![Snapshot Deployment Result](snapshot-deployment-result.png)
