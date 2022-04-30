@@ -1,15 +1,15 @@
-// Copyright (c) 2022 Tobias Briones. All rights reserved.
+// Copyright (c) 2018-2021 Tobias Briones. All rights reserved.
 // SPDX-License-Identifier: BSD-3-Clause
 // This file is part of https://github.com/tobiasbriones/jdesk
 
-package engineer.mathsoftware.jdesk;
+package engineer.mathsoftware.jdesk.work;
 
+import engineer.mathsoftware.jdesk.AppInstance;
+import engineer.mathsoftware.jdesk.Strings;
+import engineer.mathsoftware.jdesk.Window;
 import engineer.mathsoftware.jdesk.ui.dialog.AppDialog;
 import engineer.mathsoftware.jdesk.ui.view.Panel;
 import engineer.mathsoftware.jdesk.ui.view.loading.BarLoadingView;
-import engineer.mathsoftware.jdesk.work.AppWorkCallback;
-import engineer.mathsoftware.jdesk.work.AppWorker;
-import engineer.mathsoftware.jdesk.work.WorkRunnable;
 
 import java.awt.*;
 
