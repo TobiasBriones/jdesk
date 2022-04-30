@@ -4,7 +4,6 @@
 
 package engineer.mathsoftware.jdesk.view;
 
-import engineer.mathsoftware.jdesk.BackgroundWorkTestApp;
 import engineer.mathsoftware.jdesk.TestApp;
 import engineer.mathsoftware.jdesk.TestWindow;
 import engineer.mathsoftware.jdesk.Window;
