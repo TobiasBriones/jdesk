@@ -35,7 +35,7 @@ public class TestApp extends App implements AppInstance {
 
     private final AppStyle appStyle;
 
-    private TestApp() {
+    public TestApp() {
         super(FONT);
         this.appStyle = new DefaultStyle(FONT, appColors);
         addMainWindow(new TestWindow(this));
