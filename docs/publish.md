@@ -386,3 +386,7 @@ passphrase is stored in the `settings.xml` file, so this should not concern
 here.
 
 This is the profile to run when deploying the artifact.
+
+### Maven pom.xml File
+
+The final `pom.xml` file ends up [like this](../pom.xml).
