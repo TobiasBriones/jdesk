@@ -14,10 +14,6 @@ import javax.swing.*;
 public final class ButtonTestApp extends TestApp {
     private Button button;
 
-    public ButtonTestApp() {
-        super();
-    }
-
     @Override
     protected void createWindow() {
         addWindow(newWindow());
