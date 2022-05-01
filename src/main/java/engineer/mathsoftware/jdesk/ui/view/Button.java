@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ import java.awt.event.FocusListener;
  */
 public class Button extends JButton implements TextIdClickView {
     private static final long serialVersionUID = -8346675620406508178L;
-    private final int textId;
+    private final StringResourceId textId;
     private Color backgroundColor;
     private Color hoverColor;
     private Color pressedColor;
@@ -34,9 +35,8 @@ public class Button extends JButton implements TextIdClickView {
      */
     public Button(WindowContext context) {
         super();
-        this.textId = -1;
+        this.textId = null;
         init(context.getAppStyle());
-
         config(context.getAppStyle());
     }
 
@@ -48,9 +48,8 @@ public class Button extends JButton implements TextIdClickView {
      */
     public Button(WindowContext context, String text) {
         super(text);
-        this.textId = -1;
+        this.textId = null;
         init(context.getAppStyle());
-
         config(context.getAppStyle());
     }
 
@@ -62,11 +61,10 @@ public class Button extends JButton implements TextIdClickView {
      * @param context window context
      * @param textRes button text resource
      */
-    public Button(WindowContext context, int textRes) {
+    public Button(WindowContext context, StringResourceId textRes) {
         super(context.getStringResources().get(textRes));
-        this.textId = (context instanceof ClickListener) ? textRes : -1;
+        this.textId = (context instanceof ClickListener) ? textRes : null;
         init(context.getAppStyle());
-
         if (context instanceof ClickListener) {
             addActionListener(new TextIdViewActionListener((ClickListener) context));
         }
@@ -81,9 +79,8 @@ public class Button extends JButton implements TextIdClickView {
      */
     public Button(WindowContext context, Icon icon) {
         super(icon);
-        this.textId = -1;
+        this.textId = null;
         init(context.getAppStyle());
-
         config(context.getAppStyle());
     }
 
@@ -96,9 +93,8 @@ public class Button extends JButton implements TextIdClickView {
      */
     public Button(WindowContext context, String text, Icon icon) {
         super(text, icon);
-        this.textId = -1;
+        this.textId = null;
         init(context.getAppStyle());
-
         config(context.getAppStyle());
     }
 
@@ -111,11 +107,10 @@ public class Button extends JButton implements TextIdClickView {
      * @param textRes button text resource
      * @param icon    button icon
      */
-    public Button(WindowContext context, int textRes, Icon icon) {
+    public Button(WindowContext context, StringResourceId textRes, Icon icon) {
         super(context.getStringResources().get(textRes), icon);
-        this.textId = (context instanceof ClickListener) ? textRes : -1;
+        this.textId = (context instanceof ClickListener) ? textRes : null;
         init(context.getAppStyle());
-
         if (context instanceof ClickListener) {
             addActionListener(new TextIdViewActionListener((ClickListener) context));
         }
@@ -178,7 +173,7 @@ public class Button extends JButton implements TextIdClickView {
     }
 
     @Override
-    public int getTextId() {
+    public StringResourceId getTextId() {
         return textId;
     }
 

@@ -4,6 +4,7 @@
 
 package engineer.mathsoftware.jdesk;
 
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.resources.StringResources;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 import engineer.mathsoftware.jdesk.ui.style.DefaultStyle;
@@ -55,7 +56,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      * @param titleRes    window title
      * @param size        window size
      */
-    FrameWindow(AppInstance appInstance, int titleRes, Dimension size) {
+    FrameWindow(AppInstance appInstance, StringResourceId titleRes, Dimension size) {
         super();
         this.appInstance = appInstance;
         this.hasSizeSet = (size != null);
@@ -86,7 +87,7 @@ abstract class FrameWindow extends JFrame implements WindowContext {
      * @param appInstance app instance
      * @param titleRes    window title
      */
-    FrameWindow(AppInstance appInstance, int titleRes) {
+    FrameWindow(AppInstance appInstance, StringResourceId titleRes) {
         this(appInstance, titleRes, null);
     }
 

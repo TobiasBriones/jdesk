@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view.menu;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 import engineer.mathsoftware.jdesk.ui.view.Button;
 
@@ -20,7 +21,7 @@ import javax.swing.border.EmptyBorder;
 public class MenuItem extends Button {
     private static final long serialVersionUID = 7869101163125586456L;
     private static final Border PADDING = new EmptyBorder(5, 20, 5, 10);
-    private final int textId;
+    private final StringResourceId textId;
 
     /**
      * Constructor for MenuItem with text and icon.
@@ -31,7 +32,7 @@ public class MenuItem extends Button {
      */
     public MenuItem(WindowContext context, String text, Icon icon) {
         super(context, icon);
-        this.textId = -1;
+        this.textId = null;
 
         config(context.getAppStyle(), text);
     }
@@ -44,7 +45,7 @@ public class MenuItem extends Button {
      */
     public MenuItem(WindowContext context, String text) {
         super(context);
-        this.textId = -1;
+        this.textId = null;
 
         config(context.getAppStyle(), text);
     }
@@ -56,7 +57,7 @@ public class MenuItem extends Button {
      * @param textRes menu item text resource
      * @param icon    menu item icon
      */
-    public MenuItem(WindowContext context, int textRes, Icon icon) {
+    public MenuItem(WindowContext context, StringResourceId textRes, Icon icon) {
         super(context, icon);
         this.textId = textRes;
 
@@ -72,7 +73,7 @@ public class MenuItem extends Button {
      * @param context window context
      * @param textRes menu item text resource
      */
-    public MenuItem(WindowContext context, int textRes) {
+    public MenuItem(WindowContext context, StringResourceId textRes) {
         super(context);
         this.textId = textRes;
 
@@ -84,7 +85,7 @@ public class MenuItem extends Button {
 
     // Click listener is handled by Menu
     @Override
-    public int getTextId() {
+    public StringResourceId getTextId() {
         return textId;
     }
 

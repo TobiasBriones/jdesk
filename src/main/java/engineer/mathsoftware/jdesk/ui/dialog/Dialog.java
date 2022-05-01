@@ -7,6 +7,7 @@ package engineer.mathsoftware.jdesk.ui.dialog;
 import engineer.mathsoftware.jdesk.Window;
 import engineer.mathsoftware.jdesk.WindowContext;
 import engineer.mathsoftware.jdesk.resources.Resources;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.resources.StringResources;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 
@@ -50,7 +51,7 @@ public class Dialog extends JDialog implements WindowContext {
      *
      * @param titleRes dialog title resource
      */
-    public final void setTitle(int titleRes) {
+    public final void setTitle(StringResourceId titleRes) {
         setTitle(windowContext.getStringResources().get(titleRes));
     }
 

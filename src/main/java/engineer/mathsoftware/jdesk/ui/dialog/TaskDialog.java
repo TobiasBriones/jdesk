@@ -7,6 +7,7 @@ package engineer.mathsoftware.jdesk.ui.dialog;
 import engineer.mathsoftware.jdesk.Window;
 import engineer.mathsoftware.jdesk.WindowContext;
 import engineer.mathsoftware.jdesk.resources.AppStringResources;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.view.Panel;
 import engineer.mathsoftware.jdesk.ui.view.TextLabel;
 import engineer.mathsoftware.jdesk.ui.view.loading.BarLoadingView;
@@ -142,9 +143,9 @@ public final class TaskDialog<R> extends Dialog {
      * @param isCancelable make this work cancelable
      */
     public TaskDialog(
-        engineer.mathsoftware.jdesk.Window window,
-        int titleRes,
-        int msgRes,
+        Window window,
+        StringResourceId titleRes,
+        StringResourceId msgRes,
         boolean isCancelable
     ) {
         this(
@@ -173,7 +174,7 @@ public final class TaskDialog<R> extends Dialog {
      * @param titleRes dialog title resource
      * @param msgRes   dialog message resource
      */
-    public TaskDialog(Window window, int titleRes, int msgRes) {
+    public TaskDialog(Window window, StringResourceId titleRes, StringResourceId msgRes) {
         this(window, titleRes, msgRes, true);
     }
 

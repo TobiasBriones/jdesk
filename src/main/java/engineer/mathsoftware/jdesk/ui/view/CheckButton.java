@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -18,7 +19,7 @@ import java.awt.event.MouseEvent;
 public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel implements TextIdClickView {
     private static final long serialVersionUID = -1977865084712151136L;
     private static final Insets PADDING = new Insets(4, 8, 4, 8);
-    private final int textId;
+    private final StringResourceId textId;
     private final TextLabel label;
     private final CheckBoxSquare checkBox;
 
@@ -31,7 +32,7 @@ public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel imple
      */
     public CheckButton(WindowContext context, String text, boolean checked) {
         super(context);
-        this.textId = -1;
+        this.textId = null;
         this.label = new TextLabel(context);
         this.checkBox = new CheckBoxSquare(context);
 
@@ -47,7 +48,7 @@ public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel imple
      * @param textRes check button text resource
      * @param checked mark as checked
      */
-    public CheckButton(WindowContext context, int textRes, boolean checked) {
+    public CheckButton(WindowContext context, StringResourceId textRes, boolean checked) {
         super(context);
         this.textId = textRes;
         this.label = new TextLabel(context);
@@ -83,7 +84,7 @@ public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel imple
      * @param context window context
      * @param textRes check button text resource
      */
-    public CheckButton(WindowContext context, int textRes) {
+    public CheckButton(WindowContext context, StringResourceId textRes) {
         this(context, textRes, false);
     }
 
@@ -115,7 +116,7 @@ public class CheckButton extends engineer.mathsoftware.jdesk.ui.view.Panel imple
     }
 
     @Override
-    public int getTextId() {
+    public StringResourceId getTextId() {
         return textId;
     }
 

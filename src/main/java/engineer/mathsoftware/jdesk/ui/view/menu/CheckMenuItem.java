@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view.menu;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.view.CheckButton;
 
 import java.awt.*;
@@ -20,7 +21,7 @@ import java.awt.event.MouseEvent;
 public class CheckMenuItem extends CheckButton {
     private static final long serialVersionUID = 3773434900621498824L;
     private static final Insets PADDING = new Insets(5, 20, 5, 10);
-    private final int textId;
+    private final StringResourceId textId;
     private final Color backgroundColor;
     private final Color hoverColor;
     private final Color pressedColor;
@@ -32,7 +33,7 @@ public class CheckMenuItem extends CheckButton {
      * @param textRes button text resource
      * @param checked mark the button as checked
      */
-    public CheckMenuItem(WindowContext context, int textRes, boolean checked) {
+    public CheckMenuItem(WindowContext context, StringResourceId textRes, boolean checked) {
         super(context, textRes, checked);
         this.textId = textRes;
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
@@ -49,7 +50,7 @@ public class CheckMenuItem extends CheckButton {
      * @param context window context
      * @param textRes button text resource
      */
-    public CheckMenuItem(WindowContext context, int textRes) {
+    public CheckMenuItem(WindowContext context, StringResourceId textRes) {
         this(context, textRes, false);
     }
 
@@ -62,7 +63,7 @@ public class CheckMenuItem extends CheckButton {
      */
     public CheckMenuItem(WindowContext context, String text, boolean checked) {
         super(context, text, checked);
-        this.textId = -1;
+        this.textId = null;
         this.backgroundColor = context.getAppStyle().getWindowBackgroundColor();
         this.hoverColor = context.getAppStyle().getItemHoverColor();
         this.pressedColor = context.getAppStyle().getItemPressedColor();
@@ -83,7 +84,7 @@ public class CheckMenuItem extends CheckButton {
 
     // Click listener is handled by Menu
     @Override
-    public int getTextId() {
+    public StringResourceId getTextId() {
         return textId;
     }
 

@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 import engineer.mathsoftware.jdesk.ui.style.TextStyle;
 
@@ -71,7 +72,7 @@ public class TextLabel extends JLabel {
      * @param context window context
      * @param textRes label text resource
      */
-    public TextLabel(WindowContext context, int textRes) {
+    public TextLabel(WindowContext context, StringResourceId textRes) {
         super(context.getStringResources().get(textRes));
         config(context.getAppStyle());
     }
@@ -131,7 +132,7 @@ public class TextLabel extends JLabel {
      */
     public TextLabel(
         WindowContext context,
-        int textRes,
+        StringResourceId textRes,
         Icon icon,
         int horizontalAlignment
     ) {
@@ -168,7 +169,7 @@ public class TextLabel extends JLabel {
      */
     public TextLabel(
         WindowContext context,
-        int textRes,
+        StringResourceId textRes,
         int horizontalAlignment
     ) {
         super(context.getStringResources().get(textRes), horizontalAlignment);

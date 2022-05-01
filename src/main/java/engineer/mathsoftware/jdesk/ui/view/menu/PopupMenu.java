@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view.menu;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 
 import javax.swing.*;
 import java.awt.*;
@@ -53,7 +54,7 @@ public class PopupMenu extends JPopupMenu {
      * @param context  window context
      * @param titleRes popup menu title resource
      */
-    public PopupMenu(WindowContext context, int titleRes) {
+    public PopupMenu(WindowContext context, StringResourceId titleRes) {
         this(context, context.getStringResources().get(titleRes));
 
         config();

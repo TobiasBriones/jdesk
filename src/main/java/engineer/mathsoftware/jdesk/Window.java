@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk;
 
 import engineer.mathsoftware.jdesk.resources.Resources;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 
 import java.awt.*;
 import java.nio.file.Paths;
@@ -36,7 +37,7 @@ public abstract class Window extends FrameWindow {
      * @param titleRes    window title
      * @param size        window size
      */
-    public Window(AppInstance appInstance, int titleRes, Dimension size) {
+    public Window(AppInstance appInstance, StringResourceId titleRes, Dimension size) {
         super(appInstance, titleRes, size);
     }
 
@@ -56,7 +57,7 @@ public abstract class Window extends FrameWindow {
      * @param appInstance app instance
      * @param titleRes    window title
      */
-    public Window(AppInstance appInstance, int titleRes) {
+    public Window(AppInstance appInstance, StringResourceId titleRes) {
         super(appInstance, titleRes);
     }
 
@@ -79,7 +80,7 @@ public abstract class Window extends FrameWindow {
         super(appInstance, "");
     }
 
-    public final void setTitle(int titleRes) {
+    public final void setTitle(StringResourceId titleRes) {
         setTitle(getStringResources().get(titleRes));
     }
 

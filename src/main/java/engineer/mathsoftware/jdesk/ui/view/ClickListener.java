@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.Window;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.resources.StringResources;
 import engineer.mathsoftware.jdesk.ui.dialog.Dialog;
 
@@ -34,5 +35,5 @@ public interface ClickListener {
      *
      * @see StringResources
      */
-    void onClick(Object view, int viewTextId);
+    void onClick(Object view, StringResourceId viewTextId);
 }

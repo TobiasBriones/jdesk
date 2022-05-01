@@ -6,6 +6,7 @@ package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.WindowContext;
 import engineer.mathsoftware.jdesk.resources.AppStringResources;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +61,7 @@ public class Form extends Panel {
      * @param context  window context
      * @param titleRes form title text resource
      */
-    public Form(WindowContext context, int titleRes) {
+    public Form(WindowContext context, StringResourceId titleRes) {
         super(context);
         this.context = context;
         this.inputs = new ArrayList<>();
@@ -101,7 +102,7 @@ public class Form extends Panel {
      *
      * @param errorTextRes error text resource
      */
-    public final void setErrorText(int errorTextRes) {
+    public final void setErrorText(StringResourceId errorTextRes) {
         errorLabel.setText(context.getStringResources().get(errorTextRes));
     }
 
@@ -151,7 +152,7 @@ public class Form extends Panel {
      * @param input    component to place as the input, for example {@link
      *                 InputText} or any other {@link Component}
      */
-    public final void addInput(int labelRes, Component input) {
+    public final void addInput(StringResourceId labelRes, Component input) {
         final TextLabel label = new TextLabel(
             context,
             context.getStringResources()
@@ -188,7 +189,7 @@ public class Form extends Panel {
      *
      * @see SubmitListener
      */
-    public final void addSubmitButton(int submitTextRes, SubmitListener l) {
+    public final void addSubmitButton(StringResourceId submitTextRes, SubmitListener l) {
         gbc.insets.top = 2;
         gbc.insets.bottom = 5;
         submitButton.setText(context.getStringResources().get(submitTextRes));
@@ -215,8 +216,8 @@ public class Form extends Panel {
      * @param horizontal    put the bottoms horizontally
      */
     public final void addCancelSubmitButtons(
-        int cancelTextRes,
-        int submitTextRes,
+        StringResourceId cancelTextRes,
+        StringResourceId submitTextRes,
         FormListener l,
         boolean horizontal
     ) {
@@ -266,8 +267,8 @@ public class Form extends Panel {
      * @param l             form listener
      */
     public final void addCancelSubmitButtons(
-        int cancelTextRes,
-        int submitTextRes,
+        StringResourceId cancelTextRes,
+        StringResourceId submitTextRes,
         FormListener l
     ) {
         addCancelSubmitButtons(cancelTextRes, submitTextRes, l, true);
@@ -286,7 +287,7 @@ public class Form extends Panel {
      * @param horizontal    put the bottoms horizontally
      */
     public final void addCancelSubmitButtons(
-        int submitTextRes,
+        StringResourceId submitTextRes,
         FormListener l,
         boolean horizontal
     ) {
@@ -309,7 +310,7 @@ public class Form extends Panel {
      * @param l             form listener
      */
     public final void addCancelSubmitButtons(
-        int submitTextRes,
+        StringResourceId submitTextRes,
         FormListener l
     ) {
         addCancelSubmitButtons(

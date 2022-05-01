@@ -7,6 +7,7 @@ package engineer.mathsoftware.jdesk.ui.dialog;
 import engineer.mathsoftware.jdesk.Window;
 import engineer.mathsoftware.jdesk.WindowContext;
 import engineer.mathsoftware.jdesk.resources.AppStringResources;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.resources.StringResources;
 import engineer.mathsoftware.jdesk.ui.view.InputText;
 import engineer.mathsoftware.jdesk.ui.view.PasswordInputText;
@@ -90,8 +91,8 @@ public final class AppDialog {
      */
     public static void showMessage(
         Window window,
-        int titleRes,
-        int msgRes,
+        StringResourceId titleRes,
+        StringResourceId msgRes,
         Type type
     ) {
         final String title = window.getStringResources().get(titleRes);
@@ -113,9 +114,10 @@ public final class AppDialog {
         Type type
     ) {
         final int stringPosition =
-            AppStringResources.INFORMATION + type.ordinal();
-        final String title = window.getStringResources().get(stringPosition);
-        showMessage(window, title, msg, type);
+            AppStringResources.INFORMATION.getId() + type.ordinal();
+        // final String title = window.getStringResources().get(stringPosition);
+        // TODO FIX title resource implementation
+        showMessage(window, "", msg, type);
     }
 
     /**
@@ -128,7 +130,7 @@ public final class AppDialog {
      */
     public static void showMessage(
         Window window,
-        int msgRes,
+        StringResourceId msgRes,
         Type type
     ) {
         final String msg = window.getStringResources().get(msgRes);
@@ -160,8 +162,8 @@ public final class AppDialog {
      */
     public static void showMessage(
         Window window,
-        int titleRes,
-        int msgRes
+        StringResourceId titleRes,
+        StringResourceId msgRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
@@ -189,7 +191,7 @@ public final class AppDialog {
      */
     public static void showMessage(
         Window window,
-        int msgRes
+        StringResourceId msgRes
     ) {
         final String msg = window.getStringResources().get(msgRes);
         showMessage(window, msg);
@@ -266,9 +268,9 @@ public final class AppDialog {
      */
     public static ConfirmResult showConfirm(
         Window window,
-        int titleRes,
-        int msgRes,
-        int okActionRes
+        StringResourceId titleRes,
+        StringResourceId msgRes,
+        StringResourceId okActionRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
@@ -308,8 +310,8 @@ public final class AppDialog {
      */
     public static ConfirmResult showConfirm(
         Window window,
-        int titleRes,
-        int msgRes
+        StringResourceId titleRes,
+        StringResourceId msgRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
@@ -346,7 +348,7 @@ public final class AppDialog {
      */
     public static ConfirmResult showConfirm(
         Window window,
-        int msgRes
+        StringResourceId msgRes
     ) {
         final String msg = window.getStringResources().get(msgRes);
         return showConfirm(window, msg);
@@ -392,8 +394,8 @@ public final class AppDialog {
      */
     public static String showInput(
         Window window,
-        int titleRes,
-        int msgRes,
+        StringResourceId titleRes,
+        StringResourceId msgRes,
         Object content
     ) {
         final String title = window.getStringResources().get(titleRes);
@@ -431,8 +433,8 @@ public final class AppDialog {
      */
     public static String showInput(
         Window window,
-        int titleRes,
-        int msgRes
+        StringResourceId titleRes,
+        StringResourceId msgRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
@@ -472,7 +474,7 @@ public final class AppDialog {
      */
     public static String showInput(
         Window window,
-        int msgRes,
+        StringResourceId msgRes,
         Object content
     ) {
         final String msg = window.getStringResources().get(msgRes);
@@ -508,7 +510,7 @@ public final class AppDialog {
      */
     public static String showInput(
         Window window,
-        int msgRes
+        StringResourceId msgRes
     ) {
         final String msg = window.getStringResources().get(msgRes);
         return showInput(window, msg);
@@ -551,8 +553,8 @@ public final class AppDialog {
      */
     public static String showPasswordInput(
         Window window,
-        int titleRes,
-        int msgRes
+        StringResourceId titleRes,
+        StringResourceId msgRes
     ) {
         final String title = window.getStringResources().get(titleRes);
         final String msg = window.getStringResources().get(msgRes);
@@ -588,7 +590,7 @@ public final class AppDialog {
      */
     public static String showPasswordInput(
         Window window,
-        int msgRes
+        StringResourceId msgRes
     ) {
         final String msg = window.getStringResources().get(msgRes);
         return showPasswordInput(window, msg);

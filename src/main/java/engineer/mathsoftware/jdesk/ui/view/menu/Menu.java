@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view.menu;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.style.AppStyle;
 import engineer.mathsoftware.jdesk.ui.view.ClickListener;
 import engineer.mathsoftware.jdesk.ui.view.TextIdClickView;
@@ -61,7 +62,7 @@ public class Menu extends TextLabel {
      * @param context context context
      * @param nameRes menu name resource
      */
-    public Menu(WindowContext context, int nameRes) {
+    public Menu(WindowContext context, StringResourceId nameRes) {
         this(context, context.getStringResources().get(nameRes));
     }
 
@@ -183,7 +184,7 @@ public class Menu extends TextLabel {
             if (menu.getPopup().isShowing()) {
                 menu.getPopup().setVisible(false);
             }
-            if (textIdClickView.getTextId() != -1 && context instanceof ClickListener) {
+            if (textIdClickView.getTextId() != null && context instanceof ClickListener) {
                 ((ClickListener) context).onClick(
                     textIdClickView,
                     textIdClickView.getTextId()

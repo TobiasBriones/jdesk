@@ -8,7 +8,7 @@ import engineer.mathsoftware.jdesk.Strings;
 import engineer.mathsoftware.jdesk.TestApp;
 import engineer.mathsoftware.jdesk.TestWindow;
 import engineer.mathsoftware.jdesk.Window;
-import engineer.mathsoftware.jdesk.resources.StringResource;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 import engineer.mathsoftware.jdesk.ui.view.Button;
 import engineer.mathsoftware.jdesk.ui.view.ClickListener;
 
@@ -21,7 +21,7 @@ import javax.swing.*;
  * automatically be bound to that listener.
  *
  * The text id was an int for initials versions 0.1.0-. Now it is an {@link
- * StringResource} object.
+ * StringResourceId} object.
  *
  * @author Tobias Briones
  */
@@ -34,7 +34,7 @@ public final class TextIdButtonTestApp extends TestApp implements ClickListener 
     }
 
     @Override
-    public void onClick(Object view, int viewTextId) {
+    public void onClick(Object view, StringResourceId viewTextId) {
         final String str = getStringResources().get(viewTextId);
         System.out.println("Click: " + str);
     }

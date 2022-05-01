@@ -4,6 +4,8 @@
 
 package engineer.mathsoftware.jdesk.ui.view;
 
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
+
 /**
  * Defines an interface to be implemented by a view which accepts {@link
  * ClickListener}.
@@ -16,5 +18,5 @@ public interface TextIdClickView {
      *
      * @return view text resource as its id
      */
-    int getTextId();
+    StringResourceId getTextId();
 }

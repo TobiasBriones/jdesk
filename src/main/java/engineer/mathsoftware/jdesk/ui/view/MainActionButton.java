@@ -5,6 +5,7 @@
 package engineer.mathsoftware.jdesk.ui.view;
 
 import engineer.mathsoftware.jdesk.WindowContext;
+import engineer.mathsoftware.jdesk.resources.StringResourceId;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,7 +50,7 @@ public class MainActionButton extends Button {
     public MainActionButton(
         WindowContext context,
         Icon icon,
-        int hidingTextRes
+        StringResourceId hidingTextRes
     ) {
         super(context, hidingTextRes, icon);
         setText("");

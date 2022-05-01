@@ -6,28 +6,23 @@ package engineer.mathsoftware.jdesk.resources;
 
 import engineer.mathsoftware.jdesk.App;
 import engineer.mathsoftware.jdesk.Config;
-import engineer.mathsoftware.jdesk.io.IOFile;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.InputStream;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.Properties;
 
 public final class StringResources {
     /**
      * Denotes the default file name containing the string resources. Other
-     * string resources files from other languages are denoted by
-     * {@code StringResources-LANG}
+     * string resources files from other languages are denoted by {@code
+     * StringResources-LANG}
      */
     public static final String STRING_RESOURCES_FILE = File.separator +
-                                                       "strings" +
+                                                       "values" +
                                                        File.separator +
-                                                       "StringResources";
+                                                       "strings";
     private static final String LANGUAGE_KEY = "language";
 
     public static StringResources load() {
@@ -52,7 +47,7 @@ public final class StringResources {
         Config.save(Paths.get(App.APP_CONFIG_FILE), LANGUAGE_KEY, language);
     }
 
-    private final List<String> strings;
+    private final Properties strings;
 
     /**
      * Constructs an app string resources object with the passed language.
@@ -61,31 +56,19 @@ public final class StringResources {
      *            files are going to be loaded
      */
     public StringResources(Class<?> src) throws IOException {
-        this.strings = new ArrayList<>();
+        strings = new Properties();
         final String language = Config.get(
             Paths.get(App.APP_CONFIG_FILE),
             LANGUAGE_KEY,
             ""
         );
         String file = STRING_RESOURCES_FILE;
-
         if (!language.isEmpty()) {
             file += "-" + language;
         }
-        try (
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                Objects.requireNonNull(
-                    src.getClassLoader()
-                       .getResourceAsStream(file)
-                ),
-                StandardCharsets.UTF_8
-            ))
-        ) {
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                strings.add(line);
-            }
+        file += ".properties";
+        try (InputStream is = src.getClassLoader().getResourceAsStream(file)) {
+            strings.load(is);
         }
     }
 
@@ -99,15 +82,7 @@ public final class StringResources {
      * @throws RuntimeException if stringRes does not belong to the list of the
      *                          loaded strings
      */
-    public String get(int stringRes) {
-        if (stringRes < 0) {
-            throw new RuntimeException(
-                "String resources IDs are not negative integers."
-            );
-        }
-        if (stringRes >= strings.size()) {
-            throw new RuntimeException("String resource not found " + stringRes);
-        }
-        return strings.get(stringRes);
+    public String get(StringResourceId stringRes) {
+        return strings.getProperty(stringRes.getKey(), "");
     }
 }
