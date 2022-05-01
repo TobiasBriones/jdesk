@@ -61,6 +61,10 @@ public final class StringsTestApp extends App implements AppInstance {
             new TextLabel(this, Strings.WARNING)
         });
         addMainWindow(window);
+
+        // For changing the app strings language just add the "language=es"
+        // entry to the root config.properties file. The language code (es)
+        // is the suffix for the strings-es.properties file. That's it!
     }
 
     @Override
