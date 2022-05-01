@@ -19,7 +19,11 @@ import java.awt.*;
 /**
  * This case tests how Strings are loaded into the application.
  *
- * Strings are resources located at: /strings/
+ * Strings are resources located at: /values/strings.properties or
+ * /values/strings-lang.properties where "lang" is the language code stored
+ * in the config.properties file of the application.
+ *
+ * @author Tobias Briones
  */
 public final class StringsTestApp extends App implements AppInstance {
     private static final Font FONT;
