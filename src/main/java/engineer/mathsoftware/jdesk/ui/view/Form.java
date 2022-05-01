@@ -55,7 +55,8 @@ public class Form extends Panel {
     private final transient InputEnterListener iel;
 
     /**
-     * Creates an empty form. To set it use {@link Form#addInput(int,
+     * Creates an empty form. To set it use
+     * {@link Form#addInput(StringResourceId,
      * Component)}.
      *
      * @param context  window context
@@ -70,7 +71,6 @@ public class Form extends Panel {
         this.cancelButton = new Button(context);
         this.errorLabel = new TextLabel(context);
         this.iel = new InputEnterListener(inputs, submitButton);
-
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets.left = 5;
         gbc.insets.right = 5;
@@ -78,7 +78,6 @@ public class Form extends Panel {
         gbc.gridwidth = 2;
         gbc.gridx = 0;
         gbc.gridy = 0;
-
         setLayout(new GridBagLayout());
         setBorder(
             BorderFactory.createTitledBorder(
@@ -116,7 +115,6 @@ public class Form extends Panel {
      */
     public final void setInputTexts(String... texts) {
         int i = 0;
-
         for (Component input : inputs) {
             if (i >= texts.length) {
                 break;
@@ -158,7 +156,6 @@ public class Form extends Panel {
             context.getStringResources()
                    .get(labelRes)
         );
-
         inputs.add(input);
         if (input instanceof InputText || input instanceof PasswordInputText) {
             if (input instanceof InputText) {
@@ -181,15 +178,19 @@ public class Form extends Panel {
 
     /**
      * Adds the submit button to the form. It has to be called after adding all
-     * the inputs with {@link Form#addInput(int, Component)} to place the button
-     * properly. This button will trigger {@link SubmitListener#onSubmit()}.
+     * the inputs with {@link Form#addInput(StringResourceId, Component)} to
+     * place the button properly. This button will trigger {@link
+     * SubmitListener#onSubmit()}.
      *
      * @param submitTextRes submit button text resource
      * @param l             submit listener
      *
      * @see SubmitListener
      */
-    public final void addSubmitButton(StringResourceId submitTextRes, SubmitListener l) {
+    public final void addSubmitButton(
+        StringResourceId submitTextRes,
+        SubmitListener l
+    ) {
         gbc.insets.top = 2;
         gbc.insets.bottom = 5;
         submitButton.setText(context.getStringResources().get(submitTextRes));
@@ -205,8 +206,8 @@ public class Form extends Panel {
     /**
      * Adds cancel and submit buttons to the form specifying if put the two
      * buttons horizontally or vertically. It has to be called after adding all
-     * the inputs with {@link Form#addInput(int, Component)} to place the
-     * buttons properly. The cancel button will trigger {@link
+     * the inputs with {@link Form#addInput(StringResourceId, Component)} to
+     * place the buttons properly. The cancel button will trigger {@link
      * FormListener#onCancel()} and the submit button {@link
      * FormListener#onSubmit()}.
      *
@@ -237,7 +238,6 @@ public class Form extends Panel {
         gbc.insets.top = 2;
         gbc.insets.bottom = 5;
         gbc.gridwidth = 1;
-
         cancelButton.setText(context.getStringResources().get(cancelTextRes));
         cancelButton.addActionListener(al);
         submitButton.setText(context.getStringResources().get(submitTextRes));
@@ -257,9 +257,9 @@ public class Form extends Panel {
 
     /**
      * Adds cancel and submit buttons to the form. It has to be called after
-     * adding all the inputs with {@link Form#addInput(int, Component)} to place
-     * the buttons properly. The cancel button will trigger {@link
-     * FormListener#onCancel()} and the submit button {@link
+     * adding all the inputs with {@link Form#addInput(StringResourceId,
+     * Component)} to place the buttons properly. The cancel button will trigger
+     * {@link FormListener#onCancel()} and the submit button {@link
      * FormListener#onSubmit()}.
      *
      * @param cancelTextRes cancel button text resource
@@ -277,8 +277,8 @@ public class Form extends Panel {
     /**
      * Adds cancel and submit buttons to the form specifying if put the two
      * buttons horizontally or vertically. It has to be called after adding all
-     * the inputs with {@link Form#addInput(int, Component)} to place the
-     * buttons properly. The cancel button will trigger {@link
+     * the inputs with {@link Form#addInput(StringResourceId, Component)} to
+     * place the buttons properly. The cancel button will trigger {@link
      * FormListener#onCancel()} and the submit button {@link
      * FormListener#onSubmit()}.
      *
@@ -301,9 +301,9 @@ public class Form extends Panel {
 
     /**
      * Adds cancel and submit buttons to the form. It has to be called after
-     * adding all the inputs with {@link Form#addInput(int, Component)} to place
-     * the buttons properly. The cancel button will trigger {@link
-     * FormListener#onCancel()} and the submit button {@link
+     * adding all the inputs with {@link Form#addInput(StringResourceId,
+     * Component)} to place the buttons properly. The cancel button will trigger
+     * {@link FormListener#onCancel()} and the submit button {@link
      * FormListener#onSubmit()}.
      *
      * @param submitTextRes submit button text resource
@@ -357,9 +357,9 @@ public class Form extends Panel {
                     }
                 }
                 else {
-                    final char[] text = ((PasswordInputText) input).getPassword();
+                    final char[] text =
+                        ((PasswordInputText) input).getPassword();
                     final boolean isEmpty = new String(text).trim().isEmpty();
-
                     for (int i = 0; i < text.length; i++) {
                         text[i] = 0;
                     }
@@ -427,12 +427,10 @@ public class Form extends Panel {
         @Override
         public void actionPerformed(ActionEvent e) {
             int i = 0;
-
             for (Component input : inputs) {
                 if (e.getSource() == input) {
                     if ((i + 1) < inputs.size()) {
                         final Component nextInput = inputs.get(i + 1);
-
                         if (nextInput instanceof InputText || nextInput instanceof PasswordInputText) {
                             if (nextInput instanceof InputText) {
                                 nextInput.requestFocus();
