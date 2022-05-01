@@ -4,10 +4,6 @@
 
 package engineer.mathsoftware.jdesk;
 
-import engineer.mathsoftware.jdesk.io.IOFile;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -60,7 +56,6 @@ public final class Config {
         String comments
     ) throws IOException {
         final Properties properties = new Properties();
-
         createFileIfNotExists(path);
         properties.load(Files.newInputStream(path));
         put(properties, key, value);
@@ -103,12 +98,10 @@ public final class Config {
         final Iterator<Map.Entry<String, String>> i = entries.entrySet()
                                                              .iterator();
         Map.Entry<String, String> currentEntry;
-
         createFileIfNotExists(path);
         properties.load(Files.newInputStream(path));
         while (i.hasNext()) {
             currentEntry = i.next();
-
             put(properties, currentEntry.getKey(), currentEntry.getValue());
         }
         properties.store(Files.newOutputStream(path), comments);
@@ -134,7 +127,6 @@ public final class Config {
         Object defaultValue
     ) throws IOException {
         final Properties properties = new Properties();
-
         createFileIfNotExists(path);
         properties.load(Files.newInputStream(path));
         return properties.getProperty(key, defaultValue.toString());
@@ -155,7 +147,6 @@ public final class Config {
     public Config(Path path) throws IOException {
         this.path = path;
         this.properties = new Properties();
-
         createFileIfNotExists(path);
         properties.load(Files.newInputStream(path));
     }
