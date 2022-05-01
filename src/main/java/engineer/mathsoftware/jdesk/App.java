@@ -20,7 +20,7 @@ public abstract class App {
     /**
      * File to store the app main configuration.
      */
-    public static final String APP_CONFIG_FILE = "app_config.properties";
+    public static final String APP_CONFIG_FILE = "config.properties";
     private Window mw;
 
     /**
