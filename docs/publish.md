@@ -420,3 +420,6 @@ the "ci-cd" profile:
 This will give you an output like this if you deploy a snapshot:
 
 ![Snapshot Deployment Result](snapshot-deployment-result.png)
+
+Recall that the production release takes some 4 waiting hours to complete the 
+deployment and be available at [Maven Search](https://search.maven.org).
