@@ -2,12 +2,15 @@
 
 This guide will describe how to publish the JDesk framework to Maven Central.
 
-The project is written in Java using Maven as the build tool.
+The project is written in Java using Maven as the build tool. So the process
+will be detailed for Java projects with a `pom.xml` file.
 
 ## Get Ready for Publishing Packages
 
-Publishing a Java artifact is not that trivial like Python or JavaScript
-packages. You have to comply with several rules.
+Publishing a Java artifact is not as trivial as Python or JavaScript packages
+can be deployed.
+
+You have to comply with several rules.
 
 I will show the general steps to publish the artifact.
 
@@ -25,18 +28,22 @@ This is semantic, such that you follow the subsets of: engineers (all engineers)
 Later, the reverse DNS has to be used for the standard Java packaging
 convention. That is, engineer.mathsoftware.jdesk.
 
+### Safety
+
 You will also need a private key to sign the artifact. Generate
 a [GPG key](https://www.gnupg.org/download) to use. Then run `gpg --gen-key`
 and set it up like when you generate a GitHub GPG key.
+
+### Build Tool
 
 You can use Gradle or Maven as the build tool. Because of the nature of this
 project, I chose to use Maven in the beginning. So this article will use Maven
 to configure the `pom.xml` file.
 
-You need to have Maven installed into your system. Go to [download Apache 
-Maven](https://maven.apache.org/download.cgi), uncompress the file, and add 
-the environment variables "M2_HOME", and then add the entry to the Path env 
-variable with the value of the binaries "%M2_HOME%\bin" (Windows).
+You need to have Maven installed into your system. Go
+to [download Apache Maven](https://maven.apache.org/download.cgi), uncompress
+the file, add the environment variables "M2_HOME", and then add the entry to the
+Path env variable with the value of the binaries "%M2_HOME%\bin" (Windows).
 
 ### Create a JIRA Account and Request a Ticket
 
@@ -73,12 +80,17 @@ You will need to upload your PG key, read
 to complete this step. Recall to set a secure passphrase, expiration date, and
 store the key, and its backup safely too.
 
-Two kind of releases are used for Java packages. The normal versions, like 0.
-1.0 and SNAPSHOT versions like 0.1.0-SNAPSHOT. This is also confusing, but it
-only means that the SNAPSHOT version that goes to a basic repository can still
-have minimum changes by the developer, so the consumer knows that version might
-change a little yet. The normal version on the other hand, is deployed to the
-main repository, and it takes about 4 hours to reflect the changes.
+#### Release Version
+
+Two kind of releases are used for Java packages.
+
+The normal versions, like `0.1.0` and SNAPSHOT versions like `0.1.0-SNAPSHOT`.
+
+This is also confusing, but it only means that the SNAPSHOT version that goes to
+a basic repository can still have minimum changes by the developer, so the
+consumer knows that version might change a little yet. The normal version on the
+other hand, is deployed to the main repository, and it takes about 4 hours to
+reflect the changes.
 
 #### Save your Environment Variables
 
@@ -130,14 +142,14 @@ way.
 
 ## Set Up Maven in the Project
 
-This is the configuration that was applied to the project. It has many 
-things, so it is exhausting. Once this is done properly until this step, the 
-release without error will be trivial.
+This is the configuration that was applied to the project. It has many things,
+so it is exhausting. Once this is done properly, the release without errors will
+be trivial.
 
-The following is to be added to the `pom.xml` file of the project, apart 
-from the standard properties like group id, version, etc.
+The following is to be added to the `pom.xml` file of the project, apart from
+the standard properties like group id, version, etc.
 
-The general information like name, description, etc., will be shown when the 
+The general information like name, description, etc., will be shown when the
 artifact gets deployed on Maven.
 
 As you can see, the first tags are just general project information:
@@ -208,8 +220,8 @@ Add the maven plugin for source code:
 </plugin>
 ```
 
-and the other for the javadocs, the javadoc binary has to be set to match 
-your system's javadoc:
+and the other for the javadocs, the javadoc binary has to be set to match your
+system's javadoc:
 
 ```xml
 <plugin>
@@ -333,9 +345,9 @@ Add this child to the project's root:
 </distributionManagement>
 ```
 
-That way, you set the repositories for snapshots, and final release. If you 
-go to the snapshot repository link, you will literally find the directory 
-for all the repositories added with their reverse DNS.
+That way, you set the repositories for snapshots, and final release. If you go
+to the snapshot repository link, you will literally find the directory for all
+the repositories added with their reverse DNS.
 
 ### Profiles Config
 
@@ -386,9 +398,8 @@ and it looks like it'll prevent some issues.
 I copied this profile from internet months ago to complete my configuration, it
 would be good to elaborate more on this step if required. I have also read that
 you have to use the GPG agent GUI to enter your passphrase, and do not enter it
-on the terminal, to take into account. As documented above, the GPG 
-passphrase is stored in the `settings.xml` file, so this should not concern 
-here.
+on the terminal, to take into account. As documented above, the GPG passphrase
+is stored in the `settings.xml` file, so this should not concern here.
 
 This is the profile to run when deploying the artifact.
 
@@ -398,9 +409,8 @@ The final `pom.xml` file ends up [like this](../pom.xml).
 
 ## Deploy the Project
 
-In this last step, if everything is all right, we can now deploy the 
-artifact. Add "-SNAPSHOT" if you will deploy to the snapshot repository. For 
-example:
+In this last step, if everything is all right, we can now deploy the artifact.
+Add "-SNAPSHOT" if you will deploy to the snapshot repository. For example:
 
 ```xml
 <version>0.1.0-SNAPSHOT</version>
@@ -412,8 +422,8 @@ or else:
 <version>0.1.0</version>
 ```
 
-Open Git Bash into the project's directory and run the deploy-command with 
-the "ci-cd" profile:
+Open Git Bash into the project's directory and run the deploy-command with the "
+ci-cd" profile:
 
 `mvn clean deploy -Pci-cd`
 
@@ -421,12 +431,12 @@ This will give you an output like this if you deploy a snapshot:
 
 ![Snapshot Deployment Result](snapshot-deployment-result.png)
 
-Recall that the production release takes some 4 waiting hours to complete the 
+Recall that the production release takes some 4 waiting hours to complete the
 deployment and be available at [Maven Search](https://search.maven.org).
 
 ## Result
 
-After deploying to the main repository, which took more than 4 hours to get 
-it done, the result is there:
+After deploying to the main repository, which took more than 4 hours to get it
+done, the result is there:
 
 ![JDesk 0.2.0 Deployed](screenshots/jdesk-0.2.0-deployed.png)
