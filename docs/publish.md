@@ -26,13 +26,14 @@ You need to own a domain name where the package is going to live or be hosted.
 It is not necessary to have a domain name for each package, you can use the
 GitHub.io page that is generated from your project, but for real packages is
 required to have a professional domain. In this case, the domain is
-jdesk.mathsoftware.engineer.
+**jdesk.mathsoftware.engineer**.
 
-This is semantic, such that you follow the subsets of: engineers (all engineers)
--> mathsoftware (me, a particular engineer) -> jdesk (a project of mine).
+This is semantic, therefore you follow the subsets of: **engineers** (all
+engineers) -> **mathsoftware** (me, a particular engineer) -> **jdesk** (a
+project of mine).
 
 Later, the reverse DNS has to be used for the standard Java packaging
-convention. That is, engineer.mathsoftware.jdesk.
+convention. That is, **engineer.mathsoftware.jdesk**.
 
 ### Safety
 
