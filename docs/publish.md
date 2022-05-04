@@ -1,3 +1,9 @@
+<!-- 
+  -- Copyright (c) 2022 Tobias Briones. All rights reserved.
+  -- SPDX-License-Identifier: BSD-3-Clause
+  -- This file is part of https://github.com/tobiasbriones/jdesk
+ !-->
+
 # Publish
 
 This guide will describe how to publish the JDesk framework to Maven Central.
