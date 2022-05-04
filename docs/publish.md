@@ -447,3 +447,12 @@ After deploying to the main repository, which took more than 4 hours to get it
 done, the result is there:
 
 ![JDesk 0.2.0 Deployed](screenshots/jdesk-0.2.0-deployed.png)
+
+## Recommendations
+
+- Make sure you include good JavaDocs in your project. That is important for 
+  a library that is going to be used by others.
+- The process might throw errors or warnings, always try to fix warnings as 
+  much as possible.
+- One error you might face is due to wrong JavaDocs. So make sure your IDE 
+  checks right your JavaDocs in your code, with no syntax errors.
