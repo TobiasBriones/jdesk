@@ -423,3 +423,10 @@ This will give you an output like this if you deploy a snapshot:
 
 Recall that the production release takes some 4 waiting hours to complete the 
 deployment and be available at [Maven Search](https://search.maven.org).
+
+## Result
+
+After deploying to the main repository, which took more than 4 hours to get 
+it done, the result is there:
+
+![JDesk 0.2.0 Deployed](screenshots/jdesk-0.2.0-deployed.png)
