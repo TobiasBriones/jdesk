@@ -402,11 +402,20 @@ to learn more about Maven profiles.
 This configuration is tricky. It's useful for verification of the GPG signature,
 and it looks like it'll prevent some issues.
 
-I copied this profile from internet months ago to complete my configuration, it
-would be good to elaborate more on this step if required. I have also read that
-you have to use the GPG agent GUI to enter your passphrase, and do not enter it
-on the terminal, to take into account. As documented above, the GPG passphrase
-is stored in the `settings.xml` file, so this should not concern here.
+Read more about this plugin at
+[GPG Plugin \| Maven](https://maven.apache.org/plugins/maven-gpg-plugin). This
+plugin allows us to deploy signed artifacts.
+
+The `pinentry-mode` argument set to `loopback` passed to the GPG program allows
+to enter the passphrase via terminal instead of vie the Pinentry GUI.
+
+I have also read that you have to use the Pinentry GUI to enter your passphrase,
+and do not enter it on the terminal, so take this into account. As documented
+above, the GPG passphrase is stored in the `settings.xml` file, so this should
+not concern here.
+
+This means that the program will inline the passphrase when signing the
+artifact.
 
 This is the profile to run when deploying the artifact.
 
