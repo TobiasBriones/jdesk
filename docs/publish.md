@@ -407,7 +407,7 @@ Read more about this plugin at
 plugin allows us to deploy signed artifacts.
 
 The `pinentry-mode` argument set to `loopback` passed to the GPG program allows
-to enter the passphrase via terminal instead of vie the Pinentry GUI.
+to enter the passphrase via terminal instead of via the Pinentry GUI.
 
 I have also read that you have to use the Pinentry GUI to enter your passphrase,
 and do not enter it on the terminal, so take this into account. As documented
