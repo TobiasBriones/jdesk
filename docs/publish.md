@@ -72,8 +72,8 @@ proceed. Then you will be assisted by a bot to complete your request.
 
 ![JIRA Ticket 3](screenshots/jira-ticket-3.png)
 
-As shown above, you have to fill your domain name, and the git repository. Then
-prove ownership by adding a text record to your domain.
+As shown above, you have to fill your domain name, and the project's Git
+repository. Then prove ownership by adding a text record to your domain.
 
 ### Next Steps
 
